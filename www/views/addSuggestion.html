@@ -1,0 +1,32 @@
+<ion-view view-title="投诉建议" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="has-header">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label has-input">姓名</span>
+          <input type="text" ng-model="suggest.lyry" placeholder="请输入姓名">
+        </label>
+        <label class="item item-input">
+          <span class="input-label has-input">电话</span>
+          <input type="text" ng-model="suggest.lyrylxfs" placeholder="请输入电话">
+        </label>
+        <label class="item item-input">
+          <span class="input-label has-input">邮箱</span>
+          <input type="text" ng-model="suggest2.email"  placeholder="请输入邮箱(选填)">
+        </label>
+         <label class="item item-input">
+          <span class="input-label has-input">建议</span>
+          <input type="text" ng-model="suggest.content" placeholder="请输入建议">
+        </label>
+      </div>
+      <div class="padding">
+        <button ng-click="submit()" class="button button-block button-positive">提交</button>
+      </div>
+	</ion-content>
+</ion-view>

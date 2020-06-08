@@ -1,0 +1,171 @@
+<ion-view view-title="首页" class="nav-title" hide-nav-bar="true">
+	<ion-content class="container">
+		<div style="width: 100%;position: relative;">
+			<img width="100%" src="../theme/img_home/ningxia.png" />
+			<div ng-click="gotoQyxz();" style="position: absolute;top: 30px;left: 10px;display: flex;align-items: center;">
+				<p style="font-size: 18px;color: white; margin-right: 10px;vertical-align: middle;">{{city}}</p>
+				<p style="font-size: 18px;color: #dd3c31;margin-right: 10px;vertical-align: middle;" ng-show="!isOnline">(暂未开通)</p>
+				<img width="12px" height="12px" src="../theme/img_home/city_down.png" />
+			</div>
+			<i ng-click="scanStart()" style="font-size: 22px;color: #fff;position: absolute;top: 30px;right: 10px;" class="icon ion-qr-scanner"></i>
+		</div>
+
+		<div class="card" style="position:relative;margin: -45px 10px 0 10px;background-color: white;">
+			<div style="width: 100%;height: 40px;display: flex;justify-content: center;align-items: center;">
+				<div style="width: 8%;height: 1px;background-color: #d0d0d0;"></div>
+				<p style="color: #666666;font-size: 10px;margin: 0 10px;">为您推荐</p>
+				<div style="width: 8%;height: 1px;background-color: #d0d0d0;"></div>
+			</div>
+			<div style="width: 100%;height: 90px;display: flex;">
+				<div ng-repeat="data in navData" style="width: 25%;height: 100%;align-items: center;justify-content: center;display: flex;flex-direction: column;" ng-click="gotoLevel1Menu(navData[$index])">
+					<img width="30px" height="30px" ng-src={{data.src}} />
+					<p style="color: #333333;font-size: 12px;margin-top: 5px;">{{data.name}}</p>
+				</div>
+			</div>
+		</div>
+
+		<!--轮播图-->
+		<ion-slide-box id="slide-box" auto-play="true" does-continue="true" slide-interval=2000 show-pager="true" style="margin-top: 10px;">
+			<!-- <ion-slide>
+				<div class="box">
+					<img src="../theme/img_home/banner0.jpg">
+				</div>
+			</ion-slide> -->
+			<ion-slide>
+				<div class="box">
+					<img src="../theme/img_home/banner1.png">
+				</div>
+			</ion-slide>
+			<ion-slide>
+				<div class="box">
+					<img src="../theme/img_home/banner2.png">
+				</div>
+			</ion-slide>
+			<ion-slide>
+				<div class="box">
+					<img src="../theme/img_home/banner3.png">
+				</div>
+			</ion-slide>
+			<ion-slide>
+				<div class="box">
+					<img src="../theme/img_home/banner4.jpg">
+				</div>
+			</ion-slide>
+			<ion-slide>
+				<div class="box">
+					<img src="../theme/img_home/banner5.jpg">
+				</div>
+			</ion-slide>
+		</ion-slide-box>
+		<div style="width: 100%;height: 40px;background-color: white;display: flex;align-items: center;position: relative;border-bottom: solid 1px #F2F2F2;margin-top: 10px;">
+			<div style="position: absolute;left: 10px;display: flex;height: 100%;align-items: center;">
+				<div class="vertical-line"></div>
+				<p style="color: #222222;margin-left: 10px;font-weight: bold;font-size: 14px;">网上办事</p>
+			</div>
+			<!-- <p style="position: absolute;right: 16px;font-size: 12px;color: #666666;" ng-click="more(1)">更多</p> -->
+		</div>
+		<div ng-repeat="data in onlineData" style="width: 50%;height: 80px;display: flex;float: left;background-color: white;box-sizing: border-box;padding-right: 15px ;" ng-click="gotoLevel1Menu(onlineData[$index])">
+			<div style="width: 40%;height: 100%;display: flex;align-items: center;position: relative;">
+				<img style="position: absolute;right: 15px;" width="30px" height="30px" ng-src={{data.src}} />
+			</div>
+			<div style="width: 60%;height: 100%;display: flex;flex-direction: column;justify-content: center;">
+				<p style="color: #222222;font-size: 14px;">{{data.name}}</p>
+				<p style="color: #999999;font-size: 10px;">{{data.des}}</p>
+			</div>
+		</div>
+
+		<div style="width: 100%;height: 10px;clear: both;"></div>
+
+		<div style="width: 100%;height: 40px;background-color: white;display: flex;align-items: center;position: relative;border-bottom: solid 1px #F2F2F2;">
+			<div style="position: absolute;left: 10px;display: flex;height: 100%;align-items: center;">
+				<div class="vertical-line"></div>
+				<p style="color: #222222;margin-left: 10px;font-weight: bold;font-size: 14px;">信息查询</p>
+			</div>
+			<p style="position: absolute;right: 16px;font-size: 12px;color: #666666;" ng-click="more(2)">更多</p>
+		</div>
+		<div ng-repeat="data in infoData" style="width: 50%;height: 80px;display: flex;float: left;background-color: white;box-sizing: border-box;padding-right: 15px" ng-click="gotoPage(data)">
+			<div style="width: 40%;height: 100%;display: flex;align-items: center;position: relative;">
+				<img style="position: absolute;right: 15px;" width="30px" height="30px" ng-src={{data.src}} />
+			</div>
+			<div style="width: 60%;height: 100%;display: flex;flex-direction: column;justify-content: center;">
+				<p style="color: #222222;font-size: 14px;">{{data.name}}</p>
+				<p style="color: #999999;font-size: 10px;">{{data.des}}</p>
+			</div>
+		</div>
+
+		<div style="width: 100%;height: 10px;clear: both;"></div>
+
+		<div style="width: 100%;height: 40px;background-color: white;display: flex;align-items: center;position: relative;border-bottom: solid 1px #F2F2F2;">
+			<div style="position: absolute;left: 10px;display: flex;height: 100%;align-items: center;">
+				<div class="vertical-line"></div>
+				<p style="color: #222222;margin-left: 10px;font-weight: bold;font-size: 14px;">便民站点</p>
+			</div>
+			<p style="position: absolute;right: 16px;font-size: 12px;color: #666666;" ng-click="more(3)">更多</p>
+		</div>
+		<div ng-repeat="data in convenientData" style="width: 50%;height: 80px;display: flex;float: left;background-color: white;box-sizing: border-box;padding-right: 15px" ng-click="gotoPage(data)">
+			<div style="width: 40%;height: 100%;display: flex;align-items: center;position: relative;">
+				<img style="position: absolute;right: 15px;" width="30px" height="30px" ng-src={{data.src}} />
+			</div>
+			<div style="width: 60%;height: 100%;display: flex;flex-direction: column;justify-content: center;">
+				<p style="color: #222222;font-size: 14px;">{{data.name}}</p>
+				<p style="color: #999999;font-size: 10px;">{{data.des}}</p>
+			</div>
+		</div>
+		<div ng-repeat="data in convenientData1" style="width: 50%;height: 80px;display: flex;float: left;background-color: white;box-sizing: border-box;padding-right: 15px" ng-click="gotoPage(data)">
+			<div style="width: 40%;height: 100%;display: flex;align-items: center;position: relative;">
+				<img style="position: absolute;right: 15px;" width="30px" height="30px" ng-src={{data.src}} />
+			</div>
+			<div style="width: 60%;height: 100%;display: flex;flex-direction: column;justify-content: center;">
+				<p style="color: #222222;font-size: 14px;">{{data.name}}</p>
+				<p style="color: #999999;font-size: 10px;">{{data.des}}</p>
+			</div>
+		</div>
+		<div style="width: 100%;height: 10px;clear: both;"></div>
+
+		<!--<div style="width: 100%;height: 48px;background-color: white;display: flex;align-items: center;position: relative;">
+			<img src="../theme/img_home/title_bg.png" width="100%" style="position: absolute;left: 0;right: 0;" />
+			<img src="../theme/img_home/name_schq.png" style="margin-left: 9%;height: 22px;position: relative;">
+			<p style="color: white;margin-left: 5px;font-weight: bold;font-size: 14px;position: relative;">市场行情</p>
+			<p style="position: absolute;right: 9%;font-size: 12px;color: white;" ng-click="gotohqbg()">详情</p>
+		</div>
+		<div class="row" ng-click="gotohqbg();" style="background: #fff;height: 64px; color: #333;font-size: 14px;line-height: 0;font-size: 16px;margin-bottom: 10px;">
+			<div class="col">
+				<div style="font-weight: bold;">呼市房价</div>
+				<div style="margin: 20px 0 0 0;font-size: 12px;border: 1px solid #ccc;height: 22px;width: 55px;padding: 8px 0 0 2px;">
+					城市行情
+				</div>
+				<div style="border-right: solid 1px #ccc;margin: -52px 14px 0px 0px;height: 56px;"></div>
+			</div>
+			<div class="col">
+				<span style="font-weight: bold;font-size: 20px;">17464</span><span>元/㎡</span>
+				<div style="margin: 24px 0 0 0;color: #817373;font-size: 12px;">
+					二手房&nbsp;<i class="icon ion-arrow-graph-down-right" style="color: #21B61E;"></i>&nbsp;0.03%
+				</div>
+			</div>
+			<div class="col">
+				<span style="font-weight: bold;font-size: 20px;">11738</span><span>元/㎡</span>
+				<div style="margin: 24px 0 0 0;color: #817373;font-size: 12px;">
+					新房&nbsp;<i class="icon ion-arrow-graph-up-right" style="color: #FFA200;"></i>&nbsp;8.03%
+				</div>
+			</div>
+			<i class="icon ion-chevron-right" style="color: #ccc;font-size: 16px;margin: 16px 0 0 0;"></i>
+		</div>-->
+
+		<!--<div style="width: 100%;height: 48px;background-color: white;display: flex;align-items: center;position: relative;">
+			<img src="../theme/img_home/title_bg.png" width="100%" style="position: absolute;left: 0;right: 0;" />
+			<img src="../theme/img_home/name_zxzt.png" style="margin-left: 9%;height: 22px;position: relative;">
+			<p style="color: white;margin-left: 5px;font-weight: bold;font-size: 14px;position: relative;">资讯专题</p>
+			<p style="position: absolute;right: 9%;font-size: 12px;color: white;" ng-click="news()">更多</p>
+		</div>
+		<div style="margin-top: 1px;margin-bottom: 10px;">
+			<div class="home-news-item" ng-repeat="item in items" ng-click="gotodetails($index)">
+				<div class="home-news-text">
+					<p class="home-news-title">{{item.title}}</p>
+					<p class="home-news-auther">{{item.mainAuthor}}</p>
+				</div>
+				<img class="home-news-img" ng-src="{{item.pictureUrl}}" ng-if="item.pictureUrl == null ? false : true" />
+				<img class="home-news-img" ng-src="../theme/img/bg2.png" ng-if="item.pictureUrl == null ? true : false" />
+			</div>
+		</div>-->
+	</ion-content>
+</ion-view>

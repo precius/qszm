@@ -1,0 +1,27 @@
+<ion-view view-title="选择办事大厅" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content style="background-color: white;margin-bottom: 50px;">
+		<div id="mapcontainer" style="width: 100%;height: 300px;"></div>
+		<div ng-click="click($index)" ng-class="{'bsdtSelected' : $index == selectedIndex, 'basdtUnselected' : $index != selectedIndex}" ng-repeat="item in bsdtData" style="display: flex;align-items: center;width: 100%;border-bottom: 1px solid #F2F2F2;position: relative;padding-top: 10px;padding-bottom: 10px;">
+			<div style="height: 50px;width: 70%; display: flex;justify-content: center;flex-direction: column;padding-left: 16px;">
+				<p style="font-size: 16px;color: #108ee9;font-weight: bold;">{{item.officeName}}</p>
+				<p style="font-size: 12px;color: #999999;margin-top: 3px;">{{item.address}}</p>
+			</div>
+			<p style="font-size: 14px;color: black;position: absolute;right: 16px;">{{item.distance}}</p>
+		</div>
+		<!--<div style="margin: 10px;border-radius: 3px;background-color: white;display: flex;align-items: center;position: relative;">
+			<p style="color: #333333;font-size: 14px;margin-left: 8px;font-weight: bold;">
+				 温馨提示：呼和浩特市辖区内不动产登记所有业务在<span style="color: red;">新城区，赛罕区，回民区，玉泉区等4个服务大厅均可办理。</span>您可以根据您所在的位置，就近申请。
+			</p>
+		</div>-->
+	</ion-content>
+	<div ng-click="admit()" class="bar bar-footer" style="display: flex;align-items: center;justify-content: center;background-color: #108EE9;height: 50px;">
+		<p style="font-size: 16px;color: white;">确定</p>
+	</div>
+</ion-view>

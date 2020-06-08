@@ -1,0 +1,36 @@
+<ion-view view-title="预约事项" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content>
+		<!--<div class="bar bar-header item-input-inset">
+			<label class="item-input-wrapper">
+		    	<i class="icon ion-ios-search placeholder-icon"></i>
+		    	<input type="search" ng-model="queryCondition.queryStr" placeholder="请输入筛选条件"/>
+		  	</label>
+			<button ng-click="query()" class="button button-clear button-stable">搜索</button>
+		</div>-->
+		<div class="guide_head" style="margin: 10px 22px 0 22px">
+			<ul class="guide_menu2 clear">
+				<li ng-repeat="item in level1YysxList" class="{{item.addClass}}"  ng-click="checkType(item.index)">{{item.name}}</li>
+			</ul>
+		</div>
+		
+		<div  ng-click="choose(item)" ng-repeat="item in childList"style="border-bottom: 1px solid #ddd;padding: 5px 16px;display: flex;align-items: center;">
+			<p style="color: #333333;font-size: 16px;">{{item.name}}</p>
+		</div>
+		
+	<!--	<div class="yysxlist" ng-repeat="item in queryResult | filter:{name:queryCondition.queryStr}" ng-click="choose(item)" style="border-bottom: 1px solid #ddd;padding: 5px 16px;min-height: 50px;display: flex;align-items: center;">
+			<p style="color: #333333;font-size: 16px;">{{item.name}}</p>
+		</div>-->
+		<!--<div class="list">
+			<div class="item yysxlist" ng-repeat="item in queryResult | filter: {name: queryCondition.queryStr}" ng-click="choose(item)" style="padding: 5px 10px;min-height: 40px;">
+				{{item.name}}
+			</div>
+		</div>-->
+	</ion-content>
+</ion-view>

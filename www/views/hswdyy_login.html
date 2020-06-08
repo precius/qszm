@@ -1,0 +1,22 @@
+<ion-view>
+	<ion-nav-bar></ion-nav-bar>
+	<ion-content>
+		<img class="regist" src="../theme/img/register.png"></img>
+		<div class='title'>
+			<p>不动产登记便民服务</p>
+		</div>
+		<div class="list list-inset">
+			<label class="item item-input">
+				<i class="icon ion-android-contact placeholder-icon"></i>
+    			<input type="text" placeholder="请输入账号" ng-model="user.loginName">
+  			</label>
+			<label class="item item-input">
+				<i class="icon ion-android-lock placeholder-icon"></i>
+    			<input type="password" placeholder="请输入密码" ng-model="user.password">
+  			</label>
+			<button on-tap="login();" class="button button-full button-positive">登录</button>
+			<a href="#/forget" style="color: #387ef5;">忘记密码？</a>
+			<a href="#/register" style="float: right;color: #387ef5;">新用户注册</a>
+		</div>
+	</ion-content>
+</ion-view>

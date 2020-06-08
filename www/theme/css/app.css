@@ -1,0 +1,248 @@
+.sketch {
+  background: rgba(225, 225, 225, .35);
+  padding: .5rem 1.666rem 1rem;
+}
+.sketch-img {
+  width: 11rem;
+  height: 16rem;
+  margin: 0 auto;
+  background: url(../lzsp/sketch.png) 0 0 no-repeat;
+  background-size: 100% auto;
+}
+.sketch-text {
+  font-size: 14px;
+  color: #999;
+  letter-spacing: 0;
+  line-height: 24px;
+  text-align: center;
+}
+
+.prompt {
+  box-shadow: 0 -4px 10px 0 #e8e8e8;
+  padding-bottom: 0.833rem;
+  background: #fff;
+}
+.prompt-box {
+  padding: 1.8rem 0;
+}
+.prompt-box-text {
+  margin: 0 auto 1.1rem;
+  height: 1.334rem;
+  line-height: 1.334rem;
+  width: 17rem;
+}
+
+.prompt-box-text-number {
+    border-radius: 200px;
+    border: 1px solid #0073eb;
+    text-align: center;
+    color: #0073eb;
+    display: inline-block;
+    width: 1.2rem;
+    height: 1.2rem;
+    line-height: 1rem;
+    box-sizing: border-box;
+    font-size: 12px;
+    margin-right: .833rem;
+    letter-spacing: 0;
+    vertical-align: top;
+}
+
+.prompt-box-text-content {
+    color: #333;
+    letter-spacing: 0;
+    white-space: nowrap;
+    display: inline-block;
+    font-size: 0.9rem;
+}
+
+.prompt-box-text-border {
+    height: 0.9rem;
+    margin: 0 0 0 0.59rem;
+    width: 0;
+    border-left: 1px dotted #0073eb;
+    display: block;
+}
+
+//弹框
+.modal-layer {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modal-layer-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.45;
+  background: #000;
+  z-index: 1;
+}
+
+.modal-layer-popup {
+  width: 20rem;
+  height: 18rem;
+  background-color: #fff;
+  padding: 0 0.833rem 0.833rem;
+  position: fixed;
+  left: 62%;
+  top: 8.666rem;
+  margin-left: -12.85rem;
+  z-index: 2;
+}
+
+.modal-layer-popup-title {
+    font-size: 16px;
+    color: #333;
+    height: 1.333rem;
+    line-height: 1.333rem;
+    text-align: center;
+    margin: 3.083rem 0 1.25rem 0;
+}
+
+.modal-layer-popup-content {
+    font-size: 15px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 0.71rem;
+    letter-spacing: 0;
+}
+
+.modal-layer-popup-number {
+    font-size: 0;
+    text-align: center;
+}
+
+.number-span {
+    font-size: 40px;
+    color: @color-3;
+    display: inline-block;
+    width: 2.5rem;
+    height: 4rem;
+    line-height: 4rem;
+    margin-right: 0.43rem;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.modal-wrapper {
+    height: 3.5rem;
+    text-align: center;
+    background: #bcd2eb;
+    border-radius: 4px;
+    line-height: 3.5rem;
+    position: absolute;
+    width: 18rem;
+    bottom: .84rem;
+}
+
+.modal-point {
+  background: #0073eb;
+}
+
+.modal-confirm-btn {
+  font-size: 16px;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+}
+
+.camera-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+      
+.modal-layer-close {
+    outline: none;
+    position: absolute;
+    width: 3.666rem;
+    height: 3.666rem;
+    left: 50%;
+    bottom: -6.875rem;
+    margin-left: -1.833rem;
+    background: url(../lzsp/icon_close.png) 0 0 no-repeat;
+    background-size: 100% auto;
+}
+
+//获取失败
+.modal-layer-fail-icon {
+    width: 3.192rem;
+    height: 2.74rem;
+    margin: 2.096rem auto 2.925rem;
+    background: url(../lzsp/icon_fail.png) 0 0 no-repeat;
+    background-size: 100% auto;
+}
+
+.modal-layer-fail-title {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 1rem;
+    margin-top: 5rem;
+    
+}
+
+.modal-layer-fail-detail {
+    font-size: 1.1rem;
+    color: #666;
+    text-align: center;
+}
+
+.modal-layer-fail-restart {
+    height: 3.5rem;
+    text-align: center;
+    background: #0073eb;
+    border-radius: 4px;
+    line-height: 3.5rem;
+    position: absolute;
+    width: 18rem;
+    bottom: .84rem;
+    font-size: 1.333rem;
+    color: #fff;
+}
+
+//缓冲
+.loading {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .45);
+    z-index: 10;
+}
+.loading-icon {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    background: url(../lzsp/loading.png) center 0 no-repeat;
+    background-size: 100%;
+    position: absolute;
+    left: 44%;
+    top: 40%;
+    text-align: center;
+    line-height: 8rem;
+    animation: loadImg 1.5s linear infinite;
+}
+
+.loading-text {
+    position: absolute;
+    top: 50%;
+    left: 52%;
+    font-size: 1.166rem;
+    transform: translateX(-50%);
+    color: #fff;
+}
+    

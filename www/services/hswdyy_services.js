@@ -1,0 +1,1 @@
+angular.module('hswdyy_services', ['ngResource', 'loginService', 'registerService', 'wyyyService', 'meService', 'addressService', 'dictUtilsService']);

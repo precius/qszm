@@ -1,0 +1,20 @@
+<ion-view view-title="新闻详情" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	
+	<ion-content style="color:black">
+		<div class='details'>
+			<div class='details-title'>{{details.title}}</div>
+			<div class='details-time'>
+				<p>{{details.time}}</p>
+			</div>
+			<div class='details-news' ng-bind-html="details.contents | toTruster">
+			</div>
+		</div>	 
+	</ion-content>
+</ion-view>

@@ -1,0 +1,92 @@
+<ion-view view-title="我的" hide-nav-bar="true">
+	<ion-nav-bar class="bar-calm"></ion-nav-bar>
+	<ion-content class="container">
+		<div style="height: 44px;width: 100%;background-color: rgb(17,193,243);text-align: center;">
+			<h1 style="font-size: 19px;line-height: 44px; color: #fff;">我的</h1>
+		</div>
+
+		<div class="row bar-header-me me-row" style="padding-left: 20px;">
+			<div class="col col-25 me-img-center">
+				<img src="../theme/img/jcw1.jpg">
+			</div>
+			<a ng-click="toPersonInfo()" style="width: 73%;margin-top: 10px;">
+				<div class="col me-text ">
+					<div ng-show='isLogin ? true:false'>
+						<p style="color: rgb(255,255,255); font-size: 18px;">{{isCertification ? mongoDbUserInfo.name : mongoDbUserInfo.loginName}}</p>
+						<p style="color: rgb(255,255,255); margin-top:-10px;font-size: 12px;">{{mongoDbUserInfo.tel}}</p>
+					</div>
+					<div ng-show='isLogin ? false:true'>
+						<p style="color: rgb(255,255,255); font-size: 18px;">未登录</p>
+					</div>
+					<div>
+						<i class="ion-chevron-right stable"></i>
+					</div>
+				</div>
+			</a>
+		</div>
+
+		<div class="list" style="background: white;">
+			<a class="item" style="border-width:0px;display: flex;padding-left: 15px;padding-right: 30px;" ng-click="gotodjyylist()">
+				<img src="../theme/img_me/wdyy3.png" class="me-img-style" />
+				<p style="margin: auto 25px auto 15px;font-size: 16px;width: 100%;color: rgb(51,51,51);">我的预约</p>
+				<img src="../theme/img/zk3.png" style="width: 9px;height: 15px;margin-top: auto;margin-bottom: auto;right: 30px;" />
+			</a>
+			<!-- 暂不显示我的上门预约功能 -->
+			<!-- <div style="border-bottom:3px solid rgb(231,231,231); margin-left: 45px;"></div>
+			<a class="item" style="border-width:0px;display: flex;padding-left: 15px;padding-right: 30px;" ng-click="gotosmyylist()">
+				<img src="../theme/img_me/wdsmyy.png" class="me-img-style" />
+				<p style="margin: auto 25px auto 15px;font-size: 16px;width: 100%;color: rgb(51,51,51);">我的上门预约</p>
+				<img src="../theme/img/zk3.png" style="width: 9px;height: 15px;margin-top: auto;margin-bottom: auto;right: 30px;" />
+			</a> -->
+			<div style="border-bottom:3px solid rgb(231,231,231); margin-left: 45px;"></div>
+			<a class="item" style="border-width:0px;display: flex;padding-left: 15px;padding-right: 30px;" ng-click="gotodjsqlist('mine')">
+				<img src="../theme/img_me/wdsq3.png" class="me-img-style" />
+				<p style="margin: auto 25px auto 15px;font-size: 16px;width: 100%;color: rgb(51,51,51);">我的申请</p>
+				<img src="../theme/img/zk3.png" style="width: 9px;height: 15px;margin-top: auto;margin-bottom: auto;right: 30px;" />
+			</a>
+			<div style="border-bottom:3px solid rgb(231,231,231); margin-left: 45px;"></div>
+			<a class="item" style="border-width:0px;display: flex;padding-left: 15px;padding-right: 30px;" ng-click="gotodjsqlist('others')">
+				<img src="../theme/img_me/xrzsq.png" class="me-img-style" />
+				<p style="margin: auto 25px auto 15px;font-size: 16px;width: 100%;color: rgb(51,51,51);">需认证的申请</p>
+				<img src="../theme/img/zk3.png" style="width: 9px;height: 15px;margin-top: auto;margin-bottom: auto;right: 30px;" />
+			</a>
+			<!--<div style="border-bottom:3px solid rgb(231,231,231); margin-left: 45px;"></div>
+			<a class="item" style="border-width:0px;display: flex;padding-left: 15px;padding-right: 30px;" ng-click="gotowdbdc()">
+				<img src="../theme/img_me/wdbdc.png" class="me-img-style" />
+				<p style="margin: auto 25px auto 15px;font-size: 16px;width: 100%;color: rgb(51,51,51);">我的不动产</p>
+				<img src="../theme/img/zk3.png" style="width: 9px;height: 15px;margin-top: auto;margin-bottom: auto;right: 30px;" />
+			</a>-->
+		</div>
+		<div style="background: white; margin-top: -10px;">
+			<!--<a class="item" style="border-width:0px;display: flex;padding-left: 15px;padding-right: 30px;" ng-click="gotodzzz()">
+				<img src="../theme/img_me/dzzz.png" class="me-img-style" />
+				<p style="margin: auto 25px auto 15px;font-size: 16px;width: 100%;color: rgb(51,51,51);">电子证照</p>
+				<img src="../theme/img/zk3.png" style="width: 9px;height: 15px;margin-top: auto;margin-bottom: auto;right: 30px;" />
+			</a>
+			<div style="border-bottom:3px solid rgb(231,231,231); margin-left: 45px;"></div>-->
+			<a class="item" style="border-width:0px;display: flex;padding-left: 15px;padding-right: 30px;" ng-click="certification()">
+				<img src="../theme/img_me/smrz3.png" class="me-img-style" style="height:14px;min-width: 18px;" />
+				<p style="margin: auto 25px auto 15px;font-size: 16px;width: 100%;color: rgb(51,51,51);">实名认证</p>
+				<span class="item-note" style="margin-right: 20px;">{{status}}</span>
+				<img src="../theme/img/zk3.png" style="width: 9px;height: 15px;margin-top: auto;margin-bottom: auto;right: 30px;" />
+			</a>
+			<div style="border-bottom:3px solid rgb(231,231,231); margin-left: 45px;"></div>
+			<a class="item" style="border-width:0px;display: flex;padding-left: 15px;padding-right: 30px;" href="#/about-us">
+				<img src="../theme/img_me/gywm3.png" class="me-img-style" />
+				<p style="margin: auto 25px auto 15px;font-size: 16px;width: 100%;color: rgb(51,51,51);">关于我们</p>
+				<img src="../theme/img/zk3.png" style="width: 9px;height: 15px;margin-top: auto;margin-bottom: auto;right: 30px;" />
+			</a>
+			<div ng-if="showUpdate" style="border-bottom:3px solid rgb(231,231,231); margin-left: 45px;"></div>
+			<a class="item" ng-if="showUpdate" style="border-width:0px;display: flex;padding-left: 15px;padding-right: 30px;" ng-click="update()">
+				<img src="../theme/img_me/check_update.png" class="me-img-style" />
+				<p style="margin: auto 25px auto 15px;font-size: 16px;width: 100%;color: rgb(51,51,51);">检查更新</p>
+				<p style="margin-top: auto;margin-bottom: auto;right: 30px;width: 60px;text-align: end;color: rgb(119, 119, 119);font-size: 12px;" ng-if="!hasNewVersion">{{tempVersionName}}</p>
+				<img src="../theme/img_me/new_version.png" style="width: 34px;height: 17px;margin-top: auto;margin-bottom: auto;right: 30px;" ng-if="hasNewVersion"/>
+			</a>
+		</div>
+
+		<a class="item" style="margin-top: 20px;border-width:0px;padding: 12px;" ng-show="isLogin" ng-click="logout()">
+			<p style="text-align: center; color: red; font-size: 16px; width: 100%;">退出登录</p>
+		</a>
+	</ion-content>
+</ion-view>

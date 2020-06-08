@@ -1,0 +1,56 @@
+<ion-view view-title="ocr扫描" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="container">
+		<div class="applicant">
+			<div class="ocr-photo">
+				<div ng-show="imageSrc != undefined" on-tap="addPhoto();">
+					<img ng-src="{{imageSrc}}" style="width:100%;height: 200px;margin: 0;padding: 0;" />
+				</div>
+				<div ng-show="icon" class="ocr-img" on-tap="addPhoto();">
+					<img src="../theme/img/photo.png" />
+				</div>
+				<div class="text">点击拍照或本地上传</div>
+			</div>
+			<div class="item item-input form-item-border-first">
+				<span style="width: 60%;">姓名: </span>
+				<input ng-model="person.name" type="text" style="width: 40%;" placeholder="编辑姓名" />
+		</div>
+		
+			<div class="item item-input form-item-border">
+				<span style="width: 60%;">身份证号：</span>
+				<input ng-model="person.num" type="text" style="width: 40%;" placeholder="编辑证件号码" />
+        </div>
+			<button ng-click="confirm();" class="button button-full button-positive">确认</button>
+		</div>
+	</ion-content>
+	<div style="width: 100%;
+		height: 100%;
+		background-color:rgba(0,0,0,.7);
+		position: absolute;
+		z-index: 100;
+		left: 0px;
+		top: 0px;
+		align-items: center;"
+		ng-if = "isShowTips">
+		<img style="display: block;margin: 55px auto;"  width="60%" height="70%"  src="../theme/img/photo_specification.png";/>
+		<button style="
+			display: block;
+			width: 80%;
+			height: 40px;
+			background-color: #108EE9;
+			margin: 20px auto;
+			border: none;
+			border-radius: 10px;
+			color: #FFFFFF;
+			font-size: 14px;" 
+			ng-click = "hideTips()"
+			>我知道了
+		</button>
+	</div>	
+</ion-view>

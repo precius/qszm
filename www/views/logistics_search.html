@@ -1,0 +1,29 @@
+<ion-view view-title="EMS查询" class="nav-title">
+	<ion-nav-bar style="border-bottom: solid 1px #e6e4e7;">
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+			<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+		</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	
+	<ion-content class="container" style="background-color: white;">
+		<div class="item item-input form-item-border-first" style="margin-top: 10px; border-top: solid #e6e4e7 1px;" ng-if="!getResult">
+			<span style="width: 30%;">物流单号</span>
+			<input ng-model="searchParams.wldh" type="text" style="width: 70%;" placeholder="请输入物流单号" />
+		</div>
+		<div style="width: 100%; height: 20px;border-top: solid #e6e4e7 1px;" ng-if="getResult" ></div>
+		<div ng-repeat="item in traces" style="background-color: white;width: 90%;min-height: 60px;border-left: solid 1px #e6e4e7; margin-left: 5%;display: flex;">
+			<img style="display: block;margin-left: -5px;" width="10px" height="10px" src="../theme/img/icon_round_blue.png" ng-if="$index ==0" />
+			<img style="display: block;margin-left: -5px;" width="10px" height="10px" src="../theme/img/icon_round_gray.png" ng-if="$index !=0" />
+			<div style="width: auto;min-height: 60px;margin-left: 10px;">
+				<p style="width: 100%;min-height: 20px; color: black; font-size: 15px;margin-bottom: 5px;">{{item.AcceptStation}}</p>
+				<p style="width: 100%;height: 15px; color: gray; font-size: 13px; margin-bottom: 30px;">{{item.AcceptTime}}</p>
+			</div>
+		</div>
+	</ion-content>
+
+	<div class="bar bar-footer nextstep-div-style" ng-if="!getResult">
+		<button class="button button-stable nextstep-button-style" ng-click="query()">查询</button>
+	</div>
+</ion-view>

@@ -1,0 +1,66 @@
+<ion-view view-title="人脸识别" class="nav-title">
+  <ion-nav-bar>
+    <ion-nav-buttons side="left">
+    <button class="button button-icon" ng-click="goback()">
+      <i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+    </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  
+  <ion-content class="container">
+    <div class="sketch">
+      <div class="sketch-img"></div>
+      <p class="sketch-text">正面平视手机、保证光线充足<br />请勿遮挡面部</p>
+    </div>
+    <div class="prompt">
+      <div class="prompt-box">
+        <div class="prompt-box-text" ng-repeat="item in items">
+          <span class="prompt-box-text-number">{{item.number}}</span><span class="prompt-box-text-content">{{item.text}}</span>
+          <span class="prompt-box-text-border" ng-if="item.border"></span>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+  
+  <div class="modal-layer" ng-show="onDialogVideoResult">
+    <div class="modal-layer-mask"></div>
+    <div class="modal-layer-popup">
+      <div class="modal-layer-success" ng-show="verificationCode">
+        <div class="modal-layer-popup-title">请牢记以下验证码</div>
+        <div class="modal-layer-popup-content">此验证码将于<span style="color: #f00;">{{refreshTime}}</span>秒后过期<br />用普通话朗读数字，视频时长<span style="color: #f00;">3-8</span>秒最佳</div>
+        <div class="modal-layer-popup-number">
+            <span class="number-span" ng-repeat="num in codeResult">{{num}}</span>
+        </div>
+        <div class="modal-wrapper" ng-class="{'modal-point': btnPoint}">
+            <span class="modal-confirm-btn">
+                {{ confirmBtnText }}
+            </span>
+            <input type="file"
+              ng-disabled="!btnPoint"
+              class="camera-input"
+              accept="video/*"
+              capture="camcorder"
+              id="inputFile" />
+        </div>
+      </div>
+      <div class="modal-layer-fail" ng-show="!verificationCode">
+          <span class="modal-layer-fail-icon"></span>
+          <div class="modal-layer-fail-title">获取验证码失败</div>
+          <div class="modal-layer-fail-detail">请重新获取验证码</div>
+          <div class="modal-layer-fail-restart" ng-click="videoRestart()">重新获取</div>
+      </div>
+      <span class="modal-layer-close" ng-click="closePopup()">
+      </span>
+    </div>
+  </div>
+  
+  
+  <!--<div class="loading" ng-show="showLoading">
+    <div class="loading-icon"></div>
+    <span class="loading-text">验证中...</span>
+  </div>-->
+  
+  <div class="bar bar-footer nextstep-div-style">
+    <span class="button button-stable nextstep-button-style" ng-click="nextStep()">下一步</span>
+  </div>
+</ion-view>

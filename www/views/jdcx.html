@@ -1,0 +1,45 @@
+<ion-view view-title="进度查询" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+		<button class="button button-icon" ng-click="goback()">
+			<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+		</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+
+	<ion-content class="container">
+				<div class="item item-input form-item-border-first" style="margin-top: 10px; border-bottom: solid #ddd 2px;">
+					<span style="width: 30%;">业务号</span>
+			    	<input ng-model="qlxxQuery.wwywh" type="text" style="width: 70%;"  placeholder="请输入业务号"/>
+			    	<i class="icon ion-qr-scanner placeholder-icon" ng-click="scanStart();" style="font-size: 20px;"></i>
+			    	<i class="icon ion-ios-information" style="font-size: 22px;margin: 0 10px;color: #1292FF;" ng-click="clickTips(2);"></i>
+				</div>
+				<div class="item item-input form-item-border-first" style="border-bottom: solid #ddd 2px;">
+					<span style="width: 30%;">手机号</span>
+			    	<input ng-model="qlxxQuery.tel" type="text" style="width: 70%;"  placeholder="请输入手机号"/>
+				</div>				
+	  			<div class="item item-input-inset" style="border: none;border-bottom: solid #ddd 1px;">
+	    			<label class="item-input-wrapper">
+	      			<input type="text" placeholder="验证码" ng-model="qlxxQuery.authCode">
+	    			</label>
+	    			<button class="button button-small" ng-click="getCode();">
+	      				{{code}}
+	    			</button>
+	  			</div>
+		<div ng-show="qlxxQuery.isShow"><span class="yylist-item-label">&nbsp;&nbsp;进度状态</span></div>
+		<div class="ysxx" style="color: #000" ng-repeat="ysjd in ysjdArray" ng-show="qlxxQuery.isShow">
+			<img src="{{ysjd.showsrcFinish}}" class="img1" style="width: 24px;height: 24px;margin: 0 10px 4px 10px;" />
+			<img src="{{ysjd.showsrcFucus}}" class="img2" style="width: 32px;height: 32px;"/>
+			<div style="margin-left: 86px;margin-top: -32px;">{{ysjd.label}}</div>
+			<img ng-show ='ysjd.isShowsrcFinishToNext' src="{{ysjd.showsrcFinishToNext}}" style="margin-left: 19px;margin-bottom:-10px;height: 40px;"/>
+		</div>	
+	</ion-content>
+	<div id="modal-overlay" ng-show='showTips'ng-click="clickTips(-1);">
+    	<div class="modal-data" style="width: 302px;">
+        	 <img src="{{src}}" />
+    	</div>
+    </div>
+	<div class="bar bar-footer nextstep-div-style" ng-if ="!qlxxQuery.isShow">
+		<button class="button button-stable nextstep-button-style" ng-click = "query()" >查询</button>
+	</div>	
+</ion-view>

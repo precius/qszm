@@ -1,0 +1,58 @@
+<ion-view view-title="区域选择" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content delegate-handle="toTop" style="background-color: #F5F5F5;" scroll="true">
+		<!--选择市-->
+		<div class="row select-label-new" style="margin-left: 12px;">
+			<div ng-click="backToProvince()" class="col col-50">您的城市:<span></div>
+			<div class="col col-30" style="text-align: right;font-size: 12px;color: gray;" ng-click="onClickDistrict()">选择城市</div>
+			<div class="ion-chevron-up col col-20" ng-show='isShow'></div>
+			<div class=" ion-chevron-down col col-20" ng-show='!isShow'></div>
+		</div>
+		<!--选中城市-->
+		<div style="margin:0px 15px 0px 15px">
+			<button class="button button-stable btn-select-style-new select-district-bg" ng-show='!isShow'   ng-click="onClickDistrict()">{{city.title}}</button>
+		</div>
+		<!--选择城市-->
+		<div style="margin:0px 15px 0px 15px">
+			<button ng-repeat = "item in cityDatas" ng-show='isShow' ng-click = "selectCity(item)" class="button button-stable btn-select-style-new">{{item.title}}</button>
+		</div>		
+		<!--区域-->
+		<p class="select-label-new">区域:</p>
+		<!--选择区县-->
+		<div style="margin:0px 15px 0px 15px">		
+			<button ng-class = "{'select-district-bg':item.isClick}" ng-repeat="item in countyDatas" ng-click="selectCounty(item,true)" class="button button-stable btn-select-style-new">{{item.title}}</button>
+		</div>		
+		<div class="btn-clear"></div>
+		<!--办事大厅-->
+		<p class="select-label-new" style="" ng-show='isShowBsdt'>办事大厅:</p>
+		<!--选择大厅-->
+		<div style="margin:0px 15px 0px 15px" ng-show='isShowBsdt'>
+			<button ng-class = "{'select-district-bg':item.isClick}" ng-repeat="item in bsdtData" ng-click="checkBsdt(item.officeName)" class="button button-stable btn-select-style-new">{{item.officeName}}</button>
+		</div>
+		<div class="btn-clear"></div>
+		<p class="select-label-new">省份：</p>
+		
+		<div id="{{d.initData}}"  ng-show="d.datas.length" style="color:#000;" ng-repeat="d in datalist">
+                <div style="font-size: 18px;padding:8px 22px;">{{d.initData}}</div>
+                <div class="choose_city_border" style="padding:7px 22px;background-color:#fff;border-bottom:1px solid rgb(238,238,238);font-size: 16px;" ng-repeat="province in d.datas" ng-click="getCity(province)">{{province.province}}</div>
+                <!--<div class="choose_city_border" style="padding:7px 22px;background-color:#fff;border-bottom:1px solid rgb(238,238,238);" ng-show="d.datas.length===0">暂无省份</div>-->
+        </div>
+        <div style="height: 66px;"></div>
+	</ion-content>
+	
+	<div style="width:28px;text-align:center;position:absolute;right:10px;top:44px;color:#000;"> 
+        <div ng-repeat="c in indexs" style="width:100%;height:{{hIndex}}px" ng-click="mTouch('{{c}}')">
+            {{c}}
+        </div> 
+    </div>
+    
+	<div class="bar bar-footer nextstep-div-style" ng-show='isShowBsdt'>
+		<button class="button button-stable nextstep-button-style" ng-click = "nextStep()" >下一步</button>
+	</div>
+</ion-view>

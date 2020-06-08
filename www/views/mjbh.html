@@ -1,0 +1,63 @@
+<ion-view view-title="面积变化" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+
+	<ion-content style="background-color: rgb(245,245,245);">
+
+		<img src="../theme/img_menu/wybg_bg.png" style="width: 100%;">
+        
+        <div style="display: flex; margin: 18px; border-radius: 5px; overflow: hidden; box-shadow: 0 0 12px rgba(34,18,0,0.3);">
+			<div style="display: flex; text-align: center; width: 24px; font-size: 20px; word-wrap: break-word;height: 140px;color: #fff;background-color: rgb(79,188,237);">
+				<p style="writing-mode: vertical-lr;line-height: 24px;">面积变化</p>
+			</div>
+			<div style="display: flex; text-align: center; width: 24px; font-size: 20px; word-wrap: break-word;height: 140px;color: #fff;background-color: rgb(79,188,237);">
+				<p style="writing-mode: vertical-lr;line-height: 24px;">房屋翻改建</p>
+			</div>
+			<div style="flex: 1; height: 140px;background-color: #fff;color: #000;">
+				<div class='menu-nav'>
+					<a>
+						<img src='../theme/img_menu/menu-wssq.png' class='menu-nav-icon'>
+						<div>
+							<p>网上申请</p>
+						</div>
+					</a>
+                </div>
+                
+                <div class='menu-nav'  ng-click="gotoyw(item0);">
+					<a>
+						<img src='../theme/img_menu/menu-wsyy.png' class='menu-nav-icon'>
+						<div>
+							<p>网上预约</p>
+						</div>
+					</a>
+                </div>
+                
+                <div class='menu-nav'  ng-click="gotoyw(item0);">
+					<a>
+						<img src='../theme/img_menu/menu-bszn.png' class='menu-nav-icon'>
+						<div>
+							<p>办事指南</p>
+						</div>
+					</a>
+                </div>
+                
+                <div class='menu-nav'  ng-click="gotoyw(item0);">
+					<a>
+						<img src='../theme/img_menu/menu-sqcl.png' class='menu-nav-icon'>
+						<div>
+							<p>申请材料</p>
+						</div>
+					</a>
+				</div>
+			</div>
+        </div>
+        
+
+	</ion-content>
+
+</ion-view>

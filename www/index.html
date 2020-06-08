@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+		<title></title>
+		<link rel="manifest" href="manifest.json">
+		<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+		<link href="theme/css/common.css" rel="stylesheet">
+		<link href="theme/css/map-style.css" rel="stylesheet">
+		<link href="theme/css/app.css" rel="stylesheet">
+		<link href="theme/css/address-select.css" rel="stylesheet">
+		<link href="theme/css/mine-style.css" rel="stylesheet">
+		<link href="theme/css/watch3D.min.css" rel="stylesheet">
+		<link href="theme/css/info-window.css" rel="stylesheet">
+		<link href="lib/ionic-toast/dist/style.css" rel="stylesheet">
+
+		<!--<script src="http://api.map.baidu.com/api?v=2.0&ak=5xUCLECXNYji6fQhIbXmzwlEjS0LD5ZW"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+		<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />-->
+		<!--高德地图-->
+		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.8&key=52bc35a89f4219fa8b51ec8212c767e2"></script>
+		<!-- UI组件库 1.0 -->
+		<script src="https://webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script>
+
+		<script src="lib/ionic/js/ionic.bundle.js"></script>
+		<script src="lib/ngCordova/ng-cordova.js"></script>
+		<!--<script src="cordova.js"></script>-->
+		<script src="lib/ngCordova/angular-resource.min.js"></script>
+		<script src="lib/pdfshowlib/pdf.js"></script>
+		<script src="lib/pdfshowlib/angular-pdf.min.js"></script>
+		<script src="lib/echarts.js"></script>
+		<script src="lib/jquery-3.2.1.min.js"></script>
+		<script src="lib/jquery.media.js"></script>
+		<script src="lib/exif.js"></script>
+		<script src="lib/Convert_Pinyin.js"></script>
+		
+		<script src="config/app.js"></script>
+		<script src="config/config.js"></script>
+		<script src="config/rest-url.js"></script>
+		<script src="config/base.js"></script>
+		<script src="config/common-oper.js"></script>
+		<script src="config/utils.js"></script>
+		<script src="config/constant.js"></script>
+		<script src="config/tripledes.js"></script>
+		<script src="config/watch3D.min.js"></script>
+		<!--表单验证js引入-->
+		<script src="angular-validation-master/dist/angular-validation-rule.js"></script>
+		<script src="angular-validation-master/dist/angular-validation.js"></script>
+		<script src="angular-validation-master/validation-rule.js"></script>
+		<script src="controllers/controllers.js"></script>
+		<script type="text/javascript" src="controllers/suggest-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/m-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/mapNew-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/aboutus-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/newsDetails-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/login-new-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/login-second-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/register-new-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/forget-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/home-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/more-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/fcmm-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/smyy-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/smyyxy-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/smyyjg-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/smyylist-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/smyy-detail-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/level_2_menu_ctrl.js"></script>
+		<script type="text/javascript" src="controllers/tab-dynamic.js"></script>
+		<script type="text/javascript" src="controllers/search-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/service-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/me-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/bszn-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/bszn-detail-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/zcfg-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/zcfgDetail-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/gzdt-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/fjxzNewsm-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/djsq-new-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/news-more-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/djsqxz-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/djjg-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/xzyysj-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/yyxz-new-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/yysx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/yyjg-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/djsqDetail-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/news-ctrl.js"></script>
+		<!--<script type="text/javascript" src="controllers/qyxz-ctrl.js"></script>-->
+		<script type="text/javascript" src="controllers/qyxz-meituan-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/djsxxz-ctrl.js"></script>
+		<!--<script type="text/javascript" src="controllers/sqrxx-ctrl.js"></script>-->
+		<script type="text/javascript" src="controllers/sqrxxList-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/bdcxx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/bdcxxTdGyjsydsyqBgdj-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/bdcxxTdGyjsydsyqZydj-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/bdcxxDyqdjscdj-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/bdcxxYgdjysspfdyq-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/bdcxxYgdjysspfmm-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/bdcxxLdLqLqscdj-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/qszm-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/qszmBlwdxx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/qszmSqrxx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/djyy-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/zfy-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/zwcx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/jdcx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/pdfShowCtrl.js"></script>
+		<script type="text/javascript" src="controllers/sjdt_ctrl.js"></script>
+		<script type="text/javascript" src="controllers/mine-verify-code-controller.js"></script>
+		<script type="text/javascript" src="controllers/slide_splash_ctrl.js"></script>
+		<script type="text/javascript" src="controllers/wdbdcCtrl.js"></script>
+		<script type="text/javascript" src="controllers/tjbdc_ctrl.js"></script>
+		<script type="text/javascript" src="controllers/xqmc_ctrl.js"></script>
+		<script type="text/javascript" src="controllers/bdcxq_ctrl.js"></script>
+		<script type="text/javascript" src="controllers/xzld-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/about-html-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/bsznclsls-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/hsyy_login_ctrl.js"></script>
+		<script type="text/javascript" src="controllers/hssmyy_login_ctrl.js"></script>
+		<script type="text/javascript" src="controllers/djyy-detail-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/personalInfo-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/passwordModify-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/telModify-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/pdf-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/select_bsdt_ctrl.js"></script>
+		<script type="text/javascript" src="controllers/zsyzlist-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/sqzsyz-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/fwwd-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/fwwdmap-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/sqcl_ctrl.js"></script>
+		<script type="text/javascript" src="controllers/wx-face-verify-sdses-video-specification-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/wx-face-verify-sdses-face-recognition-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/wx-face-verify-police-take-photo-ctrl.js?version=1.0"></script>
+
+		<script src="services/wyyy-service.js"></script>
+		<script src="services/wysq-service.js"></script>
+		<script src="services/login-service.js"></script>
+		<script src="services/register-service.js"></script>
+		<script src="services/me-service.js"></script>
+		<script src="services/services.js"></script>
+		<script src="services/bszn-service.js"></script>
+		<script src="services/address-service.js"></script>
+		<script src="services/dict-utils-service.js"></script>
+		<script src="services/fjxz-utils-service.js"></script>
+		<script src="services/qszm-service.js"></script>
+		<script src="services/qygl-service.js"></script>
+		<script src="services/ocr-service.js"></script>
+		<script src="services/zfy-service.js"></script>
+		<script src="services/search-service.js"></script>
+		<script src="services/zcfg-service.js"></script>
+		<script src="services/wdbdc-service.js"></script>
+		<script src="services/menu-service.js"></script>
+		<script src="services/fms-service.js"></script>
+		<script src="lib/ionic-toast/dist/ionic-toast.js"></script>
+		<!--app
+		<script type="text/javascript" src="controllers/ocr-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/sqrxxQlrxx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/sqrxxYwrxx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/xzyysx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/smyyxx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/fjxzNew-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/faceVerify-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/face-verify-sdses-ocr-ctrl.js"></script>-->
+
+		<!--微信公众号-->
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+		<script type="text/javascript" src="controllers/wxOcr-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/wxsqrxxQlrxx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/wxsqrxxYwrxx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/xzyysx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/wxsmyyxx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/fjxzNewWx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/wx-face-verify-police-ocr-ctrl.js"></script>
+	</head>
+
+	<body ng-app="starter">
+		<ion-nav-bar class="bar-stable">
+			<ion-nav-back-button>
+			</ion-nav-back-button>
+		</ion-nav-bar>
+		<ion-nav-view></ion-nav-view>
+	</body>
+
+</html>

@@ -1,0 +1,257 @@
+<ion-view view-title="不动产信息" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+
+	<ion-content class="container" ng-style="{'margin-bottom':isShow ?'60px':'0'}">
+    <div ng-show = "showNextStep" class="step-container">
+      <div class="child-step">
+        <img ng-show="!stepOneFinished" class="step-img" src="../../theme/img/step_1_gray.png"  />
+        <img ng-show="stepOneFinished" class="step-img" src="../../theme/img/step_1_blue.png"  />
+        <p class="step-text">申请人信息</p>
+      </div>
+      <div class="child-step">
+        <img ng-show="!stepTwoFinished" class="step-img" src="../../theme/img/step_2_gray.png"  />
+        <img ng-show="stepTwoFinished" class="step-img" src="../../theme/img/step_2_blue.png"  />
+        <p class="step-text">不动产信息</p>
+      </div>
+      <div class="child-step">
+        <img ng-show="!stepThreeFinished" class="step-img" src="../../theme/img/step_3_gray.png"  />
+        <img ng-show="stepThreeFinished" class="step-img" src="../../theme/img/step_3_blue.png"  />
+        <p class="step-text">上传材料</p>
+      </div>
+      <div class="child-step">
+        <img ng-show="!stepFourFinished" class="step-img" src="../../theme/img/step_4_gray.png"  />
+        <img ng-show="stepFourFinished" class="step-img" src="../../theme/img/step_4_blue.png"  />
+        <p class="step-text">提交申请</p>
+      </div>
+    </div>
+		<div class="row item item-input form-item-border" style="line-height: normal;margin-bottom: 0px !important; height: 55px;border-top: none;">
+			<span style="color: red;">&nbsp;&nbsp;</span>
+			<div class="add-msg-style" style="margin-top: 0px;margin-left: 0px;"></div>
+			<div class="col col-50"><span class="add-msg" style="font-size: 16px;margin-left: -2px;">不动产信息</span></div>
+		</div>
+		<div ng-show="needShowMb" class="item item-icon-right" style="border: none; border-top: solid #ddd 1px;margin-left: -4px;" ng-click="checkBdcqzhMb()">
+			<span style="color: red;">&nbsp;&nbsp;</span> 请选择产权证书类别
+			<i class="icon ion-ios-arrow-right"></i>
+		</div>
+
+		<div ng-if="bdcqzhMbData[0].isSelected && needShowMb" style="width: 100%;height: 48px;display: flex;align-items: center;padding-left: 16px;border-top: 1px solid #ddd;margin-top:1px;padding-right:16px;background-color: white;">
+			<span style="color: red;font-size: 16px;text-align: center;">*&nbsp;</span>
+			<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[0].keyWords[0]}}</span>
+			<input type="text" ng-model="bdcqzhMbData[0].inputs[0]" style="height: 25px;width: 12%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[0].keyWords[1]}}</span>
+			<input type="text" ng-model="bdcqzhMbData[0].inputs[1]" style="height: 25px;width: 16%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[0].keyWords[2]}}</span>
+			<input type="text" ng-model="bdcqzhMbData[0].inputs[2]" style="height: 25px;width: 16%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[0].keyWords[3]}}</span>
+			<i class="icon ion-ios-information" style="font-size: 22px;margin-left: 6px;" ng-click="clickTips(0);"></i>
+		</div>
+
+		<div ng-if="bdcqzhMbData[1].isSelected && needShowMb" style="width: 100%;height: 48px;display: flex;align-items: center;padding-left: 16px;border-top: 1px solid #ddd;margin-top:1px;padding-right:16px;background-color: white;">
+			<span style="color: red;font-size: 16px;text-align: center;">*&nbsp;</span>
+			<input type="text" ng-model="bdcqzhMbData[1].inputs[0]" style="height: 25px;width: 16%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[1].keyWords[0]}}</span>
+			<input type="text" ng-model="bdcqzhMbData[1].inputs[1]" style="height: 25px;width: 20%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[1].keyWords[1]}}</span>
+			<input type="text" ng-model="bdcqzhMbData[1].inputs[2]" style="height: 25px;width: 20%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[1].keyWords[2]}}</span>
+			<i class="icon ion-ios-information" style="font-size: 22px;margin-left: 6px;" ng-click="clickTips(1);"></i>
+		</div>
+
+		<div ng-if="bdcqzhMbData[2].isSelected && needShowMb" style="width: 100%;height: 48px;display: flex;align-items: center;padding-left: 16px;border-top: 1px solid #ddd;margin-top:1px;padding-right:16px;background-color: white;">
+			<span style="color: red;font-size: 16px;text-align: center;">*&nbsp;</span>
+			<input type="text" ng-model="bdcqzhMbData[2].inputs[0]" style="height: 25px;width: 15%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[2].keyWords[0]}}</span>
+			<input type="text" ng-model="bdcqzhMbData[2].inputs[1]" style="height: 25px;width: 22%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[2].keyWords[1]}}</span>
+			<input type="text" ng-model="bdcqzhMbData[2].inputs[2]" style="height: 25px;width: 22%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[2].keyWords[2]}}</span>
+			<i class="icon ion-ios-information" style="font-size: 22px;margin-left: 6px;" ng-click="clickTips(2);"></i>
+		</div>
+
+		<div ng-show="bdcqzhMbData[3].isSelected && needShowMb" class="item item-icon-right" style="border: none; border-top: solid #ddd 1px;">
+			<input style="width: 90%;margin-top: -8px;padding-left: 12px;" type="text" ng-model="bdcqzhMbData[3].inputs[0]" placeholder="请点击右方按钮扫描二维码识别产权证号">
+			<i class="icon ion-qr-scanner placeholder-icon" ng-click="scanStart();" style="font-size: 20px;"></i>
+		</div>
+
+		<div ng-show="!needShowMb" class="item item-input form-item-border">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-52">不动产权证号</span>
+			<input ng-model="qlxxExMh.bdcqzh" type="text" class="width-48" placeholder="请输入不动产权证号" ng-readonly="!isShow" style="background-color: white;" />
+		</div>
+		<div class="item item-icon-right" style="border: none; border-top: solid #ddd 1px;margin-left: -4px;" ng-click="gotoZlxz()">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-66">不动产坐落</span>
+			<i class="icon ion-ios-arrow-right"></i>
+		</div>
+		<p ng-show ="qlxxExMh.zl!=null" style="min-height: 30px;width: 100%;padding-left:30px; background-color: white;color: #333333;font-size: 14px;">
+			{{qlxxExMh.zlProvince+qlxxExMh.zlCity+qlxxExMh.zlArea+qlxxExMh.zl}}
+		</p>
+    <!-- <div class="item item-input form-item-border">
+    	<span style="color: red;">*&nbsp;</span>
+    	<span class="width-52">不动产坐落</span>
+    	<input ng-model="qlxxExMh.zl" type="text" class="width-48" placeholder="请输入不动产坐落" ng-readonly="!isShow" style="background-color: white;" />
+    </div> -->
+		<div class="item item-input form-item-border">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-52">房屋产权面积</span>
+			<input ng-model="qlxxExMh.fwcqmj" type="text" class="width-48" placeholder="请输入房屋面积（㎡）" ng-readonly="!isShow" style="background-color: white;" />
+		</div>
+		<div class="item item-input form-item-border" ng-if="showZmh">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-52">不动产登记证明号</span>
+			<input ng-model="bdcxx.bdcdjzmh" type="text" class="width-48" placeholder="请输入不动产登记证明号" ng-readonly="!isShow" style="background-color: white;" />
+		</div>
+		<div class="item item-input form-item-border" style="height: 44px;" ng-if="!isShow">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-66">抵押方式</span>
+			<p style="position: absolute;right: 30px;">{{mode.label}}</p>
+		</div>
+		<div class="item item-input form-item-border" style="height: 44px;" ng-if="isShow">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-66">抵押方式</span>
+			<select style="border-style: none;position: absolute;right: 10px;" validator="required" ng-change="selectMode(mode)" ng-model="mode" ng-options="x.label for x in dyfsData"></select>
+		</div>
+		<div class="item item-input form-item-border" ng-show='isFwybdyscdj'>
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-66">被担保债权数额(万元)</span>
+			<input ng-model="bdcxx.qlxxEx.bdbzqse" type="text" class="width-48" placeholder="请输入被担保债权数额" ng-readonly="!isShow" style="background-color: white;" />
+		</div>
+		<div class="item item-input form-item-border" ng-show='isFwzgedyqscdj'>
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-66">最高债权数额(万元)</span>
+			<input ng-model="bdcxx.qlxxEx.zgzqse" type="text" class="width-48" placeholder="请输入最高债权数额" ng-readonly="!isShow" style="background-color: white;" />
+		</div>
+		<div class="item item-input form-item-border" ng-show='isFwzgedyqscdj'>
+			<span style="color: red;margin-right: 2px;">&nbsp;&nbsp;</span>
+			<span class="width-66">最高债权确定事实</span>
+			<input ng-model="bdcxx.qlxxEx.zgzqqdss" type="text" class="width-48" placeholder="请输入最高债权确定事实" ng-show='isFwzgedyqscdj' ng-readonly="!isShow" style="background-color: white;" />
+		</div>
+		<div class="item item-input form-item-border">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-66">债务履行起始时间</span>
+			<input type="date" ng-model="bdcxx.qlxxEx.zwlxqssj" id="date" class="width-48 set" placeholder="请选择时间" ng-readonly="!isShow" style="background-color: white;" />
+		</div>
+		<div class="item item-input form-item-border">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-66">债务履行终止时间</span>
+			<input type="date" ng-model="bdcxx.qlxxEx.zwlxjssj" id="date1" class="width-48 set" placeholder="请选择时间" ng-readonly="!isShow" style="background-color: white;" />
+		</div>
+		<div class="item item-input form-item-border item-icon-right">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-66">申请登记原因</span>
+			<input ng-model="bdcxx.qlxxEx.sqdjyy" type="text" class="width-48" placeholder="请输入登记原因" ng-readonly="!isShow" style="background-color: white;" />
+		</div>
+    <!-- 邮寄功能 -->
+    <div ng-show = 'needZsyj' class="row item item-input form-item-border" style="line-height: normal;margin-bottom: 0px !important;height: 55px;border-top: none;">
+			<span style="color: red;">&nbsp;&nbsp;</span>
+			<div class="add-msg-style" style="margin-top: 0px;margin-left: 5px;"></div>
+			<div class="col col-50"><span class="add-msg" style="font-size: 16px;margin-left: -2px;">邮寄服务</span></div>
+
+		</div>
+		<div ng-show = 'needZsyj' style="display: flex;align-items: center;background:#fff;line-height: normal;margin-bottom: 0px !important;height: 55px;border-top: none;">
+			<!-- <li>
+        <span style="color: red;">&nbsp;&nbsp;</span>
+				<input name="radiobutton" type="radio" value="value2" style="font-size: 16px; margin-left: 5px;" ng-click="selectMethod('fast')"/><span style="font-size:15px;">快递到家</span>
+				<input name="radiobutton" type="radio" value="value1" style="font-size: 16px;margin-left:30px;" ng-click="selectMethod('invite')"/><span style="font-size:15px;">大厅自取</span>
+			</li> -->
+      <div style="display: flex;flex-direction: row;">
+        <div style="margin-left: 10px;" ng-click="selectMethod('EXPRESS')">
+          <label for="qzfsType" style="font-size: 16px;">
+            <input name="qzfsType" type="radio" value="EXPRESS" style="font-size: 16px; margin-left: 5px;"/>快递到家
+          </label>
+        </div>
+        <div ng-click="selectMethod('SELF_TAKING')" >
+          <label for="qzfsType" style="font-size: 16px;">
+            <input name="qzfsType" type="radio" value="SELF_TAKING" style="font-size: 16px;margin-left:30px;" />大厅自取
+          </label>
+        </div>
+      </div>
+		</div>
+		<div style= "background-color: white;" >
+			<div ng-if="needZsyj && isShowAll && zsyjData.showAddButton" ng-click="goAddress('ZSYJ')" style=" background:#fff;width: 90%;height: 35px;border: darkgray dashed 1px;display: flex;flex-direction: row ;margin: 0px 5%;border-radius: 8px;justify-content: center;align-items: center;">
+				<img src="../../theme/img/add_person.png" width="20px" height="20px"  />
+				<p style="font-size:16px ;">选择收货地址</p>
+			</div>		
+		</div>
+		<div ng-if="needZsyj && isShowAll && zsyjData.showAddress" ng-click="goAddress('ZSYJ')" style=" background:#fff; display: flex;align-items: center;position: relative;padding: 16px 10px;width: 100%;">
+					<span style="color: red;">&nbsp;&nbsp;</span>
+          <div style="display: flex;flex-direction: column;justify-content: center;">
+						<p style="color: #666666;font-size: 14px;">{{zsyjData.deliveryAddress.receiverProvince}}{{zsyjData.deliveryAddress.receiverCity}}{{zsyjData.deliveryAddress.receiverArea}}</p>
+						<p style="color: #666666;font-size: 14px;margin-top: 10px;">{{zsyjData.deliveryAddress.receiverAddr}}</p>
+            <p style="color: #666666;font-size: 14px;margin-top: 10px;">{{zsyjData.deliveryAddress.receiverName}}  {{zsyjData.deliveryAddress.receiverPhone}}</p>
+					</div>
+					<i class="icon ion-ios-arrow-right" style="font-size: 21px;color: rgb(153,153,153);position: absolute;right: 10px;" ></i>
+		</div>
+    <div ng-if="needZsyj && isShowAll" style="display: flex; flex-direction: column; background-color: white;">
+      <span style="font-size: 16px; color: black; margin: 5px 0px 5px 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;纸质资料邮寄地址</span>
+      <div style="display: flex; flex-direction: column; margin-left: 50px;">
+        <span style="font-size: 14px; color: black; margin: 5px 0px 5px 0px;">地址 : {{bsdtData.address}}</span>
+        <div style="display: flex;flex-direction: row;flex-wrap: nowrap;font-size: 14px; color: black; margin: 5px 0px 5px 0px;">
+            <span style="flex-grow: 1;">收件人 : {{bsdtData.postReceiver}}</span>
+            <span style="flex-grow: 1;">联系电话 : {{bsdtData.postReceiverPhone}}</span>
+        </div>
+		<!-- 2020.4.9 chenweida 纸质清单数据补充 start -->
+		<span style="font-size: 16px; color: royalblue; margin: 5px 0px 5px 0px;" ng-click="getzzqdList()">查看纸质清单</span>
+        <div ng-show="isShowZzqd" ng-repeat="item in fjzlList">
+			<p style="font-size: 13px; color: red;">{{item.clmc}}</p>
+			<p style="font-size: 12px; color: black;margin: 5px 40px 5px 0px;">材料说明：{{item.clsm}}</p>
+		</div>
+		<!-- 2020.4.9 chenweida 纸质清单数据补充 end -->  
+		<div style="margin: 5px 0px 5px 0px; display: flex;flex-direction: row;align-items: center;">
+          <label style="font-size: 14px; color: black;" ng-click="onClickCheckbox()">
+            <input id ='checkBoxSmqj' type="checkbox" ng-checked="smqjData.showAddress"/>
+            预约上门取件
+          </label>
+        </div>
+        <div style="margin-left: 20px;" ng-show = 'smqjData.showSmqjInfo'>
+          <span style="margin: 5px 0px 5px 0px; font-size: 14px; color: black;font-weight: bold;">预约上门时间</span>
+          <div ng-repeat="item in timeDatas" style="background-color: white;border-radius: 4px;">
+              <div style="display: flex;flex-direction: row;align-items: center;margin: 5px 0px 5px 0px;">
+                <label style="font-size: 14px; color: black;" ng-click = 'selectTime(item)'>
+                  <input name="timeType" type="radio" ng-checked = "item.isChecked"/>
+                    {{item.label}}
+                </label>
+              </div>
+          </div>
+
+          <span style="margin: 5px 0px 5px 0px; font-size: 14px; color: black;font-weight: bold;">上门取件地址</span>
+					<div ng-if="needZsyj && smqjData.showAddButton" ng-click="goAddress('SMQJ')" style=" background:#fff;width: 90%;height: 35px;border: darkgray dashed 1px;display: flex;flex-direction: row ;margin: 20px -10%;border-radius: 8px;justify-content: center;align-items: center;">
+					    <img src="../../theme/img/add_person.png" width="20px" height="20px"  />
+					    <p style="font-size:16px ;">选择上门地址</p>
+					</div>
+          <div ng-if="needZsyj && smqjData.showAddress" ng-click="goAddress('SMQJ')" style="display: flex;align-items: center;position: relative;padding: 16px 0px;width: 100%;">
+            <div style="display: flex;flex-direction: column;justify-content: center;">
+              <p style="color: #666666;font-size: 14px;">{{smqjData.senderAddress.senderProvince}}{{smqjData.senderAddress.senderCity}}{{smqjData.senderAddress.senderArea}}</p>
+              <p style="color: #666666;font-size: 14px;margin-top: 10px;">{{smqjData.senderAddress.senderAddr}}</p>
+              <p style="color: #666666;font-size: 14px;margin-top: 10px;">{{smqjData.senderAddress.senderName}}  {{smqjData.senderAddress.senderPhone}}</p>
+            </div>
+            <i class="icon ion-ios-arrow-right" style="font-size: 21px;color: rgb(153,153,153);position: absolute;right: 10px;"></i>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <div id="modal-overlay" ng-show='showTips' ng-click="clickTips(3);">
+			<div class="modal-data">
+				<img src="{{src}}" />
+			</div>
+		</div>
+	</ion-content>
+	<div ng-show="isShow&&showNextStep" class="step-btn-container">
+	  <p class="previous-step-btn" ng-click="goback()">上一步</p>
+	  <p class="next-step-btn" ng-click="saveAndNext()">下一步</p>
+	</div>
+	<div ng-show="isShow&&!showNextStep" class="step-btn-container">
+	  <p class="previous-step-btn" ng-click="goback()">返回</p>
+	  <p class="next-step-btn" ng-click="savebdcxx()">保存</p>
+	</div>
+
+	<p ng-show="!isShow "  class="bigBtn-blue-bottom" ng-click="goback()">返回</p>
+</ion-view>

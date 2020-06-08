@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #108ee9;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="淘房" class="cls-1" d="M24.375,24.375v-9.75l-6.5-5.694V0H1.625V24.375H0V26H26V24.375H24.375Zm-8.125,0h-13V1.625h13v22.75Zm6.5,0H17.875V11.531L22.75,15.6v8.775ZM13,8.125H6.5V9.75H13V8.125ZM13,13H6.5v1.625H13V13Zm0,4.875H6.5V19.5H13V17.875Zm8.125,0H19.5V19.5h1.625V17.875Zm0,0"/>
+</svg>

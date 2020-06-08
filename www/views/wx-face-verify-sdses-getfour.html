@@ -1,0 +1,33 @@
+<ion-view view-title="人脸识别" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="container" style="background-color: #f5f5f5">
+		<img src="../theme/img_menu/wygh-bg.png" style="width: 100%;">
+		<div style="color:#000; padding-left: 20px; margin-top: 20px;" ng-repeat="d in datalist">
+                <div style="width: 55px;float: left;color: #ffffff;background: #00bfff;height: 60px;margin-left: 20px;text-align: center;padding-top: 20px;font-size: 30px;">{{d.num}}</div>
+		</div>
+		<p style="text-align: center;margin-top: 100px; font-size: 14px; color: #ff0000;clear: both;">请正面朝向前摄像头，并匀速读上方的四位有效数字</p>
+		<a href="javascript:;" class="file" style="height: 200px;background:none;border: dashed 2px #ccc;border-radius: 5px;">
+			<div ng-if="photoSelected3">
+				<img ng-src="{{faceSrc}}" style="max-height: 200px;margin: 0;padding: 0;max-width: 100%;" />
+			</div>
+			<div ng-if="!photoSelected3" style="width: 80px;height: 80px;position: relative;margin: 30px auto;">
+				<img  width="80px" height="80px" src="../theme/img/photo.png" />
+			</div>
+	    	<input type="file" width="200px" id="file_input3" height: "200px" accept="image/*" multiple>
+    	</a>
+    	<div ng-if="!photoSelected3" class="text" style="margin-top: -60px;text-align: center;font-size: 15px;" >拍摄人脸照片</div>
+	    	
+		<form enctype="multipart/form-data">
+			<a href="javascript:;" class="file" style="margin-top: 60px;">下一步
+			    <input type="file" name="" id="file_video" accept="video/*" capture="camcorder">
+			</a>
+		</form>
+		
+	</ion-content>	
+</ion-view>

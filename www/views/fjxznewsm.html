@@ -1,0 +1,43 @@
+ <ion-view view-title="附件类型" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left" >
+			<button class="button button-icon" ng-click="gobacktolist()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="container" style="color: black;margin-bottom: 66px;">
+		<div ng-repeat="fjzl in fjzlList" class="item-icon-right" style="padding-right: 0px !important; padding-top:5px !important; margin-top:15px; background-color: white !important" >
+			<div class="row" style="height:auto; line-height: 55px">
+				<span class="col col-5" style="color:red;margin-top: -15px;" ng-show = 'fjzl.sfbx'>*&nbsp;</span>
+				<span class="col col-5" style="color:red; margin-top: -15px;" ng-show = '!fjzl.sfbx'>&nbsp;&nbsp;</span>
+				<!--<span class="add-msg" style="word-wrap:break-word;">{{fjzl.clmc}}</span>-->
+				<span class="col col-90" style="color: rgb(51,51,51);font-size: 18px;line-height: 1.3; height: 55px;">{{fjzl.clmc}}</span>
+				<!--<button class="col col-20" style="font-size: 18px;	float: right; margin: 0px 5px 5px 0px !important;max-height: 35px !important;min-height: 35px !important;line-height: 0px !important;background-color: rgb(18,146,255);color: rgb(255,255,255); border: none;" ng-show="isShow" class="button button-positive" ng-click="upload(fjzl)">上传</button>-->
+			</div>				
+			<!--显示拍摄照片-->
+			<form class="form" style="padding-top: 10px;padding-bottom: 25px; border-top:solid 1px rgb(231,231,231);">
+				<div class="nav1" ng-repeat="file in fjzl.filelist" on-tap="showImageBig({{file}})" on-hold="showdel();">
+					<img ng-src="{{file.src}}" style="width: 100%;height: 100px; border:dashed 2px #ccc;" />
+					<div on-touch="delete(file)" class="del" ng-if="isShowDel" ng-init="isshow=false">
+						  <img src="../theme/img/del.png" />
+					</div>
+					<div style="position: absolute; bottom: 0; left: 0; color: #000;height: 20px; line-height: 20px; width: 100%; background-color: #CCCCCC !important;">{{file.status}}</div>
+				</div>
+				<div class="nav1" ng-click="addPhoto(fjzl)">
+					<div style="width: 100%;height: 100px; border:dashed 2px #ccc;" n;>
+					    <div style="margin-top: -15px;" class="ion-plus"></div>
+						<div style="margin-top: -85px;">拍摄照片</div>
+					</div>
+				</div>				
+				<div style="clear: both;"></div>
+			</form>
+			<div  ng-if="bigImage" ng-init="bigImage=false" style="position: fixed;top: 0;left: 0;z-index: 10; width: 100%;height: 100%;background-color: #fff; text-align: center;" ng-click="hideBigImage()">
+					<img src="{{Url}}" style="width: 100%;height: 75%;"/>
+			</div>			
+		</div>
+	</ion-content>
+	<div class="bar bar-footer nextstep-div-style">
+		<button class="button button-stable nextstep-button-style" style="width: 100% !important;" ng-click = "gobackto()" >提交</button>
+	</div> 
+</ion-view>

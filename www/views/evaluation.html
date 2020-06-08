@@ -1,0 +1,29 @@
+<ion-view view-title="{{title}}" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goBack()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+
+	<ion-content class="container" style="background-color: white;">
+		<div style="position: sticky;top: 0;width: 100%;height: 1px;background-color: #F2F2F2;;"></div>
+		<div style="width: 40%;margin-left: 30%;margin-top: 20px;display: flex;align-items: center;justify-content: space-between;">
+			<i ng-click="grade(item.id)" ng-repeat="item in stars" ng-class="{'ion-android-star':item.status, 'ion-android-star-outline':!item.status}" ng-style="{'color':item.status ? '#F4BD4D':'#C8C8C8'}" style="font-size: 24px;"></i>
+		</div>
+		<p style="color: #ED965F;font-size: 12px;width: 100%;margin-top: 10px;text-align: center;">{{des}}</p>
+		<div style="width: 100%;display: flex;align-items: center;justify-content: center;margin-top: 20px;">
+			<div style="max-width: 60%;">
+				<p ng-class="{'selected_flag':item.selected, 'unselected_flag':!item.selected}" ng-click="selectFlag($index)" ng-repeat="item in evaluateFlags" style="font-size:12px;padding: 4px 12px;border-radius:4px;float: left;margin: 5px;">{{item.label}}</p>
+			</div>
+		</div>
+		<p ng-if="showDetail" style="color: #333333;font-size: 12px;margin-left: 6%;margin-top: 20px;">{{data.serviceEvaluate}}</p>
+		<textarea ng-show="!showDetail" ng-model="evaluate.serviceEvaluate" style="width: 90%;margin-left: 5%;margin-top: 20px;height: 156px;background-color: #FAFAFA;border:1px solid #D8D8D8;border-radius:4px;padding: 5px 10px;font-size: 12px;color: #333333;" placeholder="说说哪里好，其他用户想知道"></textarea>
+		<div ng-if="!showDetail" style="margin-top: 5px;margin-left: 5%;display: flex;align-items: center;">
+			<i ng-click="privateCheck()" style="font-size: 22px;" ng-style="{'color':evaluatePrivate ? '#108EE9':'#AAABB2'}" ng-class="{'ion-ios-checkmark-outline':!evaluatePrivate, 'ion-ios-checkmark':evaluatePrivate}"></i>
+			<p style="font-size: 14px;color:#333333;margin-left: 5px;">匿名评价</p>
+		</div>
+		<button ng-if="!showDetail" ng-click="admit()" class="button button-block button-positive" style="width: 90%;margin-left: 5%;margin-top: 30px;">提交评价</button>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,43 @@
+<ion-view view-title="申请人信息" class="nav-title" style="background-color: #EEF3F0;">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+        <i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+      </button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content ng-class="{'margin50' : isShow, 'margin0' : !isShow}" class="container">
+		<div ng-click="selectBsdt()" style="margin-left: 10px;margin-right: 10px;height: 40px;border-radius: 3px;background-color: white;display: flex;align-items: center;position: relative;margin-top: 10px;">
+			<img src="../../theme/img/location.png" width="10px" height="14px" style="margin-left: 10px;" />
+			<p style="color: #333333;font-size: 14px;margin-left: 8px;font-weight: bold;">{{bsdtmc}}</p>
+			<i class="icon ion-ios-arrow-right" style="font-size: 21px;color: rgb(153,153,153);position: absolute;right: 10px;"></i>
+		</div>
+	
+		<!-- 预告权利人 -->
+		<div style="width: 100%;height: 40px;background-color: white;display: flex;align-items: center;position: relative;padding-left: 10px;margin-top: 10px;">
+			<div class="vertical-line"></div>
+			<p style="color: #333333;font-size: 14px;margin-left: 5px;font-weight: bold;">权利人</p>
+		</div>
+		<div style="background-color: white;margin: 10px;border-radius: 4px;" ng-repeat="item in qlrList">
+			<div style="height: 40px;width: 100%;border-bottom: solid 1px rgb(242,242,242);display: flex;align-items: center;padding-left: 10px;position: relative;">
+				<img src="../../theme/img/avator.png" width="18px" height="18px" />
+				<p style="color: #222222;font-size: 16px;margin-left: 10px;">{{item.ywrmc}}</p>
+			</div>
+			<div ng-click="showPersonInfo(item)" style="display: flex;align-items: center;position: relative;padding: 16px 10px;width: 100%;">
+				<div style="display: flex;flex-direction: column;justify-content: center;">
+					<p style="color: #666666;font-size: 14px;">手机号</p>
+					<p style="color: #666666;font-size: 14px;margin-top: 10px;">证件号</p>
+				</div>
+				<div style="display: flex;flex-direction: column;justify-content: center;margin-left: 20px;">
+					<p style="color: #222222;font-size: 14px;">{{item.dh}}</p>
+					<p style="color: #222222;font-size: 14px;margin-top: 10px;">{{item.zjh}}</p>
+				</div>
+				<i class="icon ion-ios-arrow-right" style="font-size: 21px;color: rgb(153,153,153);position: absolute;right: 10px;"></i>
+			</div>
+		</div>
+
+	</ion-content>
+	<div ng-show="isShow" ng-click="nextStep() " class="bar bar-footer " style="display: flex;align-items: center;justify-content: center;background-color: #108EE9;height: 50px; ">
+		<p style="font-size: 16px;color: white; ">下一步</p>
+	</div>
+</ion-view>

@@ -1,0 +1,74 @@
+<ion-view view-title="我的预约" class="nav-title">
+	<ion-nav-buttons side="left">
+		<button class="button button-icon" ng-click="goback()">
+			<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+		</button>
+	</ion-nav-buttons>	
+	<ion-nav-bar>
+		<ion-nav-buttons side="right">
+		</ion-nav-buttons>
+	</ion-nav-bar>	
+	<ion-content class="container has-header" style="padding: 10px 0 10px 0;">
+		<ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>		
+		<ion-list>
+			<ion-item ng-repeat="item in djyy1" class="item-remove-animate a" style="border-radius:8px;margin-bottom: 10px;margin-left:15px;margin-right:15px;border: none;padding: 0;" ng-style = "{'background-color':((item.status == '预约成功'||item.status == '已受理') ? 'white' :'#DADADA')}">
+				<a ng-class="{'cancel-list':item.sfqx}" ng-click="checkDjyy(item)" >
+					<div style="width: 100%;height: 48px;border-bottom: dashed lightgray 1px;display: flex;align-items: center;padding-right: 20px; font-size: 14px;font-family: '微软雅黑';color: rgb(51,51,51);">
+						<img src="../theme/img/vertical_line.png" width="6px" height="20px" style="margin-left: 12px;"/>
+						<p style="position: relative;top: 1px;margin-left: 6px;">业务号：</p>
+						<p style="color: #E79F0D;">{{item.yybh}}</p>
+						<img src="../theme/img/icon_arrow_right.png" style="position:absolute ;right: 8px;" width="18px" height="18px"/>
+					</div>
+					<div style="width: 100%;height: 48px;margin-left: 20px;font-size: 14px;font-family: '微软雅黑';display: flex;align-items: center;position: relative;">
+						<p style="width: 60px;">预约事项</p>
+						<div style="height: 48px;display: flex;align-items: center;position: absolute;right: 20px;left: 70px;">
+							<p style="color: black;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;position: absolute;right: 20px;max-width: 90%;">{{item.yysx}}</p>
+						</div>
+					</div>
+					
+					<div style="width: 100%;height: 48px;margin-left: 20px;font-size: 14px;font-family: '微软雅黑';display: flex;align-items: center;">
+						<p style="position: relative;top: 1px;">预约状态</p>
+						<div style="height: 48px;display: flex;align-items: center;position: absolute;right: 20px;">
+							<p ng-style = "{'color':((item.status == '过期'||item.status == '已取消') ? '#FF0000' :'black')}">{{item.status}}</p>
+						</div>
+					</div>
+					
+					
+					<div style="width: 100%;height: 48px;margin-left: 20px;font-size: 14px;font-family: '微软雅黑';display: flex;align-items: center;">
+						<p style="position: relative;top: 1px;">预约时间</p>
+						<div style="height: 48px;display: flex;align-items: center;position: absolute;right: 20px;">
+							<p style="color: black;">{{item.yysj +"("+item.week+")"+"&nbsp;&nbsp;&nbsp;&nbsp;"+ item.sjd}}</p>
+						</div>
+					</div>
+					<div style="width: 100%;height: 48px;margin-left: 20px;font-size: 14px;font-family: '微软雅黑';display: flex;align-items: center;position: relative;">
+						<p style="width: 60px;">办理地点</p>
+						<div style="height: 48px;display: flex;align-items: center;position: absolute;right: 20px;left: 70px;" ng-click="gotoaddress(item);$event.stopPropagation();">
+							<p  style="color: #2D83FF;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;position: absolute;right: 46px;max-width: 80%;">{{item.yybsdtdz}}</p>
+							<img src="../theme/img/navigate.png" width="18px" height="18px" style="position: absolute;right: 20px;"/>
+						</div>
+					</div>
+					
+					<!--<div style="width: 100%;height: 48px;margin-left: 20px;font-size: 14px;font-family: '微软雅黑';display: flex;align-items: center;position: relative;">
+						<p style="width: 60px;">办理窗口</p>
+						<div style="height: 48px;display: flex;align-items: center;position: absolute;right: 20px;left: 70px;" >
+							<p  style="color: black;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;position: absolute;right: 20px;max-width: 90%;">窗口1</p>
+						</div>
+					</div>-->
+					
+					<!--<img src="../theme/img/reserve_success.png" style="position: absolute;right: 20px;top: -8px;" width="60px" height="60px" ng-if="item.sfqx == 0" />-->
+					<!--<img src="../theme/img/reserve_fail.png" style="position: absolute;left: 0;top: -0;" width="100%" height="100%" ng-if="item.sfqx != 0" />-->
+					
+				</a>
+				<ion-option-button class="button-assertive" style="height:100%" ng-click="delete(item)" ng-if='item.status == "预约成功"'>
+					<div style="margin: 0 auto;">取<br />消<br />预<br />约</div>
+				</ion-option-button>
+			</ion-item>
+		</ion-list>
+		<div ng-show='isShow' style="text-align: center;margin-top: 100px;">
+			<img style="width: 193px;height: 170px;" src="../theme/img_me/default.png" />
+			<p style="margin-top: 20px; font-size: 16px;color: rgb(178,178,178);">未查询到相关数据！</p>
+		</div>
+        <!--上拉加载更多-->
+        <ion-infinite-scroll ng-if="hasMore()" on-infinite="loadMore()" distance="10%"></ion-infinite-scroll>		
+	</ion-content>
+</ion-view>

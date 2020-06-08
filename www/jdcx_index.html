@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		
+		<title></title>
+		<link rel="manifest" href="manifest.json">
+		<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+		<link href="theme/css/common.css" rel="stylesheet">
+		<link href="theme/css/address-select.css" rel="stylesheet">
+		<link href="theme/css/mine-style.css" rel="stylesheet">
+		<link href="theme/css/watch3D.min.css" rel="stylesheet">
+		
+		<script src="lib/ionic/js/ionic.bundle.js"></script>
+		<script src="lib/ngCordova/ng-cordova.js"></script>
+		<script src="lib/ngCordova/angular-resource.min.js"></script>
+		<script src="lib/pdfshowlib/pdf.js"></script>
+		<script src="lib/pdfshowlib/angular-pdf.min.js"></script>
+		
+		<script src="config/jdcx_app.js"></script>
+		<script src="config/config.js"></script>
+		<script src="config/rest-url.js"></script>
+		<script src="config/base.js"></script>
+		<script src="config/common-oper.js"></script>
+		<script src="config/utils.js"></script>
+		<script src="config/constant.js"></script>
+		<script src="config/tripledes.js"></script>
+		<script src="config/watch3D.min.js"></script>
+		<!--表单验证js引入-->
+		<script src="angular-validation-master/dist/angular-validation-rule.js"></script>
+		<script src="angular-validation-master/dist/angular-validation.js"></script>
+		<script src="angular-validation-master/validation-rule.js"></script>
+		
+		<script src="controllers/controllers.js"></script>
+		<script type="text/javascript" src="controllers/m-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/mapNew-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/aboutus-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/newsDetails-ctrl.js"></script>
+		<!--<script type="text/javascript" src="controllers/ocr-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/sqrxxQlrxx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/sqrxxYwrxx-ctrl.js"></script>		-->
+		<script type="text/javascript" src="controllers/wxOcr-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/wxsqrxxQlrxx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/wxsqrxxYwrxx-ctrl.js"></script>	
+		<script type="text/javascript" src="controllers/login-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/register-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/forget-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/home-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/tab-dynamic.js"></script>
+		<script type="text/javascript" src="controllers/search-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/service-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/me-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/bszn-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/zcfg-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/zcfgDetail-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/gzdt-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/fjxzNew-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/fjxzNewsm-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/djsq-new-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/djsqxz-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/djjg-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/xzyysj-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/xzyysx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/yyxz-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/yyjg-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/djsqDetail-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/news-ctrl.js"></script>
+		<!--<script type="text/javascript" src="controllers/qyxz-ctrl.js"></script>-->
+		<script type="text/javascript" src="controllers/qyxzNew-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/djsxxz-ctrl.js"></script>
+		<!--<script type="text/javascript" src="controllers/sqrxx-ctrl.js"></script>-->
+		<script type="text/javascript" src="controllers/sqrxxList-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/bdcxx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/bdcxxTdGyjsydsyqBgdj-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/bdcxxTdGyjsydsyqZydj-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/bdcxxDyqdjscdj-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/bdcxxYgdjysspfdyq-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/bdcxxYgdjysspfmm-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/bdcxxLdLqLqscdj-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/qszm-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/qszmBlwdxx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/qszmSqrxx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/personInfo-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/djyy-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/zfy-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/zwcx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/jdcx-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/pdfShowCtrl.js"></script>
+		<script type="text/javascript" src="controllers/sjdt_ctrl.js"></script>
+		<script type="text/javascript" src="controllers/mine-verify-code-controller.js"></script>
+		<!--<script type="text/javascript" src="controllers/faceVerify-ctrl.js"></script>-->
+		<script type="text/javascript" src="controllers/wxFaceVerify-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/slide_splash_ctrl.js"></script>
+		<script type="text/javascript" src="controllers/wdbdcCtrl.js"></script>
+		<script type="text/javascript" src="controllers/tjbdc_ctrl.js"></script>
+		<script type="text/javascript" src="controllers/xqmc_ctrl.js"></script>
+		<script type="text/javascript" src="controllers/bdcxq_ctrl.js"></script>
+		<script type="text/javascript" src="controllers/xzld-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/about-html-ctrl.js"></script>
+		<script type="text/javascript" src="controllers/bsznclsls-ctrl.js"></script>
+		<script src="services/wyyy-service.js"></script>
+		<script src="services/wysq-service.js"></script>
+		<script src="services/login-service.js"></script>
+		<script src="services/register-service.js"></script>
+		<script src="services/me-service.js"></script>
+		<script src="services/services.js"></script>
+		<script src="services/bszn-service.js"></script>
+		<script src="services/address-service.js"></script>
+		<script src="services/dict-utils-service.js"></script>
+		<script src="services/fjxz-utils-service.js"></script>
+		<script src="services/qszm-service.js"></script>
+		<script src="services/qygl-service.js"></script>
+		<script src="services/ocr-service.js"></script>
+		<script src="services/zfy-service.js"></script>
+		<script src="services/search-service.js"></script>
+		<script src="services/zcfg-service.js"></script>
+		<script src="services/wdbdc-service.js"></script>
+		<script src="services/fms-service.js"></script>		
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+	</head>
+
+	<body ng-app="jdcx_app">
+		<ion-nav-bar class="bar-stable">
+			<ion-nav-back-button>
+			</ion-nav-back-button>
+		</ion-nav-bar>
+		<ion-nav-view></ion-nav-view>
+	</body>
+
+</html>

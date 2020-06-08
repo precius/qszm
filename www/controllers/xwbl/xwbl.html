@@ -1,0 +1,409 @@
+<ion-view view-title="询问笔录" class="nav-title">
+    <ion-nav-bar>
+        <ion-nav-buttons side="left">
+            <button class="button button-icon" ng-click="goback()">
+                <i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+            </button>
+        </ion-nav-buttons>
+        <style>
+            .centerD {
+                width: 94%;
+                height: auto;
+                margin-left: 3%;
+                position: relative;
+                top: 75px;
+                left: 0;
+                transition: .3s all;
+                /* 平滑过渡 */
+                background-color: white;
+            }
+
+            .marginTop130 {
+                transition: .3s all;
+                /* 平滑过渡 */
+                margin-top: 130px;
+            }
+
+            .pclass {
+                font-size: 20px;
+                margin-left: 30px;
+                padding-right: 30px;
+            }
+
+            .pclass1 {
+                font-size: 20px;
+                margin-left: 30px;
+                padding-right: 35px;
+            }
+
+            .mainDiv {
+                display: flex;
+                align-items: center;
+                background: #fff;
+                line-height: normal;
+                margin-bottom: 0px !important;
+                border-top: none;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                color: #333333;
+            }
+
+            .textChange {
+                font-size: 20px;
+                padding-left: 2px;
+                padding-top: -3px;
+            }
+
+            .cover3 {
+                width: 100%;
+                height: 100%;
+                opacity: 0.5;
+                filter: alpha(opacity=80);
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 2;
+                background: #fff;
+            }
+
+            .to-top {
+                width: 37px;
+                height: 37px;
+                cursor: pointer;
+                position: absolute;
+                right: 0;
+            }
+        </style>
+    </ion-nav-bar>
+    <ion-content class="container" style="background:white">
+
+        <div class="mainDiv" style="display: flex;">
+            <li>
+                <p class="pclass1" style="margin-top:20px;width:100px;">询问人:
+                    <input ng-model="xwxx.xwr" type="text"
+                        style=" width:200px; border-top-width: 0px;border-right-width: 0px; border-bottom: solid 1px black;border-left-width: 0px;text-align:center;padding-top: -6px;margin-left: 30px;font-size:20px;margin-left: 90px;margin-top: -25px;" />
+                </p>
+            </li>
+        </div>
+
+        <div class="mainDiv">
+            <li>
+                <p class="pclass1">1.申请登记事项是否为申请人的真实意思表示？</p>
+                <p class="pclass1">回答： (请选择是或者否)</p>
+                <div style="display: flex;align-items: center;margin-top:10px;justify-content: center;">
+                    <div style="width: 150px;">
+                        <label style="font-size: 20px; color: black;" ng-click="insure1('1')">
+                            <input name="radiobutton1" ng-checked="{{radiobutton1}}" type="radio" value="value2"
+                                style="height: 20px;width: 20px;" />
+                            是
+                        </label>
+                    </div>
+                    <div style="width: 150px;text-align:left;margin-left:20px">
+                        <label style="font-size: 20px; color: black;" ng-click="insure1('0')">
+                            <input type="radio" ng-checked="{{radiobutton11}}" name="radiobutton1" value="value1"
+                                style="height: 20px;width: 20px;" />
+                            否
+                    </div>
+                </div>
+                <input ng-model="xwxx.problem1" type="text"
+                    style=" width:300px; border-top-width: 0px;border-right-width: 0px; border-bottom: solid 1px black;border-left-width: 0px;text-align:left;padding-top: -6px;margin-left: 30px;font-size:20px;" />
+            </li>
+        </div>
+
+        <div class="mainDiv">
+            <li>
+                <p class="pclass1">2.申请登记的不动产是共有，还是单独所有?</p>
+                <p class="pclass1">回答： (请填写共有或单独所有)</p>
+                <div style="display: flex;align-items: center;margin-top:10px;justify-content: center;">
+                    <div style="width: 150px;">
+                        <label style="font-size: 20px; color: black;" ng-click="insure2('1')">
+                            <input type="radio" ng-checked="{{radiobutton2}}" name="radiobutton2" value="value2"
+                                style="height: 20px;width: 20px;" />
+                            共有
+                        </label>
+                    </div>
+                    <div style="width: 150px;text-align:left;margin-left:20px">
+                        <label style="font-size: 20px; color: black;" ng-click="insure2('0')">
+                            <input type="radio" ng-checked="{{radiobutton22}}" name="radiobutton2" value="value1"
+                                style="height: 20px;width: 20px;" />
+                            单独所有
+                        </label>
+                    </div>
+                </div>
+                <input ng-model="xwxx.problem2" type="text"
+                    style=" width:300px; border-top-width: 0px;border-right-width: 0px; border-bottom: solid 1px black;border-left-width: 0px;text-align:left;padding-top: -6px;margin-left: 30px;font-size:20px;" />
+            </li>
+        </div>
+
+        <div class="mainDiv">
+            <!-- <div class="cover3"></div> -->
+            <li>
+                <p class="pclass1">3.申请登记的不动产是按份共有，还是共同共有？</p>
+                <p class="pclass1">回答： (共有情况下，请填写是按份共有或共同共有)</p>
+                <div style="display: flex;align-items: center;margin-top:10px;justify-content: center;">
+                    <div style="width: 150px;">
+                        <label style="font-size: 20px; color: black;" ng-click="insure3('1')">
+                            <input type="radio" name="radiobutton3" ng-disabled="ddsyShow" value="value2"
+                                ng-checked="{{radiobutton3}}" style="height: 20px;width: 20px;" id="mainDiv3" />
+                            共同共有
+                        </label>
+                    </div>
+                    <div style="width: 150px;text-align:left;margin-left:20px">
+                        <label style="font-size: 20px; color: black;" ng-click="insure3('0')">
+                            <input type="radio" name="radiobutton3" ng-disabled="ddsyShow" value="value1"
+                                ng-checked="{{radiobutton33}}" style="height: 20px;width: 20px;" id="mainDiv2" />
+                            按份共有
+                        </label>
+                    </div>
+                </div>
+                <input ng-model="xwxx.problem3" type="text" ng-disabled="ddsyShow"
+                    style=" width:300px; border-top-width: 0px;border-right-width: 0px; border-bottom: solid 1px black;border-left-width: 0px;text-align:left;padding-top: -6px;margin-left: 30px;font-size:20px;" />
+            </li>
+        </div>
+
+        <div class="mainDiv">
+            <li>
+                <p class="pclass1">4.申请登记的不动产共有份额情况</p>
+                <p class="pclass1">回答： (按份共有情况下，请填写具体份额。共同共有人不填写本栏)</p>
+                <input ng-model="xwxx.problem4" type="text" ng-disabled="gyfeShow" id="mainDiv4"
+                    style=" width:300px; border-top-width: 0px;border-right-width: 0px; border-bottom: solid 1px black;border-left-width: 0px;text-align:left;padding-top: -6px;margin-left: 30px;font-size:20px;" />
+            </li>
+        </div>
+
+        <!-- 抵押登记时 -->
+        <div ng-show="dydjShow">
+            <div class="mainDiv">
+                <li>
+                    <p class="pclass1">5.申请抵押的不动产是否与他人由产权争议和纠纷或存在不动产登记机构未知情的其它限制性权利</p>
+                    <p class="pclass1">回答： (无或有，有说明情况)</p>
+                    <div style="display: flex;align-items: center;margin-top:10px;justify-content: center;">
+                        <div style="width: 150px;">
+                            <label style="font-size: 20px; color: black;" ng-click="insureDydj('1')">
+                                <input type="radio" ng-checked="{{dyButton5}}" name="radiobutton5" value="value2"
+                                    style="height: 20px;width: 20px;" />
+                                有
+                            </label>
+                        </div>
+                        <div style="width: 150px;text-align:left;margin-left:20px">
+                            <label style="font-size: 20px; color: black;" ng-click="insureDydj('0')">
+                                <input type="radio" ng-checked="{{dyButton55}}" name="radiobutton5" value="value1"
+                                    style="height: 20px;width: 20px;" />
+                                无
+                            </label>
+                        </div>
+                    </div>
+                    <input ng-model="xwxx.dyProblem5" type="text"
+                        style=" width:300px; border-top-width: 0px;border-right-width: 0px; border-bottom: solid 1px black;border-left-width: 0px;text-align:left;padding-top: -6px;margin-left: 30px;font-size:20px;" />
+                    <p ng-show="smqkShow" class="pclass1" style="margin-top:20px">说明情况:</p>
+                    <input ng-model="xwxx.xzxqlsm" type="text" ng-show="smqkShow"
+                        style=" width:300px; border-top-width: 0px;border-right-width: 0px; border-bottom: solid 1px black;border-left-width: 0px;text-align:left;padding-top: -6px;margin-left: 30px;font-size:20px;" />
+                </li>
+
+
+            </div>
+
+            <div class="mainDiv">
+                <li>
+                    <p class="pclass1">6.申请的抵押登记是否为顺位抵押?</p>
+                    <p class="pclass1">回答： (请填写是或否，如果是请填写为第几顺位,并注明顺位权人)</p>
+                    <div style="display: flex;align-items: center;margin-top:10px;">
+                        <div style="width: 150px;padding-left:40px;">
+                            <label style="font-size: 20px; color: black;" ng-click="insureDydj2('1')">
+                                <input type="radio" name="radiobutton6" value="value2" ng-checked="{{dyButton6}}"
+                                    style="height: 20px;width: 20px;" />
+                                是
+                            </label>
+                        </div>
+                        <div style="width: 150px;text-align:left;margin-left:20px">
+                            <label style="font-size: 20px; color: black;" ng-click="insureDydj2('0')">
+                                <input type="radio" name="radiobutton6" value="value1" ng-checked="{{dyButton66}}"
+                                    style="height: 20px;width: 20px;" />
+                                否
+                            </label>
+                        </div>
+                    </div>
+                    <input ng-model="xwxx.dyProblem6" type="text"
+                        style=" width:300px; border-top-width: 0px;border-right-width: 0px; border-bottom: solid 1px black;border-left-width: 0px;text-align:left;padding-top: -6px;margin-left: 30px;font-size:20px;" />
+                    <p ng-show="swqrShow" class="pclass1" style="margin-top:20px">请填写抵押顺位:</p>
+                    <input ng-model="xwxx.dysw" type="text" ng-show="swqrShow"
+                        style=" width:300px; border-top-width: 0px;border-right-width: 0px; border-bottom: solid 1px black;border-left-width: 0px;text-align:left;padding-top: -6px;margin-left: 30px;font-size:20px;" />
+                    <p ng-show="swqrShow" class="pclass1" style="margin-top:20px">请注明顺位权人:</p>
+                    <input ng-model="xwxx.swqr" type="text" ng-show="swqrShow"
+                        style=" width:300px; border-top-width: 0px;border-right-width: 0px; border-bottom: solid 1px black;border-left-width: 0px;text-align:left;padding-top: -6px;margin-left: 30px;font-size:20px;" />
+                </li>
+            </div>
+
+            <div class="mainDiv">
+                <li>
+                    <p class="pclass1">7.申请的抵押登记是一般抵押还是最高额抵押?</p>
+                    <p class="pclass1">回答： (请填写一般抵押或最高额抵押)</p>
+                    <div style="display: flex;align-items: center;margin-top:10px;">
+                        <div style="width: 150px;padding-left:40px;">
+                            <label style="font-size: 20px; color: black;" ng-click="insureDydj3('0')">
+                                <input type="radio" value="value1" name="radiobutton7" ng-checked="{{dyButton7}}"
+                                    style="height: 20px;width: 20px;" />
+                                一般抵押
+                            </label>
+                        </div>
+                        <div style="width: 180px;text-align:left;margin-left:20px">
+                            <label style="font-size: 20px; color: black;" ng-click="insureDydj3('1')">
+                                <input type="radio" value="value2" name="radiobutton7" ng-checked="{{dyButton77}}"
+                                    style="height: 20px;width: 20px;" />
+                                最高额抵押
+                            </label>
+                        </div>
+                    </div>
+                    <input ng-model="xwxx.dyProblem7" type="text"
+                        style=" width:300px; border-top-width: 0px;border-right-width: 0px; border-bottom: solid 1px black;border-left-width: 0px;text-align:left;padding-top: -6px;margin-left: 30px;font-size:20px;" />
+                </li>
+            </div>
+
+            <div class="mainDiv">
+                <li>
+                    <p class="pclass1">8.是否确认对已提交的登记材料和证件及填写内容真实、合法、有效负责，没有虚假或者隐瞒相关事实?</p>
+                    <p class="pclass1">回答： (请填写是或否)</p>
+                    <div style="display: flex;align-items: center;margin-top:10px;">
+                        <div style="width: 150px;padding-left:40px;">
+                            <label style="font-size: 20px; color: black;" ng-click="insureDydj4('1')">
+                                <input type="radio" value="value2" name="radiobutton8" ng-checked="{{dyButton8}}"
+                                    style="height: 20px;width: 20px;" />
+                                是
+                            </label>
+                        </div>
+                        <div style="width: 150px;text-align:left;margin-left:20px">
+                            <label style="font-size: 20px; color: black;" ng-click="insureDydj4('0')">
+                                <input type="radio" value="value1" name="radiobutton8" ng-checked="{{dyButton88}}"
+                                    style="height: 20px;width: 20px;" />
+                                否
+                            </label>
+                        </div>
+                    </div>
+                    <input ng-model="xwxx.dyProblem8" type="text"
+                        style=" width:300px; border-top-width: 0px;border-right-width: 0px; border-bottom: solid 1px black;border-left-width: 0px;text-align:left;padding-top: -6px;margin-left: 30px;font-size:20px;" />
+                </li>
+            </div>
+
+            <div class="mainDiv">
+                <li>
+                    <p class="pclass1">9.其它需要询问的有关事项?</p>
+                    <div style="display: flex;align-items: center;margin-top:10px;">
+                        <!-- <textarea
+                            style=" width:300px; border-top-width: 0px;border-right-width: 0px; border-bottom: solid 1px black;border-left-width: 0px;text-align:left;padding-top: 6px;margin-left: 30px;font-size:20px;color:red;line-height:25px;"
+                            rows="3" readonly="readonly">    本人提供的材料与证件真实有效,并对其真实性负责
+                    </textarea> -->
+                        <input ng-model="xwxx.qt" type="text"
+                            style=" width:300px; border-top-width: 0px;border-right-width: 0px; border-bottom: solid 1px black;border-left-width: 0px;text-align:left;padding-top: -6px;margin-left: 30px;font-size:20px;" />
+                    </div>
+                </li>
+            </div>
+        </div>
+
+        <!-- 其它登记时 -->
+        <div ng-show="qtdjShow">
+            <div class="mainDiv">
+                <li>
+                    <p class="pclass1">5.申请异议登记时，权利人是否不同意办理更正登记</p>
+                    <p class="pclass1">回答： (申请异议登记时填写，申请其他登记不填写本栏)</p>
+                    <div style="display: flex;align-items: center;margin-top:10px;justify-content: center;">
+                        <div style="width: 150px;">
+                            <label style="font-size: 20px; color: black;" ng-click="insure5('1')">
+                                <input type="radio" ng-checked="{{radiobutton5}}" value="value2" name="radiobutton5"
+                                    ng-disabled="yydjShow" style="height: 20px;width: 20px;" />
+                                是
+                            </label>
+                        </div>
+                        <div style="width: 150px;text-align:left;margin-left:20px">
+                            <label style="font-size: 20px; color: black;" ng-click="insure5('0')">
+                                <input type="radio" value="value1" ng-checked="{{radiobutton55}}" name="radiobutton5"
+                                    ng-disabled="yydjShow" style="height: 20px;width: 20px;" />
+                                否
+                            </label>
+                        </div>
+                    </div>
+                    <input ng-model="xwxx.problem5" type="text" ng-disabled="yydjShow"
+                        style=" width:300px; border-top-width: 0px;border-right-width: 0px; border-bottom: solid 1px black;border-left-width: 0px;text-align:left;padding-top: -6px;margin-left: 30px;font-size:20px;" />
+                </li>
+            </div>
+
+            <div class="mainDiv">
+                <li>
+                    <p class="pclass1">6.申请异议登记时，是否已知悉异议不当应承担的责任?</p>
+                    <p class="pclass1">回答： (申请异议登记时填写，申请其他登记不填写本栏)</p>
+                    <div style="display: flex;align-items: center;margin-top:10px;">
+                        <div style="width: 150px;padding-left:40px;">
+                            <label style="font-size: 20px; color: black;" ng-click="insure6('1')">
+                                <input type="radio" value="value2" ng-checked="{{radiobutton6}}" name="radiobutton6"
+                                    ng-disabled="yydjShow" style="height: 20px;width: 20px;" />
+                                是
+                            </label>
+                        </div>
+                        <div style="width: 150px;text-align:left;margin-left:20px">
+                            <label style="font-size: 20px; color: black;" ng-click="insure6('0')">
+                                <input type="radio" value="value1" name="radiobutton6" ng-disabled="yydjShow"
+                                    ng-checked="{{radiobutton66}}" style="height: 20px;width: 20px;" />
+                                否
+                            </label>
+                        </div>
+                    </div>
+                    <input ng-model="xwxx.problem6" type="text" ng-disabled="yydjShow"
+                        style=" width:300px; border-top-width: 0px;border-right-width: 0px; border-bottom: solid 1px black;border-left-width: 0px;text-align:left;padding-top: -6px;margin-left: 30px;font-size:20px;" />
+                </li>
+            </div>
+
+            <div class="mainDiv">
+                <li>
+                    <p class="pclass1">7.申请本次转移登记时，其他按份共有人是否同意?</p>
+                    <p class="pclass1">回答： (受让人为其他按份共有人以外的第三人时填写)</p>
+                    <div style="display: flex;align-items: center;margin-top:10px;">
+                        <div style="width: 150px;padding-left:40px;">
+                            <label style="font-size: 20px; color: black;" ng-click="insure7('1')">
+                                <input type="radio" value="value2" name="radiobutton7" ng-disabled="zydjShow"
+                                    style="height: 20px;width: 20px;" />
+                                是
+                            </label>
+                        </div>
+                        <div style="width: 150px;text-align:left;margin-left:20px">
+                            <label style="font-size: 20px; color: black;" ng-click="insure7('0')">
+                                <input type="radio" value="value1" name="radiobutton7" ng-disabled="zydjShow"
+                                    style="height: 20px;width: 20px;" />
+                                否
+                            </label>
+                        </div>
+                    </div>
+                    <input ng-model="xwxx.problem7" type="text" ng-disabled="zydjShow"
+                        style=" width:300px; border-top-width: 0px;border-right-width: 0px; border-bottom: solid 1px black;border-left-width: 0px;text-align:left;padding-top: -6px;margin-left: 30px;font-size:20px;" />
+                </li>
+            </div>
+
+            <div class="mainDiv">
+                <li>
+                    <p class="pclass1">8.其它需要询问的有关事项?</p>
+                    <div style="display: flex;align-items: center;margin-top:10px;">
+                        <!-- <textarea
+                            style=" width:300px; border-top-width: 0px;border-right-width: 0px; border-bottom: solid 1px black;border-left-width: 0px;text-align:left;padding-top: 6px;margin-left: 30px;font-size:20px;color:red;line-height:25px;"
+                            rows="3" readonly="readonly">    本人提供的材料与证件真实有效,并对其真实性负责
+                    </textarea> -->
+                        <input ng-model="xwxx.qt" type="text"
+                            style=" width:300px; border-top-width: 0px;border-right-width: 0px; border-bottom: solid 1px black;border-left-width: 0px;text-align:left;padding-top: -6px;margin-left: 30px;font-size:20px;" />
+                    </div>
+                </li>
+            </div>
+        </div>
+
+        <div ng-show="showImg1"
+            style="height:120px;width:70%;margin-left:15%;display: flex;justify-content: center;align-items: center;border: 2px solid rgba(0, 0, 0, 0.4);"
+            ng-click="sign();">
+            <span style="color:blue;font-size: 40px;">点 击 签 名</span>
+        </div>
+
+        <img ng-show="!showImg1" style="display: block;margin: 0 auto;" id="sign1"
+            src="data:image/png;base64,{{baseData}}" ng-click="sign();" />
+        <button class="button button-stable nextstep-button-style" style="width: 98% !important;margin-top:40px"
+            ng-click="submit()">提交</button>
+
+
+    </ion-content>
+
+
+</ion-view>

@@ -1,0 +1,38 @@
+<ion-view view-title="预约协议" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left" >
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="container">
+		<div class="applicant">
+			<p class="yyxz-title">不动产网站预约须知及协议</p>
+			<div class="item item-text-wrap form-item-border-first">
+				<p>
+					欢迎使用不动产登记服务平台。<span style="color: red;">为方便公众申请不动产登记，现开通网上预约功能。申请人在申请前须仔细阅读本须知。</span><br /><br />
+					一、网上预约采取实名制，申请人必须是办理不动产登记业务的申请人或委托代理人。<br /><br />
+					二、网上预约的时间为次日起至第5个工作日内（以具体开放时间为准），不能预约当天号源，节假日和休息日不接受预约。<br /><br />
+					三、申请人在预约有效期内只能预约一次，不能重复预约。<br /><br />
+					四、预约成功后，如不能按预约时间到达办理，请予预约日前一天取消预约。<br /><br />
+					<span style="color: red;">五、为防止恶意预约，系统已建立黑名单制度，如：预约后多次取消、未在约定时间内来现场办理等情况。</span><br /><br />
+					<span style="color: red;">六、一个预约号只能办理一宗登记业务，目前只接受个人预约，不接受批量预约。</span><br /><br />
+					<span style="color: red;">七、预约成功后，申请人须持本人身份证，按照约定时间提前到达办事窗口，经核实确认后，到指定窗口办理与预约相关的业务。</span><br /><br />
+					<span style="color: red;">八、预约申请人超过预约办理起始时间未到场，视为申请人主动放弃预约服务，须现场取号按叫号顺序办理业务。</span><br /><br />
+					九、网上预约业务办理过程中，因申请人要件材料不完整或者业务数据不实等问题导致事项业务无法顺畅办理，敬请申请人及时予以协助配合和谅解。<br /><br />
+					十、对于自然灾害、电力通讯或其他设施故障等原因，致使预约服务延迟或失效的，登记机关不承担任何责任。 任何单位和个人不得恶意修改、变更预约服务的有关程序和内容，或利用网上预约进行有偿服务，否则由此引起一切损害后果的，须承担相应的法律责任。<br /><br />
+					十一、本协议的解释权最终归不动产登记机关。<br /><br />
+				</p>
+			</div>
+		</div>
+		<div class="row_confirm">
+  			<div class="col">
+  				<button ng-disabled="!countOver" class="button button-positive" ng-click="agree()">同意{{count}}</button>
+  			</div>
+  			<div class="col">
+  				<button class="button button-energized yyxz-button" ng-click="disagree()">不同意</button>
+  			</div>  
+		</div>
+	</ion-content>
+</ion-view>

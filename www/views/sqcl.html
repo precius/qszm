@@ -1,0 +1,17 @@
+<ion-view view-title="申请材料" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="container">
+		<p style="font-size: 16px;color: rgb(51, 51, 51);margin: 15px;">申请材料</p>
+		<div style="margin: 15px 10px;background: #ffffff;border-radius: 5px;padding: 10px;">
+			<div ng-repeat="item in uploadFile" style="min-height: 40px;color: black;font-size: 14px;padding: 5px;display: flex;align-items: center;">
+				<p>{{item.clmc}}&nbsp;&nbsp;<span ng-if='item.clsls.length' class="positive" ng-click="gotoclsls($index)">(示例)</span></p>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

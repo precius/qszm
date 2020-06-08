@@ -1,0 +1,93 @@
+<ion-view view-title="预约详情" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goBack()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+		<ion-nav-buttons side="right">
+			<button class="button button-icon" ng-click="evaluate()" ng-if='detail.status == "预约成功"'>
+				<i class="nav-title" style="font-size: 12px;">评价</i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+
+	<!--详细列表-->
+	<ion-content class="container">
+		<form ng-submit="">
+			<div class="applicant">
+				<div style="margin-left: 5px;">
+					<span class="add-msg">个人信息</span>
+				</div>
+				<div style="width: 100%;min-height: 40px;padding-top: 5px;padding-bottom: 5px;display: flex;align-items: center;">
+					<p style="width: 30%;color: #999999;font-size: 14px;padding-left: 10px;">预约编号</p>
+					<p style="width: 70%;color: #333333;font-size: 14px;padding-left: 20px;">{{detail.yybh}}</p>
+				</div>
+				<div style="width: 100%;min-height: 40px;padding-top: 5px;padding-bottom: 5px;display: flex;align-items: center;">
+					<p style="width: 30%;color: #999999;font-size: 14px;padding-left: 10px;">姓名</p>
+					<p style="width: 70%;color: #333333;font-size: 14px;padding-left: 20px;">{{detail.yyyhmc}}</p>
+				</div>
+				<div style="width: 100%;min-height: 40px;padding-top: 5px;padding-bottom: 5px;display: flex;align-items: center;">
+					<p style="width: 30%;color: #999999;font-size: 14px;padding-left: 10px;">身份证号</p>
+					<p style="width: 70%;color: #333333;font-size: 14px;padding-left: 20px;">{{detail.zjh}}</p>
+				</div>
+				<div style="width: 100%;min-height: 40px;padding-top: 5px;padding-bottom: 5px;display: flex;align-items: center;">
+					<p style="width: 30%;color: #999999;font-size: 14px;padding-left: 10px;">手机号码</p>
+					<p style="width: 70%;color: #333333;font-size: 14px;padding-left: 20px;">{{detail.lxdh}}</p>
+				</div>
+			</div>
+			<div class="applicant">
+				<div style="margin-left: 5px;">
+					<span class="add-msg">预约信息</span>
+				</div>
+				<div style="width: 100%;min-height: 40px;padding-top: 5px;padding-bottom: 5px;display: flex;align-items: center;">
+					<p style="width: 30%;color: #999999;font-size: 14px;padding-left: 10px;">预约时间</p>
+					<p style="width: 70%;color: #333333;font-size: 14px;padding-left: 20px;">{{detail.yysj +"("+detail.week+")"+"&nbsp;&nbsp;&nbsp;&nbsp;"+ detail.sjd}}</p>
+				</div>
+				<div style="width: 100%;min-height: 40px;padding-top: 5px;padding-bottom: 5px;display: flex;align-items: center;">
+					<p style="width: 30%;color: #999999;font-size: 14px;padding-left: 10px;">预约事项</p>
+					<p style="width: 70%;color: #333333;font-size: 14px;padding-left: 20px;">{{detail.yysx}}</p>
+				</div>
+				<div style="width: 100%;min-height: 40px;padding-top: 5px;padding-bottom: 5px;display: flex;align-items: center;">
+					<p style="width: 30%;color: #999999;font-size: 14px;padding-left: 10px;">预约状态</p>
+					<p ng-style="{'color':((detail.status == '过期'||detail.status == '已取消') ? '#FF0000' :'#333333')}" style="width: 70%;font-size: 14px;padding-left: 20px;">{{detail.status}}</p>
+				</div>
+				<div style="width: 100%;min-height: 40px;padding-top: 5px;padding-bottom: 5px;display: flex;align-items: center;">
+					<p style="width: 30%;color: #999999;font-size: 14px;padding-left: 10px;">不动产权证号</p>
+					<p style="width: 70%;color: #333333;font-size: 14px;padding-left: 20px;">{{detail.yyzh}}</p>
+				</div>
+				<div style="width: 100%;min-height: 40px;padding-top: 5px;padding-bottom: 5px;display: flex;align-items: center;">
+					<p style="width: 30%;color: #999999;font-size: 14px;padding-left: 10px;">办理网点</p>
+					<p style="width: 70%;color: #333333;font-size: 14px;padding-left: 20px;">{{detail.yybsdt}}</p>
+				</div>
+				<div style="width: 100%;min-height: 40px;padding-top: 5px;padding-bottom: 5px;display: flex;align-items: center;">
+					<p style="width: 30%;color: #999999;font-size: 14px;padding-left: 10px;">办理地址</p>
+					<p style="width: 70%;color: #333333;font-size: 14px;padding-left: 20px;">{{detail.yybsdtdz}}</p>
+				</div>
+				<div style="width: 100%;min-height: 40px;padding-top: 5px;padding-bottom: 5px;display: flex;align-items: center;">
+					<p style="width: 30%;color: #999999;font-size: 14px;padding-left: 10px;">网点电话</p>
+					<p style="width: 70%;color: #333333;font-size: 14px;padding-left: 20px;">{{detail.bsdtdh}}</p>
+				</div>
+			</div>
+			<div class="applicant" ng-if="(detail.status != '过期'&&detail.status != '已取消')">
+				<div ng-if="yysx.sx != '请选择预约事项'" style="width: 80%;margin: 15px auto; font-size: 14px; ">
+					<span style="color: #000000;">温馨提示：为避免材料不全导致不能办理的麻烦，请您务必携带</span>
+					<span style="color: #FF0000;">身份证件及所需收件材料   </span>
+					<span style="color: #000000;">。</span>
+					<!-- <span style="color: #0E8EE7;" ng-click="showDocs()">   (点击查看所需材料)</span> -->
+				</div>
+				<div ng-show="isShowDocs" style="width: 80%;margin: 5px auto;font-size: 14px;color: #000000;">
+					<div ng-repeat="item in uploadFile" style="width: 100%;max-height:60px ;display: flex;align-items: center;margin: 5px 0;border: none;border-bottom: solid 1px #C0C0C0;">
+						<p style="width: 70%;">{{item.clmc}}</p>
+						<p style="width: 20%;margin-left: 10px;text-align: right;">{{item.bz}}</p>
+					</div>
+				</div>
+				<div ng-if="yysx.sx != '请选择预约事项'" style="width: 80%;margin: 15px auto; font-size: 14px; ">
+					<span style="color: #FF0000;">涉税业务还需携带储蓄卡 </span>
+					<span style="color: #000000;">，并确保余额大于应缴税金额，避免多跑一次。</span>
+				</div>
+			</div>
+		</form>
+		<button ng-if='detail.status == "预约成功"' ng-click="delete(yybh)" class="button button-block button-positive" style="width: 90%;margin-left: 5%;">取消预约</button>
+	</ion-content>
+</ion-view>

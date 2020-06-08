@@ -1,0 +1,58 @@
+ <ion-view view-title="不动产证书(证明)验证" class="nav-title">
+	<ion-nav-bar >
+		<ion-nav-buttons side="left">
+		<button class="button button-icon" ng-click="goback()">
+			<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+		</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	
+	<ion-content class="container" style="color: black;">
+		<form ng-submit="" class="form">
+			<div style="height: 10px;"></div>
+			<div style="border-bottom:solid 19px #f8f8f8;background-color:#EFEFF4;!important;"  ng-repeat="item in datalist" ng-show="false">
+				<a class="item" href="" style="border-radius: 5px;margin: 0 5px;">
+					<h2>查询编号：{{item.cxbh}}</h2>
+					<p>证书证明编号：{{item.zszmbh}}</p>
+					<p>查询状态：{{item.status}}</p>
+					<div style="border-bottom: solid 1px #e6e6e6;margin: 20px -20px 10px -20px;"></div>
+					<div style="float: right; color: #8b8c8f;">
+						<div on-tap="del($index)" style="float: right;" ><i class="icon ion-trash-a"></i>&nbsp取消&nbsp</div> 
+						<div style="float: right;"><i class="icon ion-clipboard"></i>&nbsp查看&nbsp</div> 
+					</div>
+				</a>
+			</div>
+			
+			<div class="applicant">
+				<div class="item item-input form-item-border-first">
+					<span style="color: red;">*&nbsp;</span>
+					<span>证书(证明)证号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			    	<input ng-model="cret.zszmbh" type="text" placeholder="请输入证书(证明)证号"/>
+				</div>
+				<div class="item item-input form-item-border">
+					<span style="color: red;">*&nbsp;</span>
+					<span>权利人名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<input ng-model="cret.qlrmc" type="text" placeholder="请输入权利人名称"/>
+			    	<!--<input ng-model="familyMemberList[0].name" type="text" style="width: 70%;"  placeholder="请输入权利人"/>-->
+				</div>
+				<!--<label class="item item-input item-select form-item-border">
+					<span style="color: red;">*&nbsp;</span>
+				    <div class="input-label">
+				      	证件种类
+				    </div>
+				    <select validator="required" ng-change="checkZjlx(zjzl.value)" ng-model="zjzl" ng-options="x.label for x in zjzlData"></select>
+				  </label>-->
+				<div class="item item-input form-item-border item-icon-right">
+					<span style="color: red;">*&nbsp;</span>
+					<span>权利人证件号&nbsp;&nbsp;</span>
+					<input ng-model="cret.qlrzjh" type="text" placeholder="请输入证件号码"/>
+			    	<!--<input ng-model="familyMemberList[0].zjh" type="text" style="width: 70%;"  placeholder="请输入证件号码"/>
+					<a on-tap = "zmcytoocr();">
+						<i class="ion-ios-camera" style="font-size: 24px;margin-right: 10px;"></i>
+					</a>-->
+				</div>
+			</div>
+			<button class="button button-positive button-full" ng-click="zscy();">查询</button>
+		</form>
+	</ion-content>
+</ion-view>

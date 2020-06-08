@@ -1,0 +1,140 @@
+<ion-view view-title="我的申请" class="nav-title">
+  <ion-nav-bar>
+    <ion-nav-buttons side="left">
+      <button class="button button-icon" ng-click="goback()">
+        <i class="nav-title ion-ios-arrow-left" style="font-size: 30px;"></i>
+      </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button class="button button-icon" ng-click="evaluate()" ng-if='sqxx.step=="COMPLETE"'>
+        <i class="nav-title" style="font-size: 12px;">评价</i>
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content class="container">
+    <div ng-show="showNextStep" class="step-container">
+      <div class="child-step">
+        <img ng-show="!stepOneFinished" class="step-img" src="../theme/img/step_1_gray.png" />
+        <img ng-show="stepOneFinished" class="step-img" src="../theme/img/step_1_blue.png" />
+        <p class="step-text">申请人信息</p>
+      </div>
+      <div class="child-step">
+        <img ng-show="!stepTwoFinished" class="step-img" src="../theme/img/step_2_gray.png" />
+        <img ng-show="stepTwoFinished" class="step-img" src="../theme/img/step_2_blue.png" />
+        <p class="step-text">不动产信息</p>
+      </div>
+      <div class="child-step">
+        <img ng-show="!stepThreeFinished" class="step-img" src="../theme/img/step_3_gray.png" />
+        <img ng-show="stepThreeFinished" class="step-img" src="../theme/img/step_3_blue.png" />
+        <p class="step-text">上传材料</p>
+      </div>
+      <div class="child-step">
+        <img ng-show="!stepFourFinished" class="step-img" src="../theme/img/step_4_gray.png" />
+        <img ng-show="stepFourFinished" class="step-img" src="../theme/img/step_4_blue.png" />
+        <p class="step-text">提交申请</p>
+      </div>
+    </div>
+    <div ng-show="showMenuInfo" style="background-color: white;border-radius: 5px;margin: 16px 10px;">
+      <div style="position: relative;width: 100%;height: 50px;display: flex;align-items: center;border-bottom: dashed #F1F1F1 1px;padding-left: 24px;">
+        <div style="position: absolute;width: 10px;height: 10px;border-radius: 5px;background-color: #EEF3F0;left: -5px;bottom: -5px;"></div>
+        <div style="position: absolute;width: 10px;height: 10px;border-radius: 5px;background-color: #EEF3F0;right: -5px;bottom: -5px;"></div>
+        <!--<img src="../theme/img/djsq_dot.png" width="14px" height="14px" />-->
+        <div style="width: 4px;height: 14px;background-color: #2D83FF;margin-left: 8px;"></div>
+        <p style="margin-left: 8px;font-size: 16px;color: rgb(51,51,51);">申请信息</p>
+      </div>
+      <div style="width: 100%;height: 44px;display: flex;align-items: center;border-bottom: solid #F1F1F1 1px;margin-left: 10px;"
+        ng-click="applicant()">
+        <p style="margin-left: 20px;font-size: 15px;color: rgb(51,51,51);">申请人</p>
+        <div style="position: absolute;right: 30px;height: 44px;display: flex;align-items: center;">
+          <img src="../theme/img/right_arrow.png" width="8px" height="14px" />
+        </div>
+      </div>
+      <div style="width: 100%;height: 44px;display: flex;align-items: center;border-bottom: solid #F1F1F1 1px;margin-left: 10px;"
+        ng-click="bdcxx()">
+        <p style="margin-left: 20px;font-size: 15px;color: rgb(51,51,51);">不动产信息</p>
+        <div style="position: absolute;right: 30px;height: 44px;display: flex;align-items: center;">
+          <img src="../theme/img/right_arrow.png" width="8px" height="14px" />
+        </div>
+      </div>
+      <div style="width: 100%;height: 44px;display: flex;align-items: center;margin-left: 10px;" ng-click="fjcl()">
+        <p style="margin-left: 20px;font-size: 15px;color: rgb(51,51,51);">附件材料</p>
+        <div style="position: absolute;right: 30px;height: 44px;display: flex;align-items: center;">
+          <img src="../theme/img/right_arrow.png" width="8px" height="14px" />
+        </div>
+      </div>
+      <div style="width: 100%;height: 44px;display: flex;align-items: center;border-top: solid #F1F1F1 1px;margin-left: 10px;"
+        ng-click="showYsxx()" ng-if="isShow">
+        <p style="margin-left: 20px;font-size: 15px;color: rgb(51,51,51);">预审信息</p>
+        <div style="position: absolute;right: 30px;height: 44px;display: flex;align-items: center;">
+          <img src="../theme/img/right_arrow.png" width="8px" height="14px" />
+        </div>
+      </div>
+    </div>
+    <!-- <div style="background-color: white;border-radius: 5px;margin: 16px 10px;">
+      <div style="position: relative;width: 100%;height: 50px;display: flex;align-items: center;border-bottom: dashed #F1F1F1 1px;padding-left: 24px;">
+        <div style="position: absolute;width: 10px;height: 10px;border-radius: 5px;background-color: #EEF3F0;left: -5px;bottom: -5px;"></div>
+        <div style="position: absolute;width: 10px;height: 10px;border-radius: 5px;background-color: #EEF3F0;right: -5px;bottom: -5px;"></div>
+        <div style="width: 4px;height: 14px;background-color: #2D83FF;margin-left: 8px;"></div>
+        <p style="margin-left: 8px;font-size: 16px;color: rgb(51,51,51);">办理状态</p>
+      </div>
+      <div style="width: 100%;height: 44px;display: flex;align-items: center;">
+        <p style="margin-left: 30px;font-size: 15px;color: rgb(51,51,51);">{{sqxx.status}}</p>
+        <div style="position: absolute;right: 30px;height: 44px;display: flex;align-items: center;">
+          <img src="../theme/img/apply_success.png" width="15px" height="15px" />
+        </div>
+      </div>
+    </div> -->
+    <div style="background-color: white;border-radius: 5px;margin: 16px 10px;">
+      <div style="position: relative;width: 100%;height: 50px;display: flex;align-items: center;border-bottom: dashed #F1F1F1 1px;padding-left: 24px;">
+        <div style="position: absolute;width: 10px;height: 10px;border-radius: 5px;background-color: #EEF3F0;left: -5px;bottom: -5px;"></div>
+        <div style="position: absolute;width: 10px;height: 10px;border-radius: 5px;background-color: #EEF3F0;right: -5px;bottom: -5px;"></div>
+        <!--<img src="../theme/img/djsq_dot.png" width="14px" height="14px" />-->
+        <div style="width: 4px;height: 14px;background-color: #2D83FF;margin-left: 8px;"></div>
+        <p style="margin-left: 8px;font-size: 16px;color: rgb(51,51,51);">认证信息</p>
+        <img ng-click="notifyEveryone()" src="../theme/img/send_message.png" width="27px" height="20px" style="position: absolute;right: 55px;"
+          ng-show="showSubmit&&isMainApplicant" />
+        <img ng-click="refreshApplicant()" src="../theme/img/refresh_applicant.png" width="20px" height="20px" style="position: absolute;right: 15px;" />
+      </div>
+      <!-- <div style="width: 100%;height: 44px;display: flex;align-items: center;border-bottom: solid #F1F1F1 1px;margin-left: 10px;">
+        <p style="margin-left: 20px;font-size: 15px;color: rgb(51,51,51);">姓名</p>
+        <div style="position: absolute;right: 30px;height: 44px;display: flex;align-items: center;">
+          <p style="font-size: 14px;color: rgb(135,135,135);">{{name}}</p>
+        </div>
+      </div>
+      <div style="width: 100%;height: 44px;display: flex;align-items: center;">
+        <p style="margin-left: 30px;font-size: 15px;color: rgb(51,51,51);">手机号</p>
+        <div style="position: absolute;right: 30px;height: 44px;display: flex;align-items: center;">
+          <p style="font-size: 14px;color: rgb(135,135,135);">{{tel}}</p>
+        </div>
+      </div> -->
+      <div ng-repeat="item in verifiedList" style="width: 100%;height: 44px;display: flex;align-items: center;">
+        <p style="margin-left: 30px;
+        font-size: 15px;
+        color: rgb(51,51,51);
+        width: 70%;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;">{{item.name}}({{item.zjh}})</p>
+        <div style="position: absolute;right: 30px;height: 44px;display: flex;align-items: center;">
+          <p style="font-size: 14px;color: rgb(135,135,135);">{{item.status}}</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <!-- 认证入口 -->
+      <p ng-show="!identityVerified" ng-click="askPaper();" class="common-bigBtn-blue">立刻认证</p>
+      <!-- showMenuInfo表示是否是移动端流程，Pc端流程在移动端只能做认证操作 -->
+      <p ng-show="showSubmit&&isMainApplicant&&showMenuInfo&&identityVerified" ng-click="submit();" class="common-bigBtn-blue">提交申请</p>
+
+      <p ng-show="showCancel&&isMainApplicant&&showMenuInfo" ng-click="cancel();" class="common-bigBtn-gray">取消申请</p>
+
+      <p ng-show="showDelete&&isMainApplicant&&showMenuInfo" ng-click="delete();" class="common-bigBtn-gray">删除申请</p>
+    </div>
+  </ion-content>
+  <!-- <div id="touch" ng-click="floatingButtonClicked()">
+    <img src="../theme/img/NETAPPLYING_FOCUS.png" style="width: 40px; height: 40px;display: block;margin-left: 10px;" />
+    <p style="font-size: 8px;width: 60px;text-align: center;">办事指南</p>
+  </div> -->
+</ion-view>

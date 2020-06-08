@@ -1,0 +1,109 @@
+<ion-view view-title="{{title}}信息" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="container">
+		<form class="form">
+			<div class="applicant">
+				<div class="item item-input form-item-border-first">
+					<span style="color: red;">*&nbsp;</span>
+					<span style="width: 60%;">{{qlrmc.name}}</span>
+					<input ng-model="qlr.qlrmc" type="text" style="width: 40%;text-align: right;padding-right: 14px;" placeholder='{{qlrmc.placeholder}}' />
+				</div>
+				<label class="item item-input item-select form-item-border">
+					<span style="color: red;">*&nbsp;</span>
+				    <div class="input-label">证件种类</div>
+				    <select validator="required" ng-change="checkZjlx(zjzl.value)" ng-model="zjzl" ng-options="x.label for x in zjzlData"></select>
+				</label>
+				<div class="item item-input form-item-border item-icon-right">
+					<span style="color: red;">*&nbsp;</span>
+					<span style="width: 60%;">证件号码</span>
+					<input ng-model="qlr.zjh" type="text" style="width: 40%;text-align: right;padding-right: 8px;" placeholder="请输入证件号码" />
+					<a on-tap="qlrtoocr();">
+						<i class="ion-ios-camera" style="font-size: 24px;margin-right: 10px;"></i>
+					</a>
+				</div>
+				<div class="item item-input form-item-border item-icon-right">
+					<span style="color: red;">*&nbsp;</span>
+					<span style="width: 60%;">联系电话</span>
+					<input ng-model="qlr.dh" type="text" style="width: 40%;text-align: right;padding-right: 14px;" placeholder="请输入电话号码" />
+				</div>
+				<label class="item item-input item-select form-item-border">
+					<span style="color: red;">*&nbsp;</span>
+			    	<div class="input-label" >权利人类型</div>
+			    	<select ng-change="checkQlrlx(qlrlx.value)" ng-model="qlrlx" ng-options="x.label for x in qlrlxData"></select>
+				</label>
+				<label class="item item-input item-select form-item-border">
+					<span style="color: red;">*&nbsp;</span>
+				    <div class="input-label">共有方式</div>
+				    <select validator="required" ng-change="checkGyfs(gyfs)" ng-model="gyfs" ng-options="x.label for x in gyfsData"></select>
+			    </label>
+				<div class="item item-input form-item-border" ng-show='canEditQlbl'>
+					<span style="color: red;">*&nbsp;</span>
+					<span style="width: 60%;">权利比例</span>
+					<input ng-model="qlr.qlbl" type="text" style="width: 40%;text-align: right;padding-right: 14px;background-color: white;" placeholder="请输入权利比例（%）" />
+				</div>
+				<div class="item item-input form-item-border" ng-show='qlrlx.value == 1 ? false : true'>
+					<span style="color: red;">*&nbsp;</span>
+					<span style="width: 60%;">法定代表人名称</span>
+					<input ng-model="qlr.frmc" type="text" style="width: 40%;text-align: right;padding-right: 14px;" placeholder="请输入法人名称" />
+				</div>
+				<div class="item item-input form-item-border item-icon-right" ng-show='qlrlx.value == 1 ? false : true'>
+					<span style="color: red;">*&nbsp;</span>
+					<span style="width: 60%;">法定代表人电话</span>
+					<input ng-model="qlr.frdh" type="text" style="width: 40%;text-align: right;padding-right: 14px;" placeholder="请输入法人电话" />
+				</div>
+				
+				
+				<label class="item item-input item-select form-item-border" >
+					<span style="color: red;">&nbsp;&nbsp;</span>
+				    <div class="input-label">代理人类型</div>
+					<select validator="required" ng-change="checkDlr(dlrlxlSelected)" ng-model="dlrlxlSelected" ng-options="x.label for x in dlrflData"></select>
+			    </label>
+			    <div class="item item-input form-item-border" ng-show = "dlr.dlrlx=='1'">
+					<span style="color: red;">*&nbsp;</span>
+					<span style="width: 60%;">代理机构名称</span>
+					<input ng-model="dlr.dljg" type="text" style="width: 40%;text-align: right;padding-right: 14px;background-color: white;" placeholder="请输入机构" />
+				</div>
+				<div class="item item-input form-item-border" ng-show = "dlr.dlrlx=='1'">
+					<span style="color: red;">*&nbsp;</span>
+					<span style="width: 60%;">代理机构电话</span>
+					<input ng-model="dlr.dljgdh" type="text" style="width: 40%;text-align: right;padding-right: 14px;background-color: white;" placeholder="请输入电话" />
+				</div>
+				<div class="item item-input form-item-border" ng-show = "dlr.dlrlx!='-1'">
+					<span style="color: red;">*&nbsp;</span>
+					<span>代理人</span>
+					<span ng-show = "dlr.dlrlx=='1'">法人</span>
+					<span>名称</span>
+					<input ng-model="dlr.dlrmc" type="text" style="width: 40%;text-align: right;padding-right: 14px;background-color: white;" placeholder="请输入名称" />
+				</div>
+				<div class="item item-input form-item-border" ng-show = "dlr.dlrlx!='-1'">
+					<span style="color: red;">*&nbsp;</span>
+					<span>代理人</span>
+					<span ng-show = "dlr.dlrlx=='1'">法人</span>
+					<span>电话</span>
+					<input ng-model="dlr.dlrdh" type="text" style="width: 40%;text-align: right;padding-right: 14px;background-color: white;" placeholder="请输入电话" />
+				</div>
+				<!--<label class="item item-input item-select form-item-border" ng-show = "dlr.dlrlx!='-1'">
+					<span style="color: red;">*&nbsp;</span>
+					<span>证件种类</span>
+				    <select validator="required" ng-change="checkDlrZjlx(dlrzjzlSelected.value)" ng-model="dlrzjzlSelected" ng-options="x.label for x in zjzlData"></select>
+				</label>-->
+				<div class="item item-input form-item-border" ng-show = "dlr.dlrlx!='-1'">
+					<span style="color: red;">*&nbsp;</span>
+					<span>代理人</span>
+					<span ng-show = "dlr.dlrlx=='1'">法人</span>
+					<span>身份证</span>
+					<input ng-model="dlr.dlrzjh" type="text" style="width: 40%;text-align: right;padding-right: 14px;background-color: white;" placeholder="请输入身份证号" />
+				</div>
+			</div>
+		</form>
+		
+		<button ng-show="action == '新增'" ng-click="addQlr();" class="button button-full button-positive">添加{{title}}</button>
+		<button ng-show="action == '编辑'" ng-click="updateQlr();" class="button button-full button-positive">更新{{title}}</button>
+	</ion-content>
+</ion-view>

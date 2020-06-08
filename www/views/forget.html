@@ -1,0 +1,34 @@
+<ion-view  view-title="忘记密码" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content>
+		<div class="list list-inset">
+			<label class="item item-input">
+				<i class="icon ion-android-phone-portrait placeholder-icon"></i>
+    			<input type="text" placeholder="请输入手机号" ng-model="user.tel" required>
+  			</label>
+			<label class="item item-input">
+				<i class="icon ion-android-lock placeholder-icon"></i>
+    			<input type="password" placeholder="新密码:请输入6-20位字母,数字组成的密码" ng-model="user.passwordTemp" required>
+  			</label>
+  			<label class="item item-input">
+				<i class="icon ion-android-lock placeholder-icon"></i>
+    			<input type="password"  placeholder="确认新密码 " ng-model="userConfirm.confirmPassword" required>
+  			</label>
+  			<div class="item item-input-inset">
+    			<label class="item-input-wrapper">
+      			<input type="text" placeholder="请输入6位数字验证码" ng-model="user.authCode">
+    			</label>
+    			<button class="button button-small" ng-click="getCode();">
+      				{{code}}
+    			</button>
+  			</div>	 
+		</div>
+		<button style="width: 90%;margin: 0 auto;" class="button button-full button-positive" ng-click="forget()">确认修改</button>
+	</ion-content>
+</ion-view>

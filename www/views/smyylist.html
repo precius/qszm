@@ -1,0 +1,48 @@
+<ion-view view-title="我的上门预约" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="container">
+		<ion-list>
+			<ion-item class="item-remove-animate a" ng-repeat="item in djyy1" style="margin: 10px;border-radius: 5px;background-color: white;padding: 5px;">
+				<a style="width: 100%;" ng-click="checkDjyy(item)">
+					<div style="margin-left: 15px;margin-right: 0;padding: 5px 15px 5px 0;border-bottom: dashed lightgray 1px;min-height: 40px;display: flex;align-items: center;">
+						<p style="color: #333333;width: 30%;">业务号</p>
+						<p style="width: 70%;color: #E79F0D;" align="right">{{item.applicationCode}}</p>
+					</div>
+					<div style="margin-left: 15px;margin-right: 0;padding: 5px 15px 5px 0;border-bottom: dashed lightgray 1px;min-height: 40px;display: flex;align-items: center;">
+						<p style="color: #333333;width: 30%;">申请人</p>
+						<p style="width: 70%;color: #333333;" align="right">{{item.applicantName}}</p>
+					</div>
+					<div style="margin-left: 15px;margin-right: 0;padding: 5px 15px 5px 0;border-bottom: dashed lightgray 1px;min-height: 40px;display: flex;align-items: center;">
+						<p style="color: #333333;width: 30%;">预约事项</p>
+						<p style="width: 70%;color: #333333;" align="right">{{item.reservations}}</p>
+					</div>
+					<div style="margin-left: 15px;margin-right: 0;padding: 5px 15px 5px 0;border-bottom: dashed lightgray 1px;min-height: 40px;display: flex;align-items: center;">
+						<p style="color: #333333;width: 30%;">预约日期</p>
+						<p style="width: 70%;color: #333333;" align="right">{{item.yysj}}</p>
+					</div>
+					<div style="margin-left: 15px;margin-right: 0;padding: 5px 15px 5px 0;min-height: 40px;display: flex;align-items: center;">
+						<p style="color: #333333;width: 30%;">预约状态</p>
+						<p style="width: 70%;color: {{item.statusColor}};" align="right">{{item.statusLabel}}</p>
+					</div>
+				</a>
+				<ion-option-button class="button-assertive" style="height:30%;margin-top: 60px;" ng-click="delete(item)" ng-if="item.cancelable">
+					<div style="margin: 0 auto;">取消</div>
+				</ion-option-button>
+				<ion-option-button class="button-calm" style="height:30%;margin-top: 60px;" ng-click="update(item)" ng-if="item.cancelable">
+					<div style="margin: 0 auto;">修改 </div>
+				</ion-option-button>
+			</ion-item>
+		</ion-list>
+
+		<div ng-show='isShow' style="text-align: center;margin-top: 100px;">
+			<img style="width: 193px;height: 170px;" src="../theme/img_me/default.png" />
+			<p style="margin-top: 20px; font-size: 16px;color: rgb(178,178,178);">未查询到相关数据！</p>
+		</div>
+	</ion-content>
+</ion-view>

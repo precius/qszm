@@ -1,0 +1,32 @@
+<ion-view view-title="不动产网站申请须知及协议" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left" >
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="container">
+		<div class="applicant">
+			<div class="item item-text-wrap form-item-border-first">
+				<p>
+					欢迎使用不动产登记服务平台。为方便公众申请不动产登记，现开通服务大厅功能。申请人在申请前须仔细阅读本须知。<br /><br />
+					一、办理流程：公众外网提交预申请，不动产登记机构预审理，内网受理审核案卷。申请人收到核验通知后，全部申请人携带纸质申请材料原件到现场核验，当场缴纳税费、领证。（当天领证仅限非涉税类业务）。<br /><br />
+					二、申请人收到核验通知后，请及时到场核验。超出核验时间30天未核验的，系统将自动注销该网上预申请。<br /><br />
+					三、服务大厅采用实名制，服务大厅人应是不动产权利人或权利人依法授权的代理人，并具备完全民事行为能力。<br /><br />
+					<span style="color: red;">四、服务大厅人应认真如实填写有关申请信息，所申请事项及上传的影像材料务必真实、合法、有效。申请人提供虚假材料、虚假信息的，将列入诚信黑名单，并承担相应法律责任。</span><br /><br />
+					五、服务大厅为预申请，申请人外网提交后，不动产登记机构进行预审核。在核验前若有任意一方申请人提出撤回预申请，可通过系统网上撤回该网上预申请。因撤回网上预申请产生的纠纷由撤回的申请人负责。<br /><br />
+					<span style="color: red;">本人承诺：本申请系申请人真实意思的表示,并对所填写的上述内容及提交的申请材料真实性负责， 如有不实，愿承担法律责任。</span><br /><br />
+				</p>
+			</div>
+		</div>
+		<div class="row" style="margin-bottom: 32px;">
+  			<div class="col">
+  				<button ng-disabled="!countOver" class="button button-positive" ng-click="agree()">同意{{count}}</button>
+  			</div>
+  			<div class="col">
+  				<button class="button button-energized yyxz-button" ng-click="disagree()">不同意</button>
+  			</div>  
+		</div>		
+	</ion-content>
+</ion-view>

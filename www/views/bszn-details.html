@@ -1,0 +1,45 @@
+<ion-view view-title="{{bszn.text.title}}" class="nav-title">
+	<!--<ion-nav-bar>
+		<ion-nav-back-button class="button-icon ion-ios-arrow-left">返回</ion-nav-back-button>
+		<ion-nav-buttons side="right">
+			<a href="#/djsq/djsqxz"><button class="button button-clear">我要登记</button></a>
+		</ion-nav-buttons>
+	</ion-nav-bar>-->
+	<ion-nav-bar>
+		<ion-nav-buttons side="left" >
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content style="color: black;">
+		<div class='details'>
+			<div class='details-title'>国务院办公厅印发《省级政府耕地保护责任目标考核办法》</div>
+			<div class='details-time'>
+				<p>发布时间：2018-01-19</p>
+			</div>
+			<div class='details-news'>
+				<p>日前，国务院办公厅印发《省级政府耕地保护责任目标考核办法》（以下简称《办法》），自印发之日起施行。《办法》强调，要守住耕地保护红线，严格保护永久基本农田，建立健全省级人民政府耕地保护责任目标考核制度。各省、自治区、直辖市人民政府对《全国土地利用总体规划纲要》确定的本行政区域内的耕地保有量、永久基本农田保护面积以及高标准农田建设任务负责，省长、自治区主席、直辖市市长为第一责任人。 《办法》规定，国务院对各省、自治区、直辖市人民政府耕地保护责任目标履行情况进行考核，由国土资源部会同农业部、国家统计局负责组织开展考核检查工作。实行年度自查、期中检查、期末考核相结合的办法。年度自查每年开展1次，由各省、自治区、直辖市自行组织开展；从2016年起，每五年为一个规划期，期中检查在每个规划期的第三年开展1次；期末考核在每个规划期结束后的次年开展1次。期中检查和期末考核对各省份耕地保护责任目标落实情况进行综合评价、打分排序。
+					《办法》要求，有关部门要根据《全国土地利用总体规划纲要》确定的相关指标和高标准农田建设任务、补充耕地国家统筹、生态退耕、灾毁耕地等实际情况，对各省、自治区、直辖市耕地保有量和永久基本农田保护面积等下达考核检查指标，作为省级政府耕地保护责任目标。全国土地利用变更调查提供的各省、自治区、直辖市耕地面积、生态退耕面积、永久基本农田面积数据以及耕地质量调查评价与分等定级成果，作为考核依据。 《办法》明确，国务院根据考核结果，对认真履行省级政府耕地保护责任、成效突出的省份给予表扬；有关部门在安排年度土地利用计划、土地整治工作专项资金、耕地提质改造项目和耕地质量提升资金时予以倾斜。考核发现问题突出的省份要明确提出整改措施，限期进行整改；整改期间暂停该省、自治区、直辖市相关市、县农用地转用和土地征收审批。
+					《办法》强调，省级政府耕地保护责任目标考核结果，列为省级人民政府主要负责人综合考核评价的重要内容，年度自查、期中检查和期末考核结果，作为领导干部综合考核评价、生态文明建设目标评价考核、粮食安全省长责任制考核、领导干部问责和领导干部自然资源资产离任审计的重要依据。
+				</p>
+			</div>
+		</div>
+		<div class='estimate-text'>
+			<div class='left'></div>
+			<div class='estimate-title'>
+				<p>新闻推荐</p>
+			</div>
+			<div class='right'></div>
+		</div>
+		<ion-item ng-repeat="item in items">
+			<a class="item-thumbnail-right" href="#tab/service/bszn/bszn-details">
+				<img ng-src="{{item.src}}">
+				<div class="new-title item-text-wrap">
+					<p  class="news-main-title">{{item.text}}</p>
+				</div>
+				<p class="news-title">{{item.title}}</p>
+			</a>
+		</ion-item>
+	</ion-content>
+</ion-view>

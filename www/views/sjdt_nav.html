@@ -1,0 +1,23 @@
+<ion-view view-title="办事大厅详情" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content>
+		
+		<div ng-repeat = "item in bsdtData" style="position: relative;height: 260px; border-bottom: solid 0.5px gray;" >
+			<p style="height: 20px;width: 90%;margin-left: 5%;margin-top: 10px;margin-bottom: 10px; font-size: 18px;color: black;">{{item.jgmc}}</p>
+			<div style="width: 90%;margin-left: 5%; height: 200px;position: relative;" >
+				<img src={{item.bg}} style="width: 100%;height: 200px;">
+				<img src="../theme/img/sjdt.png" style="width: 70px;height: 70px;position: absolute;left:50%;top: 50%;margin-top: -35px;margin-left: -35px;"ng-click = "gotoVR(item)" />				
+			</div>
+			
+			<p style="position: absolute;top:200px;left: 0px; width: 90%; height: 40px;margin-left: 5%; font-size: 13px;color: white;background-color: rgba(0,0,0,0.5);line-height: 40px;" >工作时间：9:00至12:00  13:30至17:00 周一至周五</p>
+		</div>
+					
+		
+	</ion-content>
+</ion-view>

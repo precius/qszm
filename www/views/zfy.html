@@ -1,0 +1,50 @@
+<ion-view view-title="真房源" hide-nav-bar="true">
+	<div class="bar bar-header item-input-inset">
+		<i ng-click="goback()" class="ion-ios-arrow-left " style="font-size: 30px; padding-right: 10px; color: #C0C0C0;"></i>
+		<label class="item-input-wrapper">
+		    <i class="icon ion-ios-search placeholder-icon"></i>
+		    <input type="search" placeholder="请输入小区名、地铁或地址">
+		</label>
+		<button class="button button-small">地图</button>
+	</div>
+	<div class="guide_head">
+		<ul class="guide_menu clear" style="margin-top: -15px">
+			<li ng-repeat="item in fyTitle" class="{{item.addClass}}" ng-click="checkType(item.value)">{{item.name}}</li>
+		</ul>
+	</div>
+	<ion-content class="has-subheader">
+		<!--全部房源-->
+		<ion-item ng-repeat="item in Qbitems" ng-show="fyTitle[0].show" style="margin-bottom: -20px;">
+			<a class="item-thumbnail-right" ng-click="goZfyDetails(item)">
+				<img ng-src="{{item.src}}" style="margin-top: 8px;">
+				<div class="new-title item-text-wrap">
+					<p class="news-main-title">{{item.text}}</p>
+					<p class="news-title">{{item.title}}</p>
+					<p class="news-title">{{item.details}}</p>
+				</div>
+			</a>
+		</ion-item>
+		<!--优选房源-->
+		<ion-item ng-repeat="item in Yxitems" ng-show="fyTitle[1].show" style="margin-bottom: -20px;">
+			<a class="item-thumbnail-right" ng-click="goZfyDetails(item)" >
+				<img ng-src="{{item.src}}" style="margin-top: 8px;">
+				<div class="new-title item-text-wrap">
+					<p class="news-main-title">{{item.text}}</p>
+					<p class="news-title">{{item.title}}</p>
+					<p class="news-title">{{item.details}}</p>
+				</div>
+			</a>
+		</ion-item>
+		<!--加盟房源-->
+		<ion-item ng-repeat="item in Jmitems" ng-show="fyTitle[2].show" style="margin-bottom: -20px;">
+			<a class="item-thumbnail-right" ng-click="goZfyDetails(item)" >
+				<img ng-src="{{item.src}}" style="margin-top: 8px;">
+				<div class="new-title item-text-wrap">
+					<p class="news-main-title">{{item.text}}</p>
+					<p class="news-title">{{item.title}}</p>
+					<p class="news-title">{{item.details}}</p>
+				</div>
+			</a>
+		</ion-item>
+	</ion-content>
+</ion-view>

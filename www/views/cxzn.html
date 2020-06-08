@@ -1,0 +1,36 @@
+<ion-view view-title="查询指南" class="nav-title">
+	<ion-nav-bar >
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="container">
+		<div class="guide_head">
+		    <ul class="guide_menu clear">
+		    	<li ng-repeat="item in cxznTitle" class="{{item.addClass}}" ng-click="checkType(item.value)">{{item.name}}</li>
+		    </ul>
+		</div>
+		 <!--受理条件-->
+	    <div class="guide_con" ng-show="cxznTitle[0].show">
+	    	<p style="text-indent: 2rem">为方便公众获取《不动产权属证明》，现开通网上在线查询功能。申请人在申请查询前须仔细阅读本须知。</p>
+			<p>1、不动产产权在甘肃的，均可网上申请查询办理。</p>
+			<p>2、网上申请采用实名制，申请人必须为不动产权利人本人及其未成年子女。</p>
+			<p>3、网上申请必须填写《不动产权属证明查询申请》。</p>
+			<p>4、本查询记录的信息为房屋登记信息或房地登记信息。</p>
+			<p>5、网上申请查询后，可以在线下载查询结果记录并可以加盖电子查询签章。</p>
+			<p>6、网上申请不收取任何手续费。</p>
+	    </div> 
+	    <!--收费情况-->
+	    <div class="guide_con" ng-show="cxznTitle[1].show">
+	    	<p>1、网上办理不收取任何费用。</p>
+	    </div>
+	    <!--常见问题-->
+	    <div class="guide_con" ng-show="cxznTitle[2].show">
+			<p>1、不动产产权在浙江省内均可办理。</p>
+			<p>2、开具无房证明，如家庭成员有未满18周岁子女，可以自行添加查询，成年人查询需要单独实名认证查询。</p>
+	
+	    </div>
+	</ion-content>
+</ion-view>

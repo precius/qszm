@@ -1,0 +1,35 @@
+<ion-view hide-nav-bar="true">
+	<ion-content class="scroll-content ionic-scroll overflow-scroll" style="background-color: #F8F8F8;">
+		<div class="login_bg" style="width: 100%;height: 300px;background-repeat: no-repeat;background-size: 100% 100%;">
+			<div style="width: 100%;height: 240px;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+				<img src="../theme/img/logo.png" width="100px" height="100px" />
+				<p style="font-size: 18px;color: white;margin-top: 10px;font-weight: bold;">不动产登记服务平台</p>
+			</div>
+			<div ng-click="goback()" style="width: 40px;height: 40px;display: flex;align-items: center;justify-content: center;position: absolute;top: 0;left: 0;">
+				<img width="8px" height="15px" src="../theme/img/back_white.png" />
+			</div>
+			<div ng-click="register()" style="height: 40px;display: flex;align-items: center;position: absolute;top: 0;right: 0;">
+				<p style="font-size: 14px;color: white;padding-left: 15px;padding-right: 15px;">注册</p>
+			</div>
+		</div>
+		<div class="card" style="position: absolute;top: 240px;left:20px;right:20px;height: 260px;margin: 0;border-radius: 5px;display: flex;flex-direction: column;align-items: center;background-color: white;">
+			<div style="height: 40px;display: flex;align-items: center;margin-top: 30px;">
+				<p style="font-size: 16px;color: #333333;">账号</p>
+				<input ng-readonly="phoneLogin" placeholder="请输入您的账号" ng-model="user.account" type="text" style="margin-left: 20px;vertical-align:middle;border: none;font-size: 16px;color: #444444;background-color: white;" />
+			</div>
+			<div style="width: 80%;height: 1px;background-color: #E6E6E6;"></div>
+			<div style="height: 40px;display: flex;align-items: center;margin-top: 20px;">
+				<p style="font-size: 16px;color: #333333;">密码</p>
+				<input placeholder="请输入您的密码" ng-model="user.passWord" type="password" style="margin-left: 20px;vertical-align:middle;border: none;font-size: 16px;color: #444444;" />
+			</div>
+			<div style="width: 80%;height: 1px;background-color: #E6E6E6;"></div>
+			<div ng-click="next()" style="width: 80%;height: 40px;background-color: #108EE9;display: flex;align-items: center;justify-content: center;border-radius: 20px;margin-top: 30px;">
+				<p style="font-size: 16px;color: white;">下一步</p>
+			</div>
+			<div style="width: 80%;position: relative;margin-top: 10px;">
+				<p ng-if="!phoneLogin" ng-click="usePhone()" style="font-size: 14px;color: #666666;padding-left: 10px;">使用手机号</p>
+				<p ng-click="forgetPassword()" style="position: absolute;top: 0;right: 10px;font-size: 14px;color: #666666;">忘记密码？</p>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

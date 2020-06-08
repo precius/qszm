@@ -1,0 +1,32 @@
+<ion-view view-title="请选择登记事项" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+
+	<ion-content>
+		<div class="bar bar-header item-input-inset">
+			<label class="item-input-wrapper">
+		    <i class="icon ion-ios-search placeholder-icon"></i>
+		    <input type="search" ng-model="queryCondition.queryStr" placeholder="请输入搜索条件"/>
+		  </label>
+			<button ng-click="query()" class="button button-clear button-stable">搜索</button>
+		</div>
+		
+		<div class="row row-wrap djsxxz-divide">
+			<div ng-repeat="item in queryResult" class="col col-50" ng-click="clickDjsx(item)">
+				<img src='{{item.pictureUrl}}'>
+				<div class="row djsxxz-content">
+					<div class="col col-75 djsxxz-title">
+						<p style="word-wrap:break-word;">{{item.name}}</p>
+					</div> 		 
+					<div class="col djsxxz-detail">详情</div>
+				</div>
+				 
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

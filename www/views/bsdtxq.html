@@ -1,0 +1,60 @@
+<ion-view view-title="办事大厅详情" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content>
+		<div style="position: relative;">
+			<img src="../theme/img/bsdt.png" style="width: 100%;height: 200px;">
+			<div on-tap="go();" style="position: absolute;left:50%;top: 50%;text-align: center;margin-top: -38px;margin-left: -38px;color: #fff;">
+				<img src="../theme/img/sjdt.png" style="width: 76px;height: 76px;" />
+				<p style="margin-top: -40px;">实景大厅</p>
+			</div>
+		</div>
+
+		<div style="margin: 12px 0;">
+			<p style="text-indent: 12px;font-size: 18px;color: rgb(51,51,51);">{{data.officeName}}</p>
+			<p style="text-indent: 12px;font-size: 13px;color: rgb(51,51,51); margin-top: 14px;">工作时间：08:00-12:00 14:00-18:00 周一至周五</p>
+		</div>
+
+		<div style=" height:320px; padding: 14px; background-color: rgb(245,245,245);">
+			<div style="height:292px; padding: 14px; background-color: #fff;border-radius: 5px;box-shadow: 0 0 4 0.1;">
+				<div style="text-align: center;font-size: 15px;color: rgb(51,51,51);margin-bottom: 14px;">动态回答</div>
+				<div style="border-bottom: solid 1px #f0f0f0;position: relative;margin-bottom: 14px;">
+					<img style="width: 18px;height: 18px;" src="../theme/img/tx.png" /> <span style="color: rgb(51,51,51);font-size: 14px;position: absolute;left: 32px;top: 0px;">这附近的停车场好找吗？</span>
+					<p style="text-indent: 32px;font-size: 12px;color: rgb(153,153,153);margin: 0 0 10px 0;">共15条回答</p>
+				</div>
+				<div style="border-bottom: solid 1px #f0f0f0;position: relative;margin-bottom: 14px;">
+					<img style="width: 18px;height: 18px;" src="../theme/img/tx.png" /> <span style="color: rgb(51,51,51);font-size: 14px;position: absolute;left: 32px;top: 0px;">这个大厅一般多久拿证？</span>
+					<p style="text-indent: 32px;font-size: 12px;color: rgb(153,153,153);margin: 0 0 10px 0;">共15条回答</p>
+				</div>
+				<div style="border-bottom: solid 1px #f0f0f0;position: relative;margin-bottom: 14px;">
+					<img style="width: 18px;height: 18px;" src="../theme/img/tx.png" /> <span style="color: rgb(51,51,51);font-size: 14px;position: absolute;left: 32px;top: 0px;">这附近有打印店吗？</span>
+					<p style="text-indent: 32px;font-size: 12px;color: rgb(153,153,153);margin: 0 0 10px 0;">共15条回答</p>
+				</div>
+				<div style="text-align: center;font-size: 12px;color: rgb(102,102,102);margin-top: 20px;">查看更多</div>
+			</div>
+		</div>
+
+		<div style="text-align: center;">
+			<p style="margin: 15px;color: rgb(51,51,51);font-size: 15px;">猜您喜欢的周边服务</p>
+			<div class="list">
+				<a class="item item-thumbnail-left" href="#">
+					<img src="../theme/img/tcc.png">
+					<h2 style="text-align: left;">张掖路停车场</h2>
+					<p style="text-align: left;">￥3/小时</p>
+					<p style="text-align: left;">剩余车位800个，共1000个</p>
+				</a>
+				<a class="item item-thumbnail-left" href="#">
+					<img src="../theme/img/tcc.png">
+					<h2 style="text-align: left;">张掖路停车场</h2>
+					<p style="text-align: left;">￥3/小时</p>
+					<p style="text-align: left;">剩余车位：800个，共1000个车位</p>
+				</a>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

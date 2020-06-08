@@ -1,0 +1,65 @@
+<!-- 房屋_预告登记_预售商品房抵押权预告登记 -->
+<ion-view view-title="不动产信息" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+
+	<ion-content class="container" style="margin-bottom: 60px;">
+		<div class="row item item-input form-item-border" style="line-height: normal;margin-bottom: 0px !important; margin-top: 15px;height: 55px;border-top: none;">
+			<span style="color: red;">&nbsp;&nbsp;</span>
+			<div class="add-msg-style" style="margin-top: 0px;margin-left: 0px;"></div>
+			<div class="col col-50"><span class="add-msg" style="font-size: 16px;">不动产信息</span></div>
+		</div>
+		<div class="item item-input form-item-border" style="border-top: solid #ddd 1px;">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-52">预告登记种类</span>
+			<input ng-model="ygdjzl.label" type="text" class="width-48" readonly="readonly" style="background-color: white;" />
+		</div>
+		<div class="item item-input form-item-border">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-52">不动产坐落</span>
+			<input ng-model="qlxxExMhList.zl" type="text" class="width-48" placeholder="请输入不动产坐落" />
+		</div>
+		<div class="item item-input form-item-border">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-52">房屋产权面积</span>
+			<input ng-model="qlxxExMhList.fwcqmj" type="text" class="width-48" placeholder="请输入房屋产权面积（㎡）" />
+		</div>
+		<div class="item item-input form-item-border">
+			<span style="color: red;">&nbsp;&nbsp;</span>
+			<span class="width-52">交易价格(万元)</span>
+			<input ng-model="qlxxExMhList.fwjyjg" type="text" class="width-48" placeholder="请输入取得价格" />
+		</div>
+		<div class="item item-input form-item-border">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-52">债务履行起始时间</span>
+			<input type="date" ng-model="bdcxx.qlxxEx.zwlxqssj" class="width-48" placeholder="请选择时间" />
+		</div>
+		<div class="item item-input form-item-border">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-52">债务履行终止时间</span>
+			<input type="date" ng-model="bdcxx.qlxxEx.zwlxjssj" class="width-48" placeholder="请选择时间" />
+		</div>
+		<div class="item item-input form-item-border">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-52">被担保债权数额(万元)</span>
+			<input ng-model="bdcxx.qlxxEx.bdbzqse" type="text" class="width-48" placeholder="请输入被担保债权数额" />
+		</div>
+		<div class="item item-input form-item-border">
+			<span style="color: red;">*&nbsp;&nbsp;</span>
+			<span class="width-52">申请登记原因</span>
+			<input ng-model="bdcxx.qlxxEx.sqdjyy" type="text" class="width-48" placeholder="请输入登记原因" />
+			<div style="width: 40px;height: 100%;display: flex;justify-content: center;align-items: center;margin-right: 10px;" ng-click="selectReason()">
+				<i class="icon ion-android-arrow-dropdown" style="text-align: center;"></i>
+			</div>
+		</div>
+	</ion-content>
+	<div ng-show="isShow" class="bar bar-footer nextstep-div-style">
+		<button class="button button-stable nextstep-button-style" style="width: 48% !important;" ng-click="savebdcxx(false)">保存</button>
+		<button class="button button-stable nextstep-button-style" style="width: 48% !important;" ng-click="addbdcxx(false)">下一步</button>
+	</div>
+</ion-view>

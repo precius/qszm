@@ -1,0 +1,94 @@
+<ion-view view-title="核实身份证信息" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content style = "background-color: #FFFFFF;" class="container"  >
+			<div style="width: 100%;height: 1px;background-color:#E1E1E1;"></div>			
+			<!--<a href="javascript:;" class="file" style="height: 200px;background:none;border: dashed 2px #ccc;border-radius: 5px;">
+				<div ng-if="photoSelected1">
+					<img ng-src="{{idCardSrc}}" style="max-height: 200px;margin: 0;padding: 0;max-width: 100%;" />
+				</div>
+				<div ng-if="!photoSelected1" style="width: 80px;height: 80px;position: relative;margin: 10px auto;">
+					<img  width="80px" height="80px" src="../theme/img/photo.png" />
+				</div>
+		    	<input type="file" width="200px" height: "200px" id="file_input1"  accept="image/*" multiple>
+	    	</a>
+	    	<div ng-if="!photoSelected1" class="text" style="margin-top: -60px;text-align: center;font-size: 15px;" >上传身份证(人像面)</div>-->
+	    	<div style="width: 90%;height: 165px; position: relative; margin: 10px auto; align-items: center;" > 
+	    		<img ng-if = "photoSelected1" ng-src="{{idCardSrc}}" style="display: block; max-width: 100%;max-height: 165px; margin: auto auto;"  />
+	    		<img ng-if = "!photoSelected1" src="../theme/img/idcard_front.png" style="display: block; width: 100%; height: 165px;"  />
+	    		<input type="file"  style=" font-size: 100px;opacity: 0;width:100%; height: 165px;position: absolute;top: 0px;left: 0px;" id="file_input1"  accept="image/*" multiple  />
+	    	</div>
+	    	
+	    	
+	    	
+	    	
+			<!--<a href="javascript:;" class="file" style="height: 200px;background:none;border: dashed 2px #ccc;border-radius: 5px; margin-top: 60px;">
+				<div ng-if="photoSelected2">
+					<img ng-src="{{idCardSrc2}}" style="max-height: 200px;margin: 0;padding: 0;max-width: 100%;" />
+				</div>
+				<div ng-if="!photoSelected2" style="width: 80px;height: 80px;position: relative;margin: 30px auto;">
+					<img  width="80px" height="80px" src="../theme/img/photo.png" />
+				</div>
+		    	<input type="file" width="200px" height: "200px" id="file_input2"  accept="image/*" multiple>
+	    	</a>
+	    	<div ng-if="!photoSelected2" class="text" style="margin-top: -60px;text-align: center;font-size: 15px;" >上传身份证(国徽面)</div>-->
+	    	
+	    	<div style="width: 90%;height: 165px; position: relative; margin: 10px auto; align-items: center;" > 
+	    		<img ng-if = "photoSelected2" ng-src="{{idCardSrc2}}" style="display: block; max-width: 100%;max-height: 165px; margin: auto auto;"  />
+	    		<img ng-if = "!photoSelected2" src="../theme/img/idcard_back.png" style="display: block; width: 100%; height: 165px;"  />
+	    		<input type="file"  style=" font-size: 100px;opacity: 0;width:100%; height: 165px;position: absolute;top: 0px;left: 0px;" id="file_input2"  accept="image/*" multiple  />
+	    	</div>
+	    	
+	    	
+	    	
+	    	
+			<div  style="width: 90%;height: 45px;display: flex; border: none;border-top: 1px solid #E1E1E1;border-bottom: 1px solid #E1E1E1; margin-top: 30px;margin-left: 5%;align-items: center;">
+				<span style="width: 20%;color: #333333;font-size: 14px;">姓名</span>
+				<input ng-model="certificate.name" type="text" style="background-color: white; color: #333333;font-size: 14px;width: 80%;" readonly="readonly" ng-show='isCertification' />
+				<input ng-model="certificate.name" type="text" style="color: #333333;font-size: 14px;width: 80%;" placeholder="请输入姓名" ng-show='!isCertification' />
+			</div>
+			<div style="width: 90%;height: 45px;display: flex; border: none;border-bottom: 1px solid #E1E1E1;margin-left: 5%;align-items: center;">
+				<span style="width: 20%;color: #333333;font-size: 14px;">身份证</span>
+				<input ng-model="certificate.citizen_id" type="text" style="background-color: white;color: #333333;font-size: 14px;width: 80%;" readonly="readonly" ng-show='isCertification' />
+				<input ng-model="certificate.citizen_id" type="text" style="color: #333333;font-size: 14px;width: 80%;" placeholder="请输入证件号" ng-show='!isCertification' ng-change="changeZjhm()" />
+			</div>
+			<div style="width: 90%;height: 45px;max-height: 135px; display: flex; border: none;border-bottom: 1px solid #E1E1E1;margin-left: 5%;align-items: center;">
+				<span style="width: 20%;color: #333333;font-size: 14px;">地址</span>
+				<input type="text" ng-model="certificate.address" style="background-color: white;color: #333333;font-size: 14px;width: 80%;overflow: scroll;" />
+			</div>
+			
+			 
+			<button ng-click="nextStep();" class="button button-full button-positive" style="margin-top: 40px;">下一步 人脸识别</button>
+		
+	</ion-content>
+	<div style="width: 100%;
+		height: 100%;
+		background-color:rgba(0,0,0,.7);
+		position: absolute;
+		z-index: 100;
+		left: 0px;
+		top: 0px;
+		align-items: center;"
+		ng-if = "isShowTips">
+		<img style="display: block;margin: 55px auto;"  width="60%" height="70%"  src="../theme/img/photo_specification.png";/>
+		<button style="
+			display: block;
+			width: 80%;
+			height: 40px;
+			background-color: #108EE9;
+			margin: 20px auto;
+			border: none;
+			border-radius: 10px;
+			color: #FFFFFF;
+			font-size: 14px;" 
+			ng-click = "hideTips()"
+			>我知道了
+		</button>
+	</div>
+		
+</ion-view>

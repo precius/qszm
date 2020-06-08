@@ -1,0 +1,28 @@
+<ion-view view-title={{title}} class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left" >
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	
+	<ion-content>
+		<div class="bar bar-header item-input-inset">
+			<label class="item-input-wrapper">
+		    <i class="icon ion-ios-search placeholder-icon"></i>
+		    <input type="search" ng-model="policyQuery.title" placeholder="请输入标题"/>
+		  </label>
+		  <button ng-click = "query()" class="button button-positive">搜索</button>
+		</div>
+		<ion-item ng-repeat="item in items">
+			<a class="item-thumbnail-right" on-tap="gotodetails($index)">
+				<img ng-src="../theme/img/bg1.png">
+				<div class="new-title item-text-wrap">
+					<p  class="news-main-title">{{item.title}}</p>
+				</div>
+				<p class="news-title">{{item.mainAuthor}}</p>
+			</a>
+		</ion-item>
+	</ion-content>
+</ion-view>

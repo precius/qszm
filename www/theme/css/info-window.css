@@ -1,0 +1,31 @@
+       .info {
+            line-height: 20px; 
+            height: 80px;
+            width: 245px;
+            background: #CCCCCC;
+        }
+        div.left-all {
+            width: 25%;
+            float: left;
+            text-align: center;
+        }
+        div.left-all p {
+            text-align: center;
+        }
+        div.info-middle {
+			width: 50%;
+			float: left;
+        }
+        p.middle-title {
+			font-size: 15px;
+			/*margin-top: 7px;*/
+        }
+        div.info-right {
+			width: 25%;
+			float: left;
+			height: 80px;
+			text-align: center;
+        }
+        div.info-right button {
+			margin-top: 20px;
+        }

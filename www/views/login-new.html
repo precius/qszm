@@ -1,0 +1,25 @@
+<ion-view hide-nav-bar="true">
+	<ion-content class="scroll-content ionic-scroll overflow-scroll" style="background-color: #F8F8F8;">
+		<div class="login_bg" style="width: 100%;height: 300px;background-repeat: no-repeat;background-size: 100% 100%;">
+			<div style="width: 100%;height: 240px;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+				<img src="../theme/img/logo.png" width="100px" height="100px" />
+				<p style="font-size: 18px;color: white;margin-top: 10px;font-weight: bold;">不动产登记服务平台</p>
+			</div>
+			<div ng-click="goback()" style="width: 40px;height: 40px;display: flex;align-items: center;justify-content: center;position: absolute;top: 0;left: 0;">
+				<img width="8px" height="15px" src="../theme/img/back_white.png" />
+			</div>
+		</div>
+		<div class="card" style="position: absolute;top: 240px;left:20px;right:20px;height: 220px;margin: 0;border-radius: 5px;display: flex;flex-direction: column;align-items: center;background-color: white;">
+			<div style="height:40px;display: flex;align-items: center;margin-top: 30px;">
+				<p style="font-size: 16px;color: #333333;vertical-align: middle;">+86</p>
+				<div style="width: 1px;height: 20px;background-color: #E6E6E6;margin-left: 10px;"></div>
+				<input placeholder="请输入您的手机号码" ng-model="user.phone" type="number" style="margin-left: 20px;vertical-align:middle;border: none;font-size: 16px;width: 200px;" />
+			</div>
+			<div style="width: 80%;height: 1px;background-color: #E6E6E6;margin-top: 10px;"></div>
+			<div ng-click="next()" style="width: 80%;height: 40px;background-color: #108EE9;display: flex;align-items: center;justify-content: center;border-radius: 20px;margin-top: 40px;">
+				<p style="font-size: 16px;color: white;">下一步</p>
+			</div>
+			<p ng-click="useAccount()" style="width: 80%;font-size: 14px;color: #666666;padding-left: 10px;margin-top: 10px;">使用账号登录</p>
+		</div>
+	</ion-content>
+</ion-view>

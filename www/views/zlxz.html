@@ -1,0 +1,35 @@
+<ion-view view-title="坐落选择" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="container">
+		<p style="width: 100%;height: 40px;clear: both;color: black;line-height: 40px;font-size: 15px;margin-left: 10px;">省:</p>
+		<div >
+			<p ng-class="$index==provinceIndex?'area-choiced':'area-unchoiced'" ng-repeat = "item in provinceArray" ng-click="choiceProvince($index)">
+				{{item.title}}
+			</p>
+		</div>
+		
+		<p ng-show="provinceIndex!=-1" style="width: 100%;height: 40px;clear: both;color: black;line-height: 40px;font-size: 15px;margin-left: 10px;">市:</p>
+		<div >
+			<p ng-class="$index==cityIndex?'area-choiced':'area-unchoiced'" ng-repeat = "item in cityArray" ng-click="choiceCity($index)">
+				{{item.title}}
+			</p>
+		</div>
+		
+		<p ng-show="cityIndex!=-1" style="width: 100%;height: 40px;clear: both;color: black;line-height: 40px;font-size: 15px;margin-left: 10px;">区（县）:</p>
+		<div >
+			<p ng-class="$index==areaIndex?'area-choiced':'area-unchoiced'" ng-repeat = "item in areaArray" ng-click="choiceArea($index)">
+				{{item.title}}
+			</p>
+		</div>
+		<p ng-show="areaIndex!=-1" style="width: 100%;height: 40px;clear: both;color: black;line-height: 40px;font-size: 15px;margin-left: 10px;">详细地址:</p>
+		<input ng-show="areaIndex!=-1" ng-model="street.detail" style="width: 95%; height: 40px;margin-left: 10px; padding-left: 10px; color: black;font-size: 13px;border: none;border-radius: 5px;" placeholder="请输入详细的街道地址" />
+		
+		<button ng-show="areaIndex!=-1" ng-click="finish();" style="width: 50%;height: 45px;margin-top: 20px; line-height: 45px;text-align: center;background-color: #4F9BDB;border: none;border-radius:5px ;font-size: 16px;color: white;" >完成</button>
+	</ion-content>
+</ion-view>

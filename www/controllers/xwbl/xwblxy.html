@@ -1,0 +1,33 @@
+<ion-view view-title="签名协议" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left" >
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="container">
+		<div class="applicant">
+			<p class="yyxz-title">签名须知及协议</p>
+			<div class="item item-text-wrap form-item-border-first">
+				<p>
+					欢迎使用不动产登记服务平台。<span style="color: red;">为方便公众申请不动产登记，现开通电子签名功能。请在签名之前仔细阅读本须知。</span><br /><br />
+					<span style="color: red;"></span><span style="color: red;">一、合同系双方当事人的真实意思表示。</span><br /><br />
+					<span style="color: red;"></span><span style="color: red;">二、合同双方具有完全行为能力</span><br /><br />
+					<span style="color: red;"></span><span style="color: red;">三、合同内容不违反法律的规定</span><br /><br />
+					<span style="color: red;"></span><span style="color: red;">四、合同内容不能侵害第三人的合法利益</span><br /><br />
+					<span style="color: red;"></span><span style="color: red;">五、签名时请一笔一划写,以免字迹不清晰</span><br /><br />
+					<span style="color: red;">本人承诺：因本次签名产生的一切后果由自己承担</span><br /><br />
+				</p>
+			</div>
+		</div>
+		<div class="row_confirm">
+  			<div class="col">
+  				<button  class="button button-positive" ng-click="agree()">同意</button>
+  			</div>
+  			<div class="col">
+  				<button class="button button-energized yyxz-button" ng-click="disagree()">不同意</button>
+  			</div>  
+		</div>
+	</ion-content>
+</ion-view>

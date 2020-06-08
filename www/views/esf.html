@@ -1,0 +1,52 @@
+<ion-view view-title="二手房" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content style="background-color: #fff;">
+		
+		<div class="item-input-inset" style="height: 50px;">
+			<label class="item-input-wrapper">
+			    <i class="icon ion-ios-search placeholder-icon" style="color: #000;"></i>
+			    <input type="search" ng-model="policyQuery.title" placeholder="你想住在哪？"/>
+		  	</label>
+			<button ng-click="gotoback()" class="button button-clear button-stable" style="width: 20%;">搜索</button>
+		</div>
+		<img src='../theme/img_home/esf.png' style="height: 240px;width: 100%;">
+		
+		<div class="row" style="text-align: center;color: #333;font-size: 14px;line-height: 0;font-size: 16px;">
+		  <div class="col" ng-class="{'active0': show ==0}" ng-click="showclass(0);">
+		  	全部房源
+		  </div>
+		  <div class="col" ng-class="{'active0': show==1}" ng-click="showclass(1);">个人房源</div>
+		  <div class="col" ng-class="{'active0': show==2}" ng-click="showclass(2);">中介房源</div>
+		</div>
+		
+		<div class="row" style="text-align: center;color: #333;font-size: 14px;line-height: 0;">
+		  <div class="col">区域<i class="icon ion-arrow-down-b"></i></div>
+		  <div class="col">价格<i class="icon ion-arrow-down-b"></i></div>
+		  <div class="col">户型<i class="icon ion-arrow-down-b"></i></div>
+		  <div class="col">更多<i class="icon ion-arrow-down-b"></i></div>
+		  <div class="col">排序<i class="icon ion-arrow-down-b"></i></div>
+		</div>
+		
+		<ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
+			<ion-item class="item item-thumbnail-left" ng-repeat="item in data" ng-click="gotodetail($index)">
+				<img src="../theme/img_me/bdc.png">
+				<h2 style="font-weight: 500;">{{item.xqmc}}</h2>
+				<p style="height: 30px;line-height: 30px;">2室两厅&nbsp;&nbsp{{item.area}}㎡</p>
+				<p><span style="color: rgb(255,202,59) !important;">{{item.price}}万</span>（估算价格，仅供参考）</p>
+				<ion-option-button class="button-assertive" ng-click="delete($index)">
+					删除
+				</ion-option-button>	 
+			</ion-item>
+		</ion-list>
+		<div ng-show='isShow' style="text-align: center;margin-top: 100px;">
+			<img style="width: 193px;height: 170px;" src="../theme/img_me/default.png" />
+			<p style="margin-top: 20px; font-size: 16px;color: rgb(178,178,178);">暂时没有不动产数据，请点击右上角添加</p>
+		</div>
+	</ion-content>
+</ion-view>

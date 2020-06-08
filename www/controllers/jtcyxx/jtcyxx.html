@@ -1,0 +1,50 @@
+<ion-view view-title="家庭成员信息" class="nav-title" style="background-color: #EEF3F0;">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="container">
+		<div class="applicant" style="padding: 15px 10px 32px 10px;" ng-repeat="item in familyMemberList">
+			<div class="item item-input form-item-border item-icon-right">
+				<span style="color: red;">*&nbsp;</span>
+				<span style="width: 60%;">成员姓名</span>
+				<input ng-model="item.name" type="text" style="width: 40%;text-align: right;padding-right: 14px;"
+					placeholder="请输入成员姓名" />
+			</div>
+			<label class="item item-input item-select form-item-border">
+				<span style="color: red;">*&nbsp;</span>
+				<div class="input-label">成员关系</div>
+				<select validator="required" ng-change="checkRelationship(item)" ng-model="item.menberRelationship"
+					ng-options="x.label for x in familyRelationshipEnum"></select>
+			</label>
+			<label class="item item-input item-select form-item-border">
+				<span style="color: red;">*&nbsp;</span>
+				<div class="input-label">证件种类</div>
+				<select validator="required" ng-change="checkFamilyZjzl(item)" ng-model="item.menberZjzl"
+					ng-options="x.label for x in zjzlData"></select>
+			</label>
+			<div class="item item-input form-item-border item-icon-right">
+				<span style="color: red;">*&nbsp;</span>
+				<span style="width: 60%;">证件号码</span>
+				<input ng-model="item.zjh" type="text" style="width: 40%;text-align: right;padding-right: 8px;"
+					placeholder="请输入证件号码" />
+			</div>
+			<div class="item item-input form-item-border item-icon-right">
+				<span style="color: red;">*&nbsp;</span>
+				<span style="width: 60%;">联系电话</span>
+				<input ng-model="item.phone" type="text" style="width: 40%;text-align: right;padding-right: 14px;"
+					placeholder="请输入电话号码" />
+			</div>
+			<div class="row">
+				<div class="col">
+					<button ng-click="addfamilymember(item);" class="button button-full button-positive">确认</button>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+
+
+</ion-view>

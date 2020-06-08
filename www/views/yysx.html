@@ -1,0 +1,113 @@
+<ion-view view-title="预约信息" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="yysxGoback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content>
+		<div style="position: sticky;top: 0;width: 100%;height: 1px;background-color: #F2F2F2;;"></div>
+		<div style="display: flex;align-items: center;width: 100%;height: 40px;border-bottom: 1px solid #F2F2F2;margin-left: 16px;">
+			<p style="color: black;font-size: 14px;width: 100px;">姓名</p>
+			<p style="color: black;font-size: 14px;">{{mongoDbUserInfo.name}}</p>
+		</div>
+		<div style="display: flex;align-items: center;width: 100%;height: 40px;border-bottom: 1px solid #F2F2F2;margin-left: 16px;">
+			<p style="color: black;font-size: 14px;width: 100px;">手机号</p>
+			<p style="color: black;font-size: 14px;">{{mongoDbUserInfo.tel}}</p>
+		</div>
+		<div ng-click="selectBsdt()" style="display: flex;align-items: center;height: 40px;border-bottom: 1px solid #F2F2F2;margin-left: 16px;position: relative;">
+			<p style="color: black;font-size: 14px;width: 100px;">办事大厅</p>
+			<p style="color: {{fontColor.bsdtColor}};font-size: 14px;">{{yysx.bsdt}}</p>
+			<img width="8px" height="14px" src="../theme/img/zk3.png" style="position: absolute;right: 16px;" />
+		</div>
+		<div ng-click="selectyysx()" style="display: flex;align-items: center;height: 40px;border-bottom: 1px solid #F2F2F2;margin-left: 16px;position: relative;">
+			<p style="color: black;font-size: 14px;width: 100px;">预约事项</p>
+			<p style="color: {{fontColor.sxColor}};font-size: 14px;">{{yysx.sx}}</p>
+			<img ng-if="yysxChoosable" width="8px" height="14px" src="../theme/img/zk3.png" style="position: absolute;right: 16px;" />
+		</div>
+		
+		<div ng-click="xzyysj()" style="display: flex;align-items: center;height: 40px;border-bottom: 1px solid #F2F2F2;margin-left: 16px;position: relative;">
+			<p style="color: black;font-size: 14px;width: 100px;">预约时间</p>
+			<p style="color: {{fontColor.timeColor}};font-size: 14px;">{{yysx.time}}</p>
+			<img width="8px" height="14px" src="../theme/img/zk3.png" style="position: absolute;right: 16px;" />
+		</div>
+		<div ng-click="checkBdcqzhMb()" style="display: flex;align-items: center;height: 40px;border-bottom: 1px solid #F2F2F2;margin-left: 16px;position: relative;">
+			<p style="color: black;font-size: 14px;width: 100px;">产权证书</p>
+			<p style="color: #ABABAB;font-size: 14px;">请选择产权证书类别</p>
+			<img width="8px" height="14px" src="../theme/img/zk3.png" style="position: absolute;right: 16px;" />
+		</div>
+		<div ng-if="bdcqzhMbData[0].isSelected" style="width: 100%;height: 48px;display: flex;align-items: center;margin-left: 16px;border-bottom: 1px solid #F2F2F2;padding-right:16px;background-color: white;">
+			<span style="color: red;font-size: 14px;text-align: center;">*&nbsp;</span>
+			<span style="color: #444;font-size: 14px;text-align: center;">{{bdcqzhMbData[0].keyWords[0]}}</span>
+			<input type="text" ng-model="bdcqzhMbData[0].inputs[0]" style="height: 25px;width: 13%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 14px;text-align: center;">{{bdcqzhMbData[0].keyWords[1]}}</span>
+			<input type="text" ng-model="bdcqzhMbData[0].inputs[1]" style="height: 25px;width: 18%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 14px;text-align: center;">{{bdcqzhMbData[0].keyWords[2]}}</span>
+			<input type="text" ng-model="bdcqzhMbData[0].inputs[2]" style="height: 25px;width: 18%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 14px;text-align: center;">{{bdcqzhMbData[0].keyWords[3]}}</span>
+			<i class="icon ion-ios-information" style="font-size: 22px;margin-left: 6px;" ng-click="clickTips(0);"></i>
+		</div>
+
+		<div ng-if="bdcqzhMbData[1].isSelected" style="width: 100%;height: 48px;display: flex;align-items: center;margin-left: 16px;border-bottom: 1px solid #F2F2F2;padding-right:16px;background-color: white;">
+			<span style="color: red;font-size: 14px;text-align: center;">*&nbsp;</span>
+			<input type="text" ng-model="bdcqzhMbData[1].inputs[0]" style="height: 25px;width: 18%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 14px;text-align: center;">{{bdcqzhMbData[1].keyWords[0]}}</span>
+			<input type="text" ng-model="bdcqzhMbData[1].inputs[1]" style="height: 25px;width: 23%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 14px;text-align: center;">{{bdcqzhMbData[1].keyWords[1]}}</span>
+			<input type="text" ng-model="bdcqzhMbData[1].inputs[2]" style="height: 25px;width: 23%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 14px;text-align: center;">{{bdcqzhMbData[1].keyWords[2]}}</span>
+			<i class="icon ion-ios-information" style="font-size: 22px;margin-left: 6px;" ng-click="clickTips(1);"></i>
+		</div>
+
+		<div ng-if="bdcqzhMbData[2].isSelected" style="width: 100%;height: 48px;display: flex;align-items: center;margin-left: 16px;border-bottom: 1px solid #F2F2F2;padding-right:16px;background-color: white;">
+			<span style="color: red;font-size: 14px;text-align: center;">*&nbsp;</span>
+			<input type="text" ng-model="bdcqzhMbData[2].inputs[0]" style="height: 25px;width: 15%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 14px;text-align: center;">{{bdcqzhMbData[2].keyWords[0]}}</span>
+			<input type="text" ng-model="bdcqzhMbData[2].inputs[1]" style="height: 25px;width: 22%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 14px;text-align: center;">{{bdcqzhMbData[2].keyWords[1]}}</span>
+			<input type="text" ng-model="bdcqzhMbData[2].inputs[2]" style="height: 25px;width: 22%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 14px;text-align: center;">{{bdcqzhMbData[2].keyWords[2]}}</span>
+			<i class="icon ion-ios-information" style="font-size: 22px;margin-left: 6px;" ng-click="clickTips(2);"></i>
+		</div>
+		<div ng-show="bdcqzhMbData[3].isSelected" class="item item-icon-right" style="height: 42px; border: none; border-bottom: solid #ddd 1px;border-top: solid #ddd 1px;">
+			<input style="width: 90%;margin-top: -14px;padding-left: 12px;" type="text" ng-model="bdcqzhMbData[3].inputs[0]" placeholder="请点击右方按钮扫描二维码识别产权证号">
+			<i class="icon ion-qr-scanner placeholder-icon" ng-click="scanStart();" style="font-size: 20px;"></i>
+		</div>
+		<div style="display: flex;align-items: center;height: 40px;border-bottom: 1px solid #F2F2F2;margin-left: 16px;position: relative;">
+			<p style="color: black;font-size: 14px;width: 100px;">短信验证</p>
+			<input placeholder="请输入验证码" ng-model="wyyy.code" type="number" style="vertical-align:middle;border: none;font-size: 14px;" />
+			<div ng-click="getCode()" style="height: 26px;border: solid 1px #108EE9;border-radius: 3px;display: flex;align-items: center;justify-content: center;position: absolute;right: 16px;">
+				<p style="font-size: 14px;color: #108EE9;padding-left: 5px;padding-right: 5px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">{{code}}</p>
+			</div>
+		</div>
+		
+		<div ng-if="yysx.sx != '请选择预约事项'" style="width: 80%;margin: 15px auto; font-size: 14px; " >
+			<span style="color: #000000;">温馨提示：为避免材料不全导致不能办理的麻烦，请您务必携带</span>
+			<span style="color: #FF0000;" >身份证件及所需收件材料   </span>
+			<span style="color: #000000;">。</span>
+			<span ng-if="canShowDoc" style="color: #0E8EE7;" ng-click = "showDocs()">   (点击查看所需材料)</span>
+		</div>
+		<div ng-show = "isShowDocs" style="width: 80%;margin: 5px auto;font-size: 14px;color: #000000;">
+			<div ng-repeat="item in uploadFile" style="width: 100%;max-height:60px ;display: flex;align-items: center;margin: 5px 0;border: none;border-bottom: solid 1px #C0C0C0;" >
+				<p style="width: 70%;" >{{item.clmc}}</p>
+				<p style="width: 20%;margin-left: 10px;text-align: right;">{{item.bz}}</p>
+			</div>
+		</div>
+		<div ng-if="yysx.sx != '请选择预约事项'" style="width: 80%;margin: 15px auto; font-size: 14px; " >
+			<span style="color: #FF0000;" >涉税业务还需携带储蓄卡 </span>
+			<span style="color: #000000;">，并确保余额大于应缴税金额，避免多跑一次。</span>
+		</div>
+		
+		
+		
+		<div ng-click="admit()" style="margin-left: 16px;margin-right: 16px;height: 40px;margin-top: 50px;background-color: #0E8EE7;display: flex;align-items: center;justify-content: center;border-radius: 5px;">
+			<p style="color: white;font-size: 16px;">提交预约</p>
+		</div>
+		<div id="modal-overlay" ng-show='showTips' ng-click="clickTips(3);">
+			<div class="modal-data">
+				<img src="{{src}}" />
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

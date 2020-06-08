@@ -1,0 +1,41 @@
+<ion-view view-title="{{title}}" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click ="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="container">
+		<div class="item item-icon-right" style="border: none; border-top: solid #ddd 1px;margin-left: -4px;margin-top: 1px;" ng-click="gotoYzqyxz()">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-66">请选择不动产权所在区域</span>
+			<i class="icon ion-ios-arrow-right"></i>
+		</div>
+		<p ng-show ="areaData.zl!=null" style="min-height: 30px;width: 100%;padding-left:30px; background-color: white;color: #333333;font-size: 14px;">
+			{{areaData.zlProvince+areaData.zlCity+areaData.zlArea+areaData.zl}}
+		</p>
+		<!-- <p>2134214214+{{data.zlProvince}}</p> -->
+		<div class="item item-input form-item-border" ng-show ="type == '1'||type == '0' || type == '5' || type == '6'">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-52">不动产权证</span>
+			<input ng-model="yz.bdcqzmh" type="text" class="width-48" placeholder="请输入不动产权证号"  style="background-color: white;" />
+		</div>
+		<div class="item item-input form-item-border" ng-show ="type == '2'||type == '3'">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-52">不动产证明号</span>
+			<input ng-model="yz.bdcqzmh" type="text" class="width-48" placeholder="请输入不动产证明号"  style="background-color: white;" />
+		</div>
+		
+		<div class="item item-input form-item-border" ng-show ="type == '4'">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-52">合同号</span>
+			<input ng-model="yz.bdcqzmh" type="text" class="width-48" placeholder="请输入合同号"  style="background-color: white;" />
+		</div>
+	</ion-content>
+	<div class="bar bar-footer nextstep-div-style">
+		<button class="button button-stable nextstep-button-style" style="width: 48% !important;" ng-click="verify()">验证</button>
+		<button class="button button-stable nextstep-button-style" style="width: 48% !important;" ng-click="nextStep()">下一步</button>
+	</div>
+	
+</ion-view>

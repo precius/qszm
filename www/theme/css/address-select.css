@@ -1,0 +1,62 @@
+.select-city{
+  text-align: center;
+  font-size: 15px;
+  margin-top: 55px;
+  margin-left: 15px;;
+}
+.select-city-label{
+  width: 50%;
+}
+.row-padding{
+  padding: 0px !important;
+}
+.select-district{
+  width: 50%;
+  font-size: 12px !important;
+  text-align: right;
+  color: gray;
+  }
+ .select-district-bg{
+ 	color: rgb(0,151,255) !important;
+ 	 }
+.select-district-icon{
+	margin: auto 3px;
+}
+.select-label{
+	margin-top: 20px;
+	margin-left: 20px;
+	color: gray;
+}
+.select-label-new{
+	margin: 15px 0px 5px 22px;
+	font-size: 15px !important; 
+	color: rgb(102,102,102);
+}
+.btn-style{
+	font-size: 12px;
+	margin-left: 5px;
+	margin-top: 5px;
+	padding-left: 0px;
+	padding-right: 0px;
+	width: 30%;
+}
+.btn-select-style{
+	font-size: 15px;
+	margin-left: 8px;
+	margin-top: 5px;
+	padding-left: 0px;
+	padding-right: 0px;
+	width: 30%;
+}
+.btn-select-style-new{
+	font-size: 12px;
+	margin: 5px 0px 5px 8px;
+	padding-left: 0px;
+	padding-right: 0px;
+	width: 30%;
+	background-color: rgb(255,255,255) !important;
+	color: rgb(102,102,102);
+}
+.btn-clear{
+	clear: both;
+}

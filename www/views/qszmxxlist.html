@@ -1,0 +1,44 @@
+<ion-view view-title="权属证明信息列表" class="nav-title">
+	<ion-nav-bar >
+		<ion-nav-buttons side="left" >
+			<button class="button button-icon" ng-click="gobacktohome()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+		<ion-nav-buttons side="right">
+			<a ng-click="goSqxz()"><h4 class="nav-right-button">查询</h4></a>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="container">
+		<ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+		<ion-list>			
+			<form ng-submit="" class="form ">
+				<div style="height: 10px;"></div>
+				<div style="border-bottom:solid 19px #f8f8f8;"  ng-repeat="item in datalist" >
+					<a class="item" href="" style="border-radius: 5px;margin: 0 5px;" ng-style = "{'background-color':(item.status == '已取消' ? '#DADADA' :'white')}">
+						<h2>查询编号：{{item.cxbh}}</h2>
+						<p>查询机构：{{item.cxjg}}</p>
+						<p>查询状态：{{item.status}}</p>
+						<div style="border-bottom: solid 1px #e6e6e6;margin: 20px -20px 10px -20px;"></div>
+						<div style="float: right; color: #8b8c8f;">
+							<div on-tap="del($index)" style="float: right;" ng-if = "item.status == '查询中'">
+								<i class="icon ion-trash-a"></i>
+								&nbsp取消&nbsp
+							</div> 
+							<div on-tap="showInfo($index)"  style="float: right;" ng-if = "item.status != '已取消'">
+								<i class="icon ion-clipboard"></i>
+								&nbsp查看&nbsp
+							</div> 
+						</div>
+					</a>
+				</div>
+			</form>
+		</ion-list>
+		<div ng-show='isShow' style="text-align: center;margin-top: 100px;">
+			<img style="width: 193px;height: 170px;" src="../theme/img_me/default.png" />
+			<p style="margin-top: 20px; font-size: 16px;color: rgb(178,178,178);">未查询到相关数据！</p>
+		</div>		
+	    <!--上拉加载更多-->
+	    <ion-infinite-scroll ng-if="hasMore()" on-infinite="loadMore()" distance="10%"></ion-infinite-scroll>				
+	</ion-content>
+</ion-view>

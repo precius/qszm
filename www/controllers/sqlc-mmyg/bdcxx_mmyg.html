@@ -1,0 +1,109 @@
+<ion-view view-title="不动产信息" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+
+	<ion-content class="container" ng-style="{'margin-bottom':canEdit ?'60px':'0'}">
+		<div class="row item item-input form-item-border" style="line-height: normal;margin-bottom: 0px !important; margin-top: 15px;height: 55px;border-top: none;">
+			<span style="color: red;">&nbsp;&nbsp;</span>
+			<div class="add-msg-style" style="margin-top: 0px;margin-left: 0px;"></div>
+			<div class="col col-50"><span class="add-msg" style="font-size: 16px;margin-left: -2px;">不动产信息</span></div>
+		</div>
+		<div ng-show="needShowMb" class="item item-icon-right" style="border: none; border-top: solid #ddd 1px;margin-left: -4px;" ng-click="checkBdcqzhMb()">
+			<span style="color: red;">&nbsp;&nbsp;</span> 请选择产权证书类别
+			<i class="icon ion-ios-arrow-right"></i>
+		</div>
+
+		<div ng-if="bdcqzhMbData[0].isSelected && needShowMb" style="width: 100%;height: 48px;display: flex;align-items: center;padding-left: 16px;border-top: 1px solid #ddd;margin-top:1px;padding-right:16px;background-color: white;">
+			<span style="color: red;font-size: 16px;text-align: center;">*&nbsp;</span>
+			<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[0].keyWords[0]}}</span>
+			<input type="text" ng-model="bdcqzhMbData[0].inputs[0]" style="height: 25px;width: 12%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[0].keyWords[1]}}</span>
+			<input type="text" ng-model="bdcqzhMbData[0].inputs[1]" style="height: 25px;width: 16%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[0].keyWords[2]}}</span>
+			<input type="text" ng-model="bdcqzhMbData[0].inputs[2]" style="height: 25px;width: 16%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[0].keyWords[3]}}</span>
+			<i class="icon ion-ios-information" style="font-size: 22px;margin-left: 6px;" ng-click="clickTips(0);"></i>
+		</div>
+
+		<div ng-if="bdcqzhMbData[1].isSelected && needShowMb" style="width: 100%;height: 48px;display: flex;align-items: center;padding-left: 16px;border-top: 1px solid #ddd;margin-top:1px;padding-right:16px;background-color: white;">
+			<span style="color: red;font-size: 16px;text-align: center;">*&nbsp;</span>
+			<input type="text" ng-model="bdcqzhMbData[1].inputs[0]" style="height: 25px;width: 16%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[1].keyWords[0]}}</span>
+			<input type="text" ng-model="bdcqzhMbData[1].inputs[1]" style="height: 25px;width: 20%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[1].keyWords[1]}}</span>
+			<input type="text" ng-model="bdcqzhMbData[1].inputs[2]" style="height: 25px;width: 20%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[1].keyWords[2]}}</span>
+			<i class="icon ion-ios-information" style="font-size: 22px;margin-left: 6px;" ng-click="clickTips(1);"></i>
+		</div>
+
+		<div ng-if="bdcqzhMbData[2].isSelected && needShowMb" style="width: 100%;height: 48px;display: flex;align-items: center;padding-left: 16px;border-top: 1px solid #ddd;margin-top:1px;padding-right:16px;background-color: white;">
+			<span style="color: red;font-size: 16px;text-align: center;">*&nbsp;</span>
+			<input type="text" ng-model="bdcqzhMbData[2].inputs[0]" style="height: 25px;width: 15%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[2].keyWords[0]}}</span>
+			<input type="text" ng-model="bdcqzhMbData[2].inputs[1]" style="height: 25px;width: 22%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[2].keyWords[1]}}</span>
+			<input type="text" ng-model="bdcqzhMbData[2].inputs[2]" style="height: 25px;width: 22%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+			<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[2].keyWords[2]}}</span>
+			<i class="icon ion-ios-information" style="font-size: 22px;margin-left: 6px;" ng-click="clickTips(2);"></i>
+		</div>
+
+		<div ng-show="bdcqzhMbData[3].isSelected && needShowMb" class="item item-icon-right" style="border: none; border-top: solid #ddd 1px;">
+			<input style="width: 90%;margin-top: -8px;padding-left: 12px;" type="text" ng-model="bdcqzhMbData[3].inputs[0]" placeholder="请点击右方按钮扫描二维码识别产权证号">
+			<i class="icon ion-qr-scanner placeholder-icon" ng-click="scanStart();" style="font-size: 20px;"></i>
+		</div>
+
+		<div ng-show="!needShowMb" class="item item-input form-item-border">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-66">不动产权证号</span>
+			<input ng-model="qlxxExMh.bdcqzh" type="text" class="width-48" placeholder="请输入不动产权证号" ng-readonly="!canEdit" style="background-color: white;" />
+		</div>
+		<div class="item item-icon-right" style="border: none; border-top: solid #ddd 1px;margin-left: -4px;" ng-click="gotoZlxz()">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-66">不动产坐落</span>
+			
+			<!--<input ng-model="qlxxExMh.zl" type="t<br />ext" class="width-48" placeholder="请输入不动产坐落" ng-readonly="!canEdit" style="background-color: white;" />-->
+			<i class="icon ion-ios-arrow-right"></i>
+		</div>
+		<p ng-show ="qlxxExMh.zl!=null" style="min-height: 30px;width: 100%;padding-left:30px; background-color: white;color: #333333;font-size: 14px;">
+			{{qlxxExMh.zlProvince+qlxxExMh.zlCity+qlxxExMh.zlArea+qlxxExMh.zl}}
+		</p>
+		<div class="item item-input form-item-border">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-66">房屋产权面积</span>
+			<input ng-model="qlxxExMh.fwcqmj" type="text" class="width-48" placeholder="请输入房屋面积（㎡）" ng-readonly="!canEdit" style="background-color: white;" />
+		</div>
+		<div class="item item-input form-item-border" ng-if="showZmh">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-66">不动产登记证明号</span>
+			<input ng-model="bdcdjzmh" type="text" class="width-48" placeholder="请输入不动产登记证明号" ng-readonly="!canEdit" style="background-color: white;" />
+		</div>
+		
+		<div class="item item-input form-item-border item-icon-right">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-66">申请登记原因</span>
+			<input ng-model="qlxxEx.sqdjyy" type="text" class="width-48" placeholder="请输入登记原因" ng-readonly="!canEdit" style="background-color: white;" />
+			<!--<div style="width: 40px;height: 100%;display: flex;justify-content: center;align-items: center;margin-right: 10px;" ng-click="selectReason()">
+				<i class="icon ion-android-arrow-dropdown" style="text-align: center;"></i>
+			</div>-->
+			<i ng-if="canEdit" class="icon ion-android-arrow-dropdown" style="text-align: center;font-size: 26px;" ng-click="selectReason();"></i>
+		</div>
+		<div id="modal-overlay" ng-show='showTips' ng-click="clickTips(3);">
+			<div class="modal-data">
+				<img src="{{src}}" />
+			</div>
+		</div>
+	</ion-content>
+	<div ng-if="canEdit" class="bar bar-footer nextstep-div-style">
+		<button class="button button-stable nextstep-button-style" style="width: 48% !important;" ng-click="savebdcxx(false)">保存</button>
+		<button class="button button-stable nextstep-button-style" style="width: 48% !important;" ng-click="addbdcxx(false)">下一步</button>
+	</div>
+	<div id="touch" ng-click="floatingButtonClicked()">
+		<img src="../../theme/img/NETAPPLYING_FOCUS.png" style="width: 40px; height: 40px;display: block;margin-left: 10px;" />
+		<p style="font-size: 8px;width: 60px;text-align: center;">办事指南</p>
+	</div>
+</ion-view>

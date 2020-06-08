@@ -1,0 +1,83 @@
+<ion-view view-title="{{title}}" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click ="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="container">
+    <div ng-show="needShowMb" class="item item-icon-right" style="border: none; border-top: solid #ddd 1px;margin-left: -4px;"
+      ng-click="checkBdcqzhMb()">
+      <span style="color: red;">&nbsp;&nbsp;</span> 请选择产权证书类别
+      <i class="icon ion-ios-arrow-right"></i>
+    </div>
+
+    <div ng-if="bdcqzhMbData[0].isSelected && needShowMb" style="width: 100%;height: 48px;display: flex;align-items: center;padding-left: 16px;border-top: 1px solid #ddd;margin-top:1px;padding-right:16px;background-color: white;">
+    	<span style="color: red;font-size: 16px;text-align: center;">*&nbsp;</span>
+    	<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[0].keyWords[0]}}</span>
+    	<input type="text" ng-model="bdcqzhMbData[0].inputs[0]" style="height: 25px;width: 12%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+    	<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[0].keyWords[1]}}</span>
+    	<input type="text" ng-model="bdcqzhMbData[0].inputs[1]" style="height: 25px;width: 16%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+    	<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[0].keyWords[2]}}</span>
+    	<input type="text" ng-model="bdcqzhMbData[0].inputs[2]" style="height: 25px;width: 16%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+    	<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[0].keyWords[3]}}</span>
+    	<i class="icon ion-ios-information" style="font-size: 22px;margin-left: 6px;" ng-click="clickTips(0);"></i>
+    </div>
+
+    <div ng-if="bdcqzhMbData[1].isSelected && needShowMb" style="width: 100%;height: 48px;display: flex;align-items: center;padding-left: 16px;border-top: 1px solid #ddd;margin-top:1px;padding-right:16px;background-color: white;">
+    	<span style="color: red;font-size: 16px;text-align: center;">*&nbsp;</span>
+    	<input type="text" ng-model="bdcqzhMbData[1].inputs[0]" style="height: 25px;width: 16%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+    	<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[1].keyWords[0]}}</span>
+    	<input type="text" ng-model="bdcqzhMbData[1].inputs[1]" style="height: 25px;width: 20%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+    	<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[1].keyWords[1]}}</span>
+    	<input type="text" ng-model="bdcqzhMbData[1].inputs[2]" style="height: 25px;width: 20%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+    	<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[1].keyWords[2]}}</span>
+    	<i class="icon ion-ios-information" style="font-size: 22px;margin-left: 6px;" ng-click="clickTips(1);"></i>
+    </div>
+
+    <div ng-if="bdcqzhMbData[2].isSelected && needShowMb" style="width: 100%;height: 48px;display: flex;align-items: center;padding-left: 16px;border-top: 1px solid #ddd;margin-top:1px;padding-right:16px;background-color: white;">
+    	<span style="color: red;font-size: 16px;text-align: center;">*&nbsp;</span>
+    	<input type="text" ng-model="bdcqzhMbData[2].inputs[0]" style="height: 25px;width: 15%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+    	<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[2].keyWords[0]}}</span>
+    	<input type="text" ng-model="bdcqzhMbData[2].inputs[1]" style="height: 25px;width: 22%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+    	<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[2].keyWords[1]}}</span>
+    	<input type="text" ng-model="bdcqzhMbData[2].inputs[2]" style="height: 25px;width: 22%;padding-left:1px;padding-right:1px;border: 1px solid #ddd;text-align: center;">
+    	<span style="color: #444;font-size: 16px;text-align: center;">{{bdcqzhMbData[2].keyWords[2]}}</span>
+    	<i class="icon ion-ios-information" style="font-size: 22px;margin-left: 6px;" ng-click="clickTips(2);"></i>
+    </div>
+
+		<div class="item item-input form-item-border" ng-show ="flowType == '2'||flowType == '3'">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-52">不动产证明号</span>
+			<input ng-model="yz.zmh" type="text" class="width-48" placeholder="请输入不动产证明号"  style="background-color: white;" />
+		</div>
+
+		<div class="item item-input form-item-border" ng-show ="flowType == '4'">
+			<span style="color: red;">*&nbsp;</span>
+			<span class="width-52">合同号</span>
+			<input ng-model="yz.hth" type="text" class="width-48" placeholder="请输入合同号"  style="background-color: white;" />
+		</div>
+    <div class="item item-icon-right" style="border: none; border-top: solid #ddd 1px;margin-left: -4px;margin-top: 1px;" ng-click="gotoYzqyxz()">
+    	<span style="color: red;">*&nbsp;</span>
+    	<span class="width-66">请选择不动产权所在区域</span>
+    	<i class="icon ion-ios-arrow-right"></i>
+    </div>
+    <p ng-show ="areaData.zl!=null" style="min-height: 30px;width: 100%;padding-left:30px; background-color: white;color: #333333;font-size: 14px;">
+    	{{areaData.zlProvince+areaData.zlCity+areaData.zlArea+areaData.zl}}
+    </p>
+    <div class="item item-input form-item-border">
+    	<span style="color: red;">*&nbsp;</span>
+    	<span class="width-52">单元号</span>
+    	<input ng-model="yz.dyh" type="text" class="width-48" placeholder="请输入不动产单元号"  style="background-color: white;" />
+    </div>
+	</ion-content>
+  <ion-footer-bar style="height: 52px;">
+    <div class="nextstep-div-style">
+      <button class="button button-stable nextstep-button-style" style="width: 48% !important;" ng-click="verify()">验证</button>
+      <button ng-show = "!hasGetSqxx" class="button button-stable nextstep-button-style" style="width: 48% !important;" ng-click="getSqxx()">提取信息</button>
+      <button ng-show = "hasGetSqxx" class="button button-stable nextstep-button-style" style="width: 48% !important;" ng-click="startSq()">发起申请</button>
+    </div>
+  </ion-footer-bar>
+
+</ion-view>

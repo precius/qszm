@@ -1,0 +1,19 @@
+<ion-view view-title="实名认证" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content style="background-color: #FFFFFF;" class="container">
+		<div style="width: 100%;height: 1px;background-color:#E1E1E1;"></div>
+		<div style="position: relative;margin-top: 60px;width: 100%;display: flex;align-items: center;justify-content: center;">
+			<img ng-if="!photoSelected" style="width: 210px;height: 280px;" src="../theme/img/take_photo.png" />
+			<img ng-if="photoSelected" style="max-width: 210px;max-height: 280px;" src="{{faceSrc}}" />
+			<input type="file" style="line-height: 280px;opacity: 0;position: absolute;top: 0px;left: 0;width: 210px;left: auto;right: auto;" id="file_input3" accept="image/*" multiple="multiple">
+		</div>
+		<button ng-click="next()" class="button button-block button-positive" style="width: 90%;margin-top: 60px;margin-left: 5%;">下一步</button>
+	</ion-content>
+
+</ion-view>

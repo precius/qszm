@@ -1,0 +1,58 @@
+<ion-view view-title="不动产所在区域" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left" >
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	
+	<ion-content class="container">
+		<form name="bdcszqy" ng-submit="" class="form" ng-class="{true :'form-readonly'}[djsq.status]" >
+			<div class="applicant">
+  			 <label class=" item-input wd-list item-select">
+    			<div class="input-label">
+      				登记机构：
+    			</div>
+    			<select ng-change="checkJg(jg.name)" ng-model="jg" ng-options="x.name for x in jgData" required="required"></select>
+  			</label>
+  			<label class=" item-input wd-list item-select">
+    			<div class="input-label">
+      				办事大厅：
+    			</div>
+    			<select ng-change="checkBsdt(bsdt.officeName)" ng-model="bsdt" ng-options="x.officeName for x in bsdtData" required="required"></select>
+  			</label>
+  			<label class=" item-input wd-list item-select">
+    			<div class="input-label">
+      				不动产类型：
+    			</div>
+    			<select validator="required" ng-change="checkBdclb(bdclb.value)" ng-model="bdclb" ng-options="x.name for x in bdclbData"></select>
+  			</label>
+  			<label class=" item-input wd-list item-select">
+    			<div class="input-label">
+      				登记类型：
+    			</div>
+    			<select validator="required"  ng-change="checkDjlx(djlx.name)" ng-model="djlx" ng-options="x.name for x in djlxData"></select>
+    			<option value="">请选择</option>
+  			</label>
+  			<label class=" item-input wd-list item-select">
+    			<div class="input-label">
+      				登记大类：
+    			</div>
+    			<select validator="required"  ng-change="checkDjdl(djdl.name)" ng-model="djdl" ng-options="x.name for x in djdlData">
+    				<option value="">请选择</option>
+    			</select>
+  			</label>
+  			<label class=" item-input wd-list item-select">
+    			<div class="input-label">
+      				登记小类：
+    			</div>
+    			<select validator="required" ng-change="checkDjxl(djxl.name)" ng-model="djxl" ng-options="x.name for x in djxlData" ng-init="djxl">
+    				<option value="">请选择</option>
+    			</select>
+  			</label>
+		</div> 
+			<button on-tap="saveInfo();" ng-show="!djsq.status"  class="button button-full button-positive">确定</button>
+		</form>
+	</ion-content>
+</ion-view>

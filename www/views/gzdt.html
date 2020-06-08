@@ -1,0 +1,25 @@
+<ion-view view-title="工作动态">
+	<ion-nav-bar class="bar-calm">
+		<ion-nav-back-button class="button-icon ion-ios-arrow-left">
+			返回
+		</ion-nav-back-button>
+	</ion-nav-bar>
+	
+	<ion-content>
+		<div class="bar bar-header item-input-inset">
+			<label class="item-input-wrapper">
+		    <i class="icon ion-ios-search placeholder-icon"></i>
+		    <input type="search" placeholder="搜索人名、标题、内容、状态">
+		  </label>
+		</div>
+		<ion-item ng-repeat="item in items">
+			<a class="item-thumbnail-right" href="#tab/mine/gzdt/gzdt-details">
+				<img ng-src="{{item.src}}">
+				<div class="new-title item-text-wrap">
+					<p  class="news-main-title">{{item.text}}</p>
+				</div>
+				<p class="news-title">{{item.title}}</p>
+			</a>
+		</ion-item>
+	</ion-content>
+</ion-view>

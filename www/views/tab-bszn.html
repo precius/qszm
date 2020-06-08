@@ -1,0 +1,98 @@
+<ion-view view-title="{{viewTitle}}" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback1()" ng-show="showBack">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="container" ng-show="showList">
+		<div ng-show="title1" style="height: 16px;"></div>
+		<div ng-repeat="item in bszn" ng-show="title1" style="position: relative; color: rgb(51,51,51);background-color:white;height: 61px;line-height:61px; margin: 0px 10px 12px 10px;border:solid 1px rgb(210,210,210);border-radius: 5px;box-shadow: 0 3px 3px rgba(84,84,84,0.15);">
+			<img src="../theme/img/bszn.png" style="position: absolute;top: 7px;left: 10px; width: 47px;height: 47px;">
+			<div ng-click="checkType(item)" style="position: absolute;left: 67px;font-size: 14px;font-weight: bold;">
+				{{item.name}}
+			</div>
+		</div>
+		<div class="container" style="height: 10px;" ng-show="title2"></div>
+		<div class="list-item" ng-repeat="item in text2" ng-click="check2(item)" ng-show="title2">
+			<span class="item-border title-weight">
+				<img src="../theme/img/vertical_line.png" style="height: 22px;float: left;margin-left: -15px;">
+				{{item.name}}
+			</span>
+			<div ng-repeat="itemSubDefConfig in item.flowSubDefConfigs"  ng-click="checkBszn(itemSubDefConfig)" ng-show="title2">
+				<span class="item-border1">{{itemSubDefConfig.name}}<i class="ion-chevron-right bszn-ion" style="float: right;"></i></span>
+			</div>
+			<div class="container" style="height: 10px;"></div>
+		</div>
+	</ion-content>
+	<!--详细列表-->
+	<ion-content class="container" ng-show="showItem">
+		<form ng-submit="">
+			<div class="applicant" ng-show="showbszn">
+				<div class="item row_bszn yylist-item" style="padding-left:5px">
+					<div class="row_bszn_div"><span class="yylist-item-label">适用情形</span></div>
+					<div style="margin-left: 25px;"><span class="yylist-item-value">{{bsznDetails.description}}<span/></div>
+				</div>
+				<div style="border-top: 1px solid #ccc;"></div>
+				<div class="item row_bszn yylist-item" style="padding-left:5px">
+					<div class="row_bszn_div"><span class="yylist-item-label">承诺期限</span></div>
+					<div style="margin-left: 25px;"><span class="yylist-item-value">{{bsznDetails.cnqx}}</span></div>
+					<!-- cnqx -->
+				</div>
+				<div style="border-top: 1px solid #ccc;"></div>
+				<div class="item row_bszn yylist-item" style="padding-left:5px">
+					<div class="row_bszn_div"><span class="yylist-item-label">法定期限</span></div>
+					<div style="margin-left: 25px;"><span class="yylist-item-value">{{bsznDetails.fdqx}}</span></div>
+				</div>
+				<div style="border-top: 1px solid #ccc;"></div>
+				<div class="item row_bszn yylist-item" style="padding-left:5px">
+					<div class="row_bszn_div"><span class="yylist-item-label">咨询电话</span></div>
+					<div style="margin-left: 25px;"><span class="yylist-item-value">{{bsznDetails.zxdh}}</span></div>
+				</div>
+				<div style="border-top: 1px solid #ccc;"></div>
+				<div class="item row_bszn yylist-item" style="padding-left:5px">
+					<div class="row_bszn_div"><span class="yylist-item-label">投诉电话</span></div>
+					<div style="margin-left: 25px;"><span class="yylist-item-value">{{bsznDetails.tsdh}}</span></div>
+				</div>
+				<div style="border-top: 1px solid #ccc;"></div>
+				<div class="item row_bszn yylist-item" style="padding-left:5px">
+					<div class="row_bszn_div"><span class="yylist-item-label">预审时限</span></div>
+					<div style="margin-left: 25px;"><span class="yylist-item-value">{{bsznDetails.yssx}}天</span></div>
+				</div>
+				<div style="border-top: 1px solid #ccc;" style="padding-left:5px"></div>
+				<!--<div class="item row_bszn yylist-item" style="padding-left:5px">
+					<div class="row_bszn_div"><span class="yylist-item-label">能否预约</span></div>
+					<div style="margin-left: 25px;"><span class="yylist-item-value">{{bsznDetails.sfkyy}}</span></div>
+				</div>
+				<div style="border-top: 1px solid #ccc;"></div>-->
+				<div class="item row_bszn yylist-item" style="padding-left:5px">
+					<div class="row_bszn_div"><span class="yylist-item-label">受理条件</span></div>
+					<div style="margin-left: 25px;"><span class="yylist-item-value">{{bsznDetails.sltj}}</span></div>
+				</div>
+				<div style="border-top: 1px solid #ccc;"></div>
+				<div class="item row_bszn yylist-item" style="padding-left:5px">
+					<div class="row_bszn_div"><span class="yylist-item-label">收费标准</span></div>
+					<div style="margin-left: 25px;"><span class="yylist-item-value">{{bsznDetails.sfbz}}</span></div>
+				</div>
+				<div style="border-top: 1px solid #ccc;"></div>
+				<div class="item row_bszn yylist-item" style="padding-left:5px">
+					<div class="row_bszn_div"><span class="yylist-item-label">法定依据</span></div>
+					<div style="margin-left: 25px;"><span class="yylist-item-value">{{bsznDetails.fdyj}}</span></div>
+				</div>
+			</div>
+
+			<div ng-show="showcllb">
+				<div class="add-people">
+					<span class="add-msg" style="font-size: 16px;">申报材料</span>
+				</div>
+				<div class="applicant">
+					<div ng-repeat="item in uploadFile">
+						<li style="color: #000;margin-left: 12px;">{{item.clmc}}&nbsp;&nbsp;<span ng-show='item.clsls.length' class="positive" ng-click="gotoclsls($index)">(示例)</span> </li>
+						<div style="height: 6px;"></div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</ion-content>
+</ion-view>

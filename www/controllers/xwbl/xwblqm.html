@@ -1,0 +1,45 @@
+<ion-view view-title="询问笔录" class="nav-title">
+  <ion-nav-bar>
+    <ion-nav-buttons side="left">
+      <button class="button button-icon" ng-click="goback()">
+        <i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+      </button>
+    </ion-nav-buttons>
+    <style>
+     #sign0{
+        display:none;
+     }
+  </style>
+  </ion-nav-bar>
+  <ion-content class="container" style="background:white">
+    <center>
+      <div id="dialog" style=" display:none;">
+        <!--<p class="close"><a href="#" ng-click="closeBg();">关闭</a></p> -->
+        <!-- 显示签名区域-->
+        <div id="trust_title">请投保人<span style="font-size:35pt;">{{name}}</span>签名</div>
+        <div id="container" onmousedown="return false;">
+          <canvas id="trustCanvas" width="2">
+          </canvas>
+        </div>
+
+        <!-- <div id="single_scrollbar">
+                    <input id="single_scrollbar_up" type="button" class="button blue" value="左移" />
+                    <span id="single_scroll_text"> *滑动操作* </span>
+                    <input id="single_scrollbar_down" type="button" class="button blue" value="右移" />
+                </div> -->
+
+        <div id="btnContainerOuter" width="100%" style="background-color: white;">
+          <input id="btnOK" type="button" class="button blue" value="确 定" ng-click="sign_confirm();" />
+          <input id="btnClear" type="button" class="button blue" value="清 屏" ng-click="clear_canvas();">
+          <input id="btnCancel" type="button" class="button blue" value="取 消" ng-click="cancelSign();">
+        </div>
+      </div>
+      <br>
+    </center>
+    <img style="display: block;margin: 0 auto;" id="sign3" src="data:image/gif;base64,R0lGODlhhwBIAJECAL6+vtHR0f///wAAACH5BAEAAAIALAAAAACHAEgAAAL/jI+py+0Po5y02ouz3rz7Dx7CSJbmiabqyrbuC6NLTNf2jddKzvf+r9oBh8TiS2hMKo3IpfOJa0KnVJa0is0Krtruk+sNMxPi8hJsTufQ6jaN7Y634PK6jGzPu+j6PL9f9wcYJzjYVmiYhphYtngCAMkDUDOJEklzCeRokolTCdNZEuoyyrPJaRnz+dL5uSrwahnbcyr6WJoyuwLJywvb28sCPKw7hyc5THmbOxLryqqCu3ecU3xLTBz9TLIqza3rbYzgYw1t3jw5Wo4bLi7S81qeSor6+yhszylvRQ2KDYyJnixYqr6J2sdvnLJdC+dp40YqnkFa/c4xu/YvY7FQ7O1yIZymMCBDkST1fUQ3xNG6kfVsacv4KxizjjFU4nvYcqI+f8I00jSh0ucuZ/d2FnXZwle0GzaH4kQKkSXBgz3zXdRR8Ym6o0tRepXlytrJEovAQTV6dqrTZlFZiWWaVWorqstysk0aday3sSQQSdSplm7afUTTonX4Jq7HnK1mZcsG1ifAlzBtCNra9QZfzZvdGWCUqBZoLKJHUyltGgrq1E5Ws1bi+vWYkLIJKa4tJjZuTbd3d9HtmyLt4I16E68C/Djc4cp/G2/+5Tn0M9KnJ0lu/Uj17ERmcEceIrz48eTLmz+PPr368gUAADs="
+      ng-click="sign();" />
+
+  </ion-content>
+
+
+</ion-view>

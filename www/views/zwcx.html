@@ -1,0 +1,44 @@
+<ion-view view-title="不动产权属证明真伪" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left" >
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="container">
+		<form ng-submit="" class="form ">
+			<div style="height: 10px;"></div>
+		
+			<div class="applicant" style="color: black;">
+		        <div class="item-container">
+		        	<span style="color: red;font-size: 14px">*&nbsp;</span>
+					<span style="width: 35%;font-size: 14px">查档证号</span>
+			    	<input ng-model="cret.cdbh" type="text" style="width: 65%;"  placeholder="请输入查档证号"/>
+				</div>
+		        <div class="item-container">
+		        	<span style="color: red;font-size: 14px">*&nbsp;</span>		        	
+					<span style="width: 35%;font-size: 14px">权利人名称</span>
+			    	<input ng-model="cret.qlrmc" type="text" style="width: 65%;"  placeholder="请输入权利人名称"/>
+				</div>
+		        <div class="item-container">
+		        	<span style="color: red;font-size: 14px">*&nbsp;</span>		        	
+					<span style="width: 35%;font-size: 14px">权利人证件号</span>
+			    	<input ng-model="cret.qlrzjh" type="text" style="width: 65%;"  placeholder="请输入权利人证件号"/>
+				</div>
+				<div class="item-container" style="position: relative;">
+					<span style="color: red;">*&nbsp;</span>
+					<span style="font-size: 14px;width: 35%;">短信验证</span>
+					<input placeholder="请输入验证码" ng-model="cret.yzCode" type="number" style="vertical-align:middle;border: none;font-size: 14px;width: 25%;" />
+					<div ng-click="getTelCode()" style="height: 26px;border: solid 1px #108EE9;border-radius: 3px;display: flex;align-items: center;justify-content: center;position: absolute;right: 16px;">
+						<p style="font-size: 14px;color: #108EE9;padding-left: 5px;padding-right: 5px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">{{code}}</p>
+					</div>
+				</div>
+			</div>
+			<button class="button button-positive button-full" ng-click="zwcx();">查询</button>
+			<div class="reminder">
+			    <p>温馨提示：根据网上不动产权属证明查询的结果，输入右上角的“查档编号”或者扫一扫二维码，并依次输入查询申请人的姓名与证件号码，点击查询可以再次验证查询结果。</p>
+			</div>
+		</form>
+	</ion-content>
+</ion-view>

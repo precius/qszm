@@ -1,0 +1,77 @@
+<ion-view view-title="办理网点信息" class="nav-title">
+	<ion-nav-bar >
+		<ion-nav-buttons side="left" >
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="container" style="color: black;">
+		<form ng-submit="" class="form">
+			<div class="applicant">
+				<div class="item-container left-select">
+					<span style="color: red;">*&nbsp;</span>
+					<span style="color: #000000; width: 30%;font-size: 14px;">办理网点</span>
+					<select validator="required" 
+						ng-change="checkBlwd(blwdTemp)" 
+						ng-model="blwdTemp" 
+						ng-options="item.officeName for item in blwdDataTemp"
+						style="width: 70%;left: 30%;">
+					</select>
+				</div>				
+				<div class="item-container">
+					<span style="color: red;">*&nbsp;</span>
+					<span style="color: #000000; width: 30%;font-size: 14px;">网点电话</span>
+					<input ng-model="blwdTemp.dh" type="text"  placeholder="请输入网点电话" style="background-color: white;width: 70%;" readonly="readonly"/>
+				</div>
+				<div class="item-container">
+					<span style="color: red;">*&nbsp;</span>
+					<span style="color: #000000; width: 30%;font-size: 14px;">网点地址</span>
+					<input ng-model="blwdTemp.address" type="text"  placeholder="请输入网点地址" style="background-color: white;width: 70%;" readonly="readonly"/>
+				</div>
+				<div class="item-container left-select">
+					<span style="color: red;">*&nbsp;</span>
+					<span style="color: #000000; width: 30%;font-size: 14px;">查档用途</span>
+					<select validator="required" 
+						ng-change="checkCdyt(cdyt.value)" 
+						ng-model="cdyt" 
+						ng-options="x.label for x in cdytData"
+						style="width: 70%;left: 30%;">
+					</select>
+				</div>			 	
+			 	<div class="item-container left-select">
+			 		<span style="color: red;">*&nbsp;</span>
+				    <span style="color: #000000; width: 30%;font-size: 14px;">是否抵押</span>
+          			<select validator="required" 
+          				ng-change="checkSfdy(sfdyClass.value)" 
+          				ng-model="sfdyClass" 
+          				ng-options="x.label for x in sfdyData"
+          				style="width: 70%;left: 30%;">
+          			</select>
+			 	</div>
+			 	<div class="item-container left-select">
+			 		<span style="color: red;">*&nbsp;</span>
+				    <span style="color: #000000; width: 30%;font-size: 14px;">是否查封</span>
+          			<select validator="required" 
+          				ng-change="checkSfcf(sfcfClass.value)" 
+          				ng-model="sfcfClass" 
+          				ng-options="x.label for x in sfcfData"
+          				style="width: 70%;left: 30%;">
+          			</select>
+			 	</div>
+			</div>
+		</form>
+		<div class="row between">
+			<div class="col col-40">
+				<a ng-click="goback()">
+					<button class="button button-block button-positive ">上一步</button>
+				</a>
+			</div>
+			<div class="col col-40">
+				<a ng-click="goSqrxx()">
+					<button class="button button-block button-positive ">下一步</button>
+				</a>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,63 @@
+<ion-view view-title="预告信息" class="nav-title">
+        <ion-nav-bar>
+            <ion-nav-buttons side="left">
+                <button class="button button-icon" ng-click="goback()">
+                    <i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+                </button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+    
+        <ion-content class="container" ng-style="{'margin-bottom':isShow ?'60px':'0'}">
+            <div class="row item item-input form-item-border" style="line-height: normal;margin-bottom: 0px !important; margin-top: 15px;height: 55px;border-top: none;">
+                <span style="color: red;">&nbsp;&nbsp;</span>
+                <div class="add-msg-style" style="margin-top: 0px;margin-left: 0px;"></div>
+                <div class="col col-50"><span class="add-msg" style="font-size: 16px;margin-left: -2px;">不动产信息</span></div>
+            </div>
+            <!-- <div ng-show="needShowMb" class="item item-icon-right" style="border: none; border-top: solid #ddd 1px;margin-left: -4px;">
+                <span>产权证书类别：</span> 
+                <span class="width-48 set"  style="background-color: white;">&nbsp;&nbsp;2019年5月3日</span>
+            </div> -->
+    
+            <div class="item item-input form-item-border">
+                <span>&nbsp;</span>
+                <span class="width-66">不动产权证号 :</span>
+                <span class="width-48 set"  style="background-color: white;">{{bdcxx.bdcqzh}}</span>
+            </div>
+            <div class="item item-icon-right" style="border: none; border-top: solid #ddd 1px;margin-left: -4px;">
+                <span>&nbsp;</span>
+                <span class="width-66">不动产坐落 :</span>
+                <span class="width-48 set"  style="background-color: white;">{{bdcxx.zl}}</span>
+            </div>
+            <div class="item item-input form-item-border">
+                <span>&nbsp;</span>
+                <span class="width-66">房屋产权面积 :</span>
+                <span class="width-48 set"  style="background-color: white;">&nbsp;&nbsp;{{bdcxx.fwcqmj}}</span>
+            </div>
+            <!-- <div class="item item-input form-item-border" ng-if="showZmh">
+                <span>&nbsp;</span>
+                <span class="width-66">不动产登记证明号</span>
+                <input ng-model="bdcxx.bdcdjzmh" type="text" class="width-48" placeholder="请输入不动产登记证明号" ng-readonly="!isShow" style="background-color: white;" />
+            </div> -->
+            <div class="item item-input form-item-border item-icon-right">
+                <span>&nbsp;</span>
+                <span class="width-66">申请注销原因:</span>
+                <input ng-model="qlxxEx.sqdjyy" type="text" class="width-48" placeholder="请输入登记原因" ng-readonly="!isShow" style="background-color: white;" />
+                <!--<div style="width: 40px;height: 100%;display: flex;justify-content: center;align-items: center;margin-right: 10px;" ng-click="selectReason()">
+                    <i class="icon ion-android-arrow-dropdown" style="text-align: center;"></i>
+                </div>-->
+            </div>
+            <div id="modal-overlay" ng-show='showTips'>
+                <div class="modal-data">
+                    <img src="{{src}}" />
+                </div>
+            </div>
+        </ion-content>
+        <div ng-if="isShow" class="bar bar-footer nextstep-div-style">
+            <button class="button button-stable nextstep-button-style" style="width: 48% !important;" ng-click="goback()">上一步</button>
+            <button class="button button-stable nextstep-button-style" style="width: 48% !important;" ng-click="goFjList()">下一步</button>
+        </div>
+        <div id="touch" ng-click="floatingButtonClicked()">
+            <img src="../../theme/img/NETAPPLYING_FOCUS.png" style="width: 40px; height: 40px;display: block;margin-left: 10px;" />
+            <p style="font-size: 8px;width: 60px;text-align: center;">办事指南</p>
+        </div>
+    </ion-view>

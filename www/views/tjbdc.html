@@ -1,0 +1,44 @@
+<ion-view view-title="添加不动产" class="nav-title">
+	<ion-nav-bar style="background: blue;">
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content>
+		<div class="list" style="font-weight: 300;">
+			<a class="item" style="display: flex;padding-left: 20px;padding-right: 20px;border-top: solid 10px rgb(245,245,245);" ng-click="selectName()">
+				<img src="../theme/img_me/community.png" style="width: 16px;height: 15px;margin:auto 10px;left: 20px;" />
+				<p style="margin-top: auto;margin-bottom:auto;font-size: 16px;width: 100%;">{{xqmc}}</p>
+				<img src="../theme/img/zk3.png" style="width: 9px;height: 15px;margin-top: auto;margin-bottom: auto;right: 20px;" />
+			</a>
+			<a class="item" style="display: flex;padding-left: 20px;padding-right: 20px;" ng-click="selectBuildingNumber()">
+				<img src="../theme/img_me/building.png" style="width: 15px;height: 15px;margin:auto 10px;left: 20px;" />
+				<p style="margin-top: auto;margin-bottom:auto;font-size: 16px;width: 100%;">{{ldmp}}</p>
+				<img src="../theme/img/zk3.png" style="width: 9px;height: 15px;margin-top: auto;margin-bottom: auto;right: 20px;" />
+			</a>
+			<a class="item" style="display: flex;padding-left: 20px;padding-right: 20px;" ng-click="selectUnitNumber()">
+				<img src="../theme/img_me/house.png" style="width: 15px;height: 15px;margin:auto 10px;left: 20px;" />
+				<p style="margin-top: auto;margin-bottom:auto;font-size: 16px;width: 100%;">选择房屋状态</p>
+				<img src="../theme/img/zk3.png" style="width: 9px;height: 15px;margin-top: auto;margin-bottom: auto;right: 20px;" />
+			</a>
+			<a class="item" style="display: flex;padding-left: 20px;padding-right: 20px;">
+				<img src="../theme/img_me/area.png" style="width: 15px;height: 15px;margin:auto 10px;left: 20px;" />
+				<p style="margin-top: auto;margin-bottom:auto;font-size: 16px;width: 100%;">面积</p>
+				<div style="margin-top: auto;margin-bottom: auto;right: 20px;display: flex;justify-content: center;align-items: center;">
+					<input ng-model="area" style="height: 30px;width: 50px;border: solid;border-width: 1px;border-color: rgb(220,220,220);text-align: center;" type="text" />
+					<h1 style="color: #666666;margin-left: 8px;">㎡</h1>
+				</div>
+			</a>
+			<a class="item" style="display: flex;padding-left: 20px;padding-right: 20px;">
+				<img src="../theme/img_me/houseType.png" style="width: 15px;height: 15px;margin:auto 10px;left: 20px;" />
+				<p style="margin-top: auto;margin-bottom:auto;font-size: 16px;width: 100%;">选择房屋户型</p>
+				<img src="../theme/img/zk3.png" style="width: 9px;height: 15px;margin-top: auto;margin-bottom: auto;right: 20px;" />
+			</a>
+		</div>
+		<div class="bar bar-footer nextstep-div-style">
+			<button class="button button-stable nextstep-button-style" ng-click="nextStep()">完成</button>
+		</div>
+	</ion-content>
+</ion-view>

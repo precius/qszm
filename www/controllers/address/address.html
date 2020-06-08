@@ -1,0 +1,62 @@
+<ion-view view-title="新增收货地址" class="nav-title">
+    <ion-nav-bar>
+        <ion-nav-buttons side="left">
+            <button class="button button-icon" ng-click="goback()">
+                <i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+            </button>
+        </ion-nav-buttons>
+        <style>
+      
+        </style>
+    </ion-nav-bar>
+    <ion-content class="container">
+        <form class="form">
+			<div class="applicant">
+				<div class="item item-input form-item-border">
+					<span style="color: red;">*&nbsp;</span>
+					<span style="width: 60%;">收货人</span>
+					<input ng-model="shxx.shr"  type="text" style="width: 40%;text-align: right;padding-right: 14px;" placeholder="请填写收货人" />
+				</div>
+				<div class="item item-input form-item-border item-icon-right">
+					<span style="color: red;">*&nbsp;</span>
+					<span style="width: 60%;">手机号码</span>
+					<input ng-model="shxx.sjhm"  type="text" style="width: 40%;text-align: right;padding-right: 14px;" placeholder="请填写手机号码" />
+                </div>
+                <div class="item item-input form-item-border item-icon-right">
+					<span style="color: red;">*&nbsp;</span>
+					<span style="width: 60%;">所在省</span>
+					<input ng-model="shxx.szs"  type="text" style="width: 40%;text-align: right;padding-right: 14px;" placeholder="请填写所在省" />
+                </div>
+                <div class="item item-input form-item-border item-icon-right">
+					<span style="color: red;">*&nbsp;</span>
+					<span style="width: 60%;">所在市区</span>
+					<input ng-model="shxx.szsq"  type="text" style="width: 40%;text-align: right;padding-right: 14px;" placeholder="请填写所在市" />
+                </div>
+                <div class="item item-input form-item-border item-icon-right">
+					<span style="color: red;">*&nbsp;</span>
+					<span style="width: 60%;">所在区县</span>
+					<input ng-model="shxx.szqx"  type="text" style="width: 40%;text-align: right;padding-right: 14px;" placeholder="请填写区县" />
+                </div>
+                <div class="item item-input form-item-border item-icon-right">
+					<span style="color: red;">*&nbsp;</span>
+					<span style="width: 60%;">所在街道</span>
+					<input ng-model="shxx.szjd"  type="text" style="width: 40%;text-align: right;padding-right: 14px;" placeholder="请填写区县" />
+                </div>
+                <div class="item item-input form-item-border item-icon-right">
+					<span style="color: red;">*&nbsp;</span>
+					<span style="width: 60%;">详细地址</span>
+					<input ng-model="shxx.szxqdz"  type="text" style="width: 40%;text-align: right;padding-right: 14px;" placeholder="请填写详细地址" />
+                </div>
+                <div style="background:#fff;margin-bottom: 0px !important;height: 30px;line-height: 40px;">
+                  <div style="float:right"> 
+                   <input id = 'radio' type="checkbox" value="value2" style="font-size: 60px;margin-left:30px;" ng-click="changeState()"/><span style="font-size:15px;">设为默认地址</span>
+                  </div> 
+                </div>
+			</div>
+		</form>
+        <button class="button button-stable nextstep-button-style" style="width: 98% !important;" ng-click="save()">保存</button>
+
+    </ion-content>
+
+    
+</ion-view>

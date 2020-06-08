@@ -1,0 +1,138 @@
+<ion-view view-title="附件类型" class="nav-title">
+  <ion-nav-bar>
+    <ion-nav-buttons side="left">
+      <button class="button button-icon" ng-click="goback()">
+        <i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+      </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button class="button button-icon" style="color:#1292FF" ng-click="goHome()">
+        首页
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content style="color: black;" ng-style="{'margin-bottom':isShow ?'66px':'0'}">
+    <div ng-show="showNextStep" class="step-container">
+      <div class="child-step">
+        <img ng-show="!stepOneFinished" class="step-img" src="../../theme/img/step_1_gray.png" />
+        <img ng-show="stepOneFinished" class="step-img" src="../../theme/img/step_1_blue.png" />
+        <p class="step-text">申请人信息</p>
+      </div>
+      <div class="child-step">
+        <img ng-show="!stepTwoFinished" class="step-img" src="../../theme/img/step_2_gray.png" />
+        <img ng-show="stepTwoFinished" class="step-img" src="../../theme/img/step_2_blue.png" />
+        <p class="step-text">不动产信息</p>
+      </div>
+      <div class="child-step">
+        <img ng-show="!stepThreeFinished" class="step-img" src="../../theme/img/step_3_gray.png" />
+        <img ng-show="stepThreeFinished" class="step-img" src="../../theme/img/step_3_blue.png" />
+        <p class="step-text">上传材料</p>
+      </div>
+      <div class="child-step">
+        <img ng-show="!stepFourFinished" class="step-img" src="../../theme/img/step_4_gray.png" />
+        <img ng-show="stepFourFinished" class="step-img" src="../../theme/img/step_4_blue.png" />
+        <p class="step-text">提交申请</p>
+      </div>
+    </div>
+
+
+    <!-- 所有申请人/权利人/义务人相关材料 每个附件大类含有数量不定的人员，每个人下有数量不定的小类，每个小类一张图 -->
+    <div ng-repeat="fjzl in sqrxgclList" style="padding-right: 0px !important; background-color: white !important">
+      <div style="width: 100%;min-height: 40px;padding: 5px 10px;display: flex;align-items: center;">
+        <p ng-if="fjzl.sfbx" style="color: red;font-size: 16px;">*&nbsp;</p>
+        <p style="font-size: 16px;margin-left: 5px;">{{fjzl.clmc}}<i class="icon ion-ios-information" style="margin: 0 4px;color: #1292FF;"
+            ng-show="fjzl.clsls.length" ng-click="clickTips($index);"></i></p>
+      </div>
+      <!--显示照片-->
+      <form ng-repeat="people in fjzl.peopleList" class="form" style="padding-top: 10px;padding-bottom: 25px; border-top:solid 1px rgb(231,231,231);">
+        <div class="fjcl-container" ng-repeat="fjxl in people.fjxlList" ng-if="(people.qlrlx==1&&fjxl.type == 1)||(people.qlrlx!=1&&fjxl.type == 2)">
+          <p class="fjcl-name">{{people.name}}{{fjxl.name}}</p>
+          <p class="fjcl-zjh" style="margin-top: 3px;">{{people.zjh}}</p>
+          <div class="fjcl" on-tap="openFile(fjxl)">
+            <img ng-if="fjxl.imgSrc" ng-src="{{fjxl.imgSrc}}" width="100%" height="100%" /> <!-- 已经上传展示图片-->
+            <img ng-if="!fjxl.imgSrc" ng-src="{{fjxl.backgroundPicUrl}}" width="100%" height="100%" /><!-- 未上传展示背景图片-->
+            <div ng-if="fjxl.status" class="fjcl-status">{{fjxl.status}}</div>
+          </div>
+          <div class="fjcl-btn-container">
+            <p class="fjcl-btn-choice-img" ng-click="addPhoto(fjzl,people,fjxl)">选择图片</p>
+            <p class="fjcl-btn-delete-img" ng-click="deleteFjImg(fjxl)">删除</p>
+          </div>
+        </div>
+        <div style="clear: both;"></div> <!-- 重新起一行-->
+      </form>
+    </div>
+
+    <!-- 标准材料 ，每个附件大类含有数量不定的小类，每个小类一张图-->
+    <div ng-repeat="fjzl in bzclList" style="padding-right: 0px !important; background-color: white !important">
+      <div style="width: 100%;min-height: 40px;padding: 5px 10px;display: flex;align-items: center;">
+        <p ng-if="fjzl.sfbx" style="color: red;font-size: 16px;">*&nbsp;</p>
+        <p style="font-size: 16px;margin-left: 5px;">{{fjzl.clmc}}<i class="icon ion-ios-information" style="margin: 0 4px;color: #1292FF;"
+            ng-show="fjzl.clsls.length" ng-click="clickTips($index);"></i></p>
+      </div>
+      <!--显示照片-->
+      <form class="form" style="padding-top: 10px;padding-bottom: 25px; border-top:solid 1px rgb(231,231,231);">
+        <div class="fjcl-container" ng-repeat="fjxl in fjzl.fjxlList">
+          <p class="fjcl-name">{{fjxl.name}}</p>
+          <div class="fjcl" on-tap="openFile(fjxl)">
+            <img ng-if="fjxl.imgSrc" ng-src="{{fjxl.imgSrc}}" width="100%" height="100%" /> <!-- 已经上传展示图片-->
+            <img ng-if="!fjxl.imgSrc" ng-src="{{fjxl.backgroundPicUrl}}" width="100%" height="100%" /><!-- 未上传展示背景图片-->
+            <div ng-if="fjxl.status" class="fjcl-status">{{fjxl.status}}</div>
+          </div>
+          <div class="fjcl-btn-container">
+            <p class="fjcl-btn-choice-img" ng-click="addPhoto(fjzl,null,fjxl)">选择图片</p>
+            <p class="fjcl-btn-delete-img" ng-click="deleteFjImg(fjxl)">删除</p>
+          </div>
+        </div>
+        <div style="clear: both;"></div> <!-- 重新起一行-->
+      </form>
+    </div>
+
+    <!-- 非标准材料,每个附件大类只有一个附件小类，一个小类中有数量不定的多张图-->
+    <div ng-repeat="fjzl in fbzclList" style="padding-right: 0px !important; background-color: white !important">
+      <div style="width: 100%;min-height: 40px;padding: 5px 10px;display: flex;align-items: center;">
+        <p ng-if="fjzl.sfbx" style="color: red;font-size: 16px;">*&nbsp;</p>
+        <p style="font-size: 16px;margin-left: 5px;">{{fjzl.clmc}}<i class="icon ion-ios-information" style="margin: 0 4px;color: #1292FF;"
+            ng-show="fjzl.clsls.length" ng-click="clickTips($index);"></i></p>
+      </div>
+      <!--显示照片-->
+      <form class="form" style="padding-top: 10px;padding-bottom: 25px; border-top:solid 1px rgb(231,231,231);">
+        <div class="fjcl-container" ng-repeat="imgData in fjzl.fjxl.imgList">
+
+          <div class="fjcl" on-tap="openFile(imgData)">
+            <img ng-if="imgData.imgSrc" ng-src="{{imgData.imgSrc}}" width="100%" height="100%" /> <!-- 已经上传展示图片-->
+            <img ng-if="!imgData.imgSrc" ng-src="{{fjzl.fjxl.backgroundPicUrl}}" width="100%" height="100%" /><!-- 未上传展示背景图片-->
+            <div ng-if="imgData.status" class="fjcl-status">{{imgData.status}}</div>
+          </div>
+          <p class="fjcl-name" style="margin-top: 5px;">{{imgData.name}}</p>
+          <div class="fjcl-btn-container">
+            <p class="fjcl-btn-delete-img" ng-click="deleteFbzcl(fjzl,$index)">删除</p>
+          </div>
+        </div>
+        <div class="fjcl-add" ng-show="isShow" ng-click="addPhoto(fjzl,null,fjzl.fjxl);">
+          <img style="width: 45px;height: 45px;" src="../../theme/img/icon_choice_photo.png"/>
+          <p style="margin-top: -85px;">选择图片</p>
+        </div>
+      </form>
+    </div>
+
+  </ion-content>
+
+  <div ng-show="showNextStep" class="step-btn-container">
+    <p class="previous-step-btn" ng-click="goback()">上一步</p>
+    <p class="next-step-btn" ng-click="nextStep()">下一步</p>
+  </div>
+  <p ng-show="!showNextStep&&!fromWeb " class="bigBtn-blue-bottom" ng-click="goback()">返回</p>
+  <!-- 弹窗，选择相机拍照还是相册选择-->
+  <div class="camera-album-choice" ng-show="showImageChoice">
+    <p class="camera-album-item" style="bottom: 105px;">从图库中选择</p>
+    <input class="camera-album-input" style="bottom: 105px;" accept="image/*" type="file" id="fileFromAlbum" disabled="true" />
+    <p class="camera-album-item" style="bottom: 55px;">拍照</p>
+    <input class="camera-album-input" style="bottom: 55px;" accept="image/*" type="file" capture="camera" id="fileFromCamera"
+      disabled="true" />
+    <p class="camera-album-item" style="color:gray ;" ng-click="cancelChoice()">取消</p>
+  </div>
+  <!-- 弹窗查看大图 跟之前对比换了写法,之前是永远固定在屏幕顶端，下滑后就看不到了-->
+  <div ng-if="bigImage" ng-init="bigImage=false" class="camera-album-choice" ng-click="hideBigImage()">
+    <img src="{{Url}}" style="width: 100%;" />
+  </div>
+</ion-view>

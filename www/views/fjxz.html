@@ -1,0 +1,20 @@
+<ion-view view-title="附件类型" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left" >
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>		
+		<ion-nav-buttons side="right">
+			<a><h4 on-tap="saveInfo();" ng-show="isShow" class="nav-right-button">保存</h4></a>
+			<a><h4 on-tap="gotolist();" ng-show="isShow" class="nav-right-button">提交</h4></a>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content style="color: black;margin-bottom: 66px;">
+		<a ng-repeat="item in fjzl" ng-click="setTitle($index);" class="item item-icon-right">
+			<span style="color: red;" ng-show = 'item.sfbx'>*&nbsp;</span>
+			<span style="color: red;" ng-show = '!item.sfbx'>&nbsp;&nbsp;</span>
+			<i class="icon ion-ios-arrow-right"></i>{{item.clmc}}
+		</a>
+	</ion-content>
+</ion-view>

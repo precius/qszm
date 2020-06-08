@@ -1,0 +1,76 @@
+<ion-view view-title="申请人信息" class="nav-title">
+	<ion-nav-bar >
+		<ion-nav-buttons side="left" >
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="container" style="color: black;">
+		<form ng-submit="" class="form ">
+			<div class="applicant">
+				<div class="item-container">
+					<span style="color: red;">*&nbsp;</span>
+					<span style="font-size: 14px;width: 35%;">申请人</span>
+			    	<input ng-model="blwd.familyMemberList[0].name" type="text" style="background: none;" readonly="readonly"/>
+				</div>
+				<!--<label class="item item-input item-select form-item-border">
+					<span style="color: red;">*&nbsp;</span>
+					    <div class="input-label">
+					      	证件种类
+					    </div>
+					    <select validator="required" ng-change="checkZjlx(zjzl.value)" ng-model="zjzl" ng-options="x.label for x in zjzlData"></select>
+				</label>-->
+				<div class="item-container">
+					<span style="color: red;">*&nbsp;</span>
+					<span style="font-size: 14px;width: 35%;">证件种类</span>
+			    	<input ng-model="zjzl.label" type="text" style="background: none;"  readonly="readonly"/>
+				</div>				
+				<div class="item-container">
+					<span style="color: red;">*&nbsp;</span>
+					<span style="font-size: 14px;width: 35%;">证件号码</span>
+			    	<input ng-model="blwd.familyMemberList[0].zjh" type="text" style="background: none;" readonly="readonly"/>
+				</div>
+				<div class="item-container">
+					<span style="color: red;">*&nbsp;</span>
+					<span style="font-size: 14px;width: 35%;">手机号码</span>
+			    	<input ng-model="blwd.familyMemberList[0].phone" type="text" style="background: none;" readonly="readonly"/>
+				</div>
+				
+				<div class="item-container" style="position: relative;">
+					<span style="color: red;">*&nbsp;</span>
+					<span style="font-size: 14px;width: 35%;">短信验证</span>
+					<input placeholder="请输入验证码" ng-model="cret.yzCode" type="number" style="vertical-align:middle;border: none;font-size: 14px;width: 25%;" />
+					<div ng-click="getTelCode()" style="height: 26px;border: solid 1px #108EE9;border-radius: 3px;display: flex;align-items: center;justify-content: center;position: absolute;right: 16px;">
+						<p style="font-size: 14px;color: #108EE9;padding-left: 5px;padding-right: 5px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">{{code}}</p>
+					</div>
+				</div>
+			</div>
+			<div class="applicant" ng-repeat="item in blwd.familyMemberList track by $index" ng-if="$index>0">
+				<div class="delete-btn btn-right fr" ng-click="showConfirm('{{$index}}')"></div>
+				<div class="item item-input form-item-border-first" style="margin-top: 30px;"  >
+					<span style="width: 30%;">未成年人姓名</span>
+			    	<input ng-model="item.name" type="text" style="width: 70%; margin-left: 45px;"  placeholder="请输入姓名"/>
+				</div>
+				<div class="item item-input form-item-border">
+					<span style="width: 30%;">未成年人身份证号</span>
+			    	<input ng-model="item.zjh" type="text" style="width: 70%; margin-left: 35px;"  placeholder="请输入身份证号"/>
+				</div>
+			</div>
+			<div class="add-people" ng-click="addPeople()" ng-show="false">
+				<span class="add-btn"></span>
+				<span class="add-msg">户主账号下添加未成年子女</span>
+			</div>
+			<div class="between">
+				<div class="col col-40">
+					<button ng-click="goback()" class="button button-block button-positive ">上一步</button>
+				</div>
+				<div class="col col-40">
+					<a ng-click="checkQszm()">
+						<button class="button button-block button-positive ">查询</button>
+					</a>
+				</div>
+			</div>
+		</form>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,27 @@
+<ion-view view-title="服务网点" hide-nav-bar="true">
+	<ion-content>
+		<div style="width: 100%;height: -webkit-fill-available;position: relative;">
+			<div id="container" style="width: 100%;position: absolute;top: 0;left: 0;bottom: 180px;"></div>
+			<div class="bar bar-footer" style="height: 180px;position: absolute;bottom: 0;left: 0;">
+				<div style="margin-top: 12px; width: 80%;">
+					<p style="text-indent: 12px;font-size: 18px;color: rgb(51,51,51);">{{selectedOfficeName}}</p>
+					<p style="text-indent: 12px;font-size: 14px;color: rgb(50,50,50);margin: 12px 0;">{{selectedAddress}}</p>
+					<div margin: 12px 0;>
+						<p class="time-label">工作时间</p>
+						<p class="time-node time-morning">9:00-12:00</p>
+						<p class="time-node time-afternoon">13:30-17:00</p>
+					</div>
+					<div class="gm-map-button nav-location" ng-click="guide()">
+						<img src='../theme/img/map_location_left_icon.png'>
+						<p>位置导航</p>
+					</div>
+					<div class="gm-map-button nav-business" ng-click="ywdh()">
+						<img src='../theme/img/map_business_left_icon.png'>
+						<p>业务导航</p>
+					</div>
+				</div>
+				<button class="button button-clear icon-right ion-ios-arrow-right" style="color: rgb(45,131,255);margin: 60px 0 0 0px;" ng-click="goto();">详情</button>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

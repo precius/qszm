@@ -1,0 +1,33 @@
+<ion-view view-title={{level1Menu.name}} class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+			<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+		</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	
+	<ion-content style="background-color: #f5f5f5">
+		<img src="{{bigImg}}" style="width: 100%;">
+		<div>
+			<!--<div ng-show="show" ng-click="gotofcmm()" align="center" class="even">
+				<img src="../theme/img_menu/icon_fwmm.png" style="width: 20%;background-color: #fff;display: block;margin-top: 30px;">
+				<p style="font-size: 14px;font-weight: bold;margin-top: 14px;color: #222222;">房屋买卖</p>
+				<p style="font-size: 10px;color: #999999;margin-bottom: 30px;">提前预约免排队</p>
+			</div>-->
+			<div ng-click="gotoLevel2Menu(item)" ng-class="{'even':$index%2==0,'odd':$index%2==1}" ng-repeat="item in level2MenuArray" align="center" >
+				<img ng-src="{{imgData[$index%3].src}}" style="width: 20%;background-color: #fff;display: block;margin-top: 30px;">
+				<p style="font-size: 14px;font-weight: bold;margin-top: 14px;color: #222222;">{{item.name}}</p>
+				<p style="font-size: 10px;color: #999999;margin-bottom: 30px;">提前预约免排队</p>
+			</div>
+			<!--<div ng-click="gotoLevel2Menu(item)" ng-class="{'odd':$index%2==0,'even':$index%2==1}" ng-repeat="item in data" >
+				<img ng-src="{{imgData[$index].src}}" style="width: 100%;background-color: #fff;">
+			</div>-->
+			<!--<div ng-click="gotoLevel2Menu(item)" ng-class="{'odd':$index%2==0,'even':$index%2==1}" ng-repeat="item in data" align="center" >
+				<img ng-src="{{imgData[$index].src}}" style="width: 20%;background-color: #fff;display: block;margin-top: 30px;">
+				<p style="font-size: 14px;font-weight: bold;margin-top: 14px;color: #222222;">{{txtArray[$index].txt}}</p>
+				<p style="font-size: 8px;color: #999999;margin-bottom: 30px;">{{txtArray[$index].desc}}</p>
+			</div>-->
+		</div>
+	</ion-content>
+</ion-view>

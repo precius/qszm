@@ -1,0 +1,62 @@
+<ion-view view-title="办事指南详情" class="nav-title">
+	<ion-nav-bar>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon" ng-click="goback()">
+				<i class="ion-ios-arrow-left nav-title" style="font-size: 30px;"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="container">
+		<div style="position: sticky;top: 0;width: 100%;height: 1px;background-color: #F2F2F2;;"></div>
+		<div style="margin: 10px;background-color: white;border-radius: 5px;">
+			<div style="padding-top: 5px;padding-bottom: 5px;min-height: 40px;width: 100%;display: flex;align-items: center;position: relative;border-bottom: solid #F2F2F2 1px;">
+				<p style="color: #666666;font-size: 14px;margin-left: 20px;flex: 0 0 auto;">适用情形</p>
+				<p style="color: #333333;font-size: 14px;margin-left: 30px;flex: 1 1 auto;">{{bsznDetails.description}}</p>
+			</div>
+			<div style="padding-top: 5px;padding-bottom: 5px;min-height: 40px;width: 100%;display: flex;align-items: center;position: relative;border-bottom: solid #F2F2F2 1px;">
+				<p style="color: #666666;font-size: 14px;margin-left: 20px;flex: 0 0 auto;">承诺期限</p>
+				<p style="color: #333333;font-size: 14px;margin-left: 30px;flex: 1 1 auto;">{{bsznDetails.cnqx}}</p>
+			</div>
+			<div style="padding-top: 5px;padding-bottom: 5px;min-height: 40px;width: 100%;display: flex;align-items: center;position: relative;border-bottom: solid #F2F2F2 1px;">
+				<p style="color: #666666;font-size: 14px;margin-left: 20px;flex: 0 0 auto;">法定期限</p>
+				<p style="color: #333333;font-size: 14px;margin-left: 30px;flex: 1 1 auto;">{{bsznDetails.fdqx}}</p>
+			</div>
+			<div style="padding-top: 5px;padding-bottom: 5px;min-height: 40px;width: 100%;display: flex;align-items: center;position: relative;border-bottom: solid #F2F2F2 1px;">
+				<p style="color: #666666;font-size: 14px;margin-left: 20px;flex: 0 0 auto;">咨询电话</p>
+				<p style="color: #333333;font-size: 14px;margin-left: 30px;flex: 1 1 auto;">{{bsznDetails.zxdh}}</p>
+			</div>
+			<div style="padding-top: 5px;padding-bottom: 5px;min-height: 40px;width: 100%;display: flex;align-items: center;position: relative;border-bottom: solid #F2F2F2 1px;">
+				<p style="color: #666666;font-size: 14px;margin-left: 20px;flex: 0 0 auto;">投诉电话</p>
+				<p style="color: #333333;font-size: 14px;margin-left: 30px;flex: 1 1 auto;">{{bsznDetails.tsdh}}</p>
+			</div>
+			<div style="padding-top: 5px;padding-bottom: 5px;min-height: 40px;width: 100%;display: flex;align-items: center;position: relative;border-bottom: solid #F2F2F2 1px;">
+				<p style="color: #666666;font-size: 14px;margin-left: 20px;flex: 0 0 auto;">预审时限</p>
+				<p style="color: #333333;font-size: 14px;margin-left: 30px;flex: 1 1 auto;">{{bsznDetails.yssx}}</p>
+			</div>
+			<div style="padding-top: 5px;padding-bottom: 5px;min-height: 40px;width: 100%;display: flex;align-items: center;position: relative;border-bottom: solid #F2F2F2 1px;">
+				<p style="color: #666666;font-size: 14px;margin-left: 20px;flex: 0 0 auto;">受理条件</p>
+				<p style="color: #333333;font-size: 14px;margin-left: 30px;flex: 1 1 auto;">{{bsznDetails.sltj}}</p>
+			</div>
+			<div style="padding-top: 5px;padding-bottom: 5px;min-height: 40px;width: 100%;display: flex;align-items: center;position: relative;border-bottom: solid #F2F2F2 1px;">
+				<p style="color: #666666;font-size: 14px;margin-left: 20px;flex: 0 0 auto;">收费标准</p>
+				<p style="color: #333333;font-size: 14px;margin-left: 30px;flex: 1 1 auto;">{{bsznDetails.sfbz}}</p>
+			</div>
+			<div style="padding-top: 5px;padding-bottom: 5px;min-height: 40px;width: 100%;display: flex;align-items: center;position: relative;border-bottom: solid #F2F2F2 1px;">
+				<p style="color: #666666;font-size: 14px;margin-left: 20px;flex: 0 0 auto;">法定依据</p>
+				<p style="color: #333333;font-size: 14px;margin-left: 30px;flex: 1 1 auto;">{{bsznDetails.fdyj}}</p>
+			</div>
+		</div>
+
+		<div ng-show="showcllb">
+			<div class="add-people">
+				<span class="add-msg" style="font-size: 16px;">申报材料</span>
+			</div>
+			<div style="margin: 10px;background-color: white;border-radius: 5px;">
+				<div ng-repeat="item in uploadFile" style="height: 40px;width: 100%;display: flex;align-items: center;position: relative;border-bottom: solid #F2F2F2 1px;">
+					<p style="color: #333333;margin-left: 20px;font-size: 14px;">{{item.clmc}}</p>
+					<p ng-click="gotoclsls($index);" ng-if='item.clsls.length' style="font-size: 14px;margin-left: 10px;">(示例)</p>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>
