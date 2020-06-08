@@ -50,6 +50,6 @@
 		"angular-resource": "^1.4.6",
 		"angular-sanitize": "^1.5.3",
 		"angular-ui-router": "^0.2.13",
-		"jquery": "^3.4.1"
+		"jquery": "^3.5.0"
 	}
 }
