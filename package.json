@@ -3,7 +3,7 @@
 	"version": "1.1.1",
 	"description": "test1: An Ionic project",
 	"devDependencies": {
-		"@ionic/v1-toolkit": "3.1.0",
+		"@ionic/v1-toolkit": "3.2.20",
 		"babel-cli": "^6.26.0",
 		"babel-core": "^6.26.3",
 		"babel-loader": "^7.1.5",
@@ -13,7 +13,7 @@
 		"cross-env": "^5.2.0",
 		"css-loader": "^2.1.1",
 		"file-loader": "^3.0.1",
-		"gulp": "^3.5.6",
+		"gulp": "^4.0.2",
 		"gulp-clean-css": "^3.7.0",
 		"gulp-rename": "^1.2.0",
 		"gulp-sass": "^3.1.0",
